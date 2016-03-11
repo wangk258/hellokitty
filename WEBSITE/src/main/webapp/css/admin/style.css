@@ -1,0 +1,92 @@
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: red;
+	text-decoration: none;
+}
+
+#addForm input,select{
+	background-color: white;
+	border: medium none;
+	box-shadow: 0 0 5px -2px black inset;
+	border-radius: 5px;
+	width: 80%;
+	height: 30px;
+	padding-left: 7px;
+}
+
+#addForm table {
+	width: 100%;
+	margin-top: 20px;
+}
+#addForm table td {
+	height:30px;
+}
+
+#addForm .upload {
+	width: 100px;
+}
+
+#addForm .tdTitle {
+	width: 15%;
+}
+
+#addForm .showImagesDiv {
+	width: 80%;
+}
+
+/**
+重写easyui样式
+*/
+.datagrid-header-check,.datagrid-cell-check {
+	padding: 0;
+	width: 50px;
+	height: 18px;
+	font-size: 1px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.datagrid-header-rownumber,.datagrid-cell-rownumber {
+	width: 30px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.tabs-panels {
+	border: 0 none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+element.style {
+	height: 26px;
+}
+
+.tabs-header,.tabs-scroller-left,.tabs-scroller-right,.tabs-tool,.tabs,.tabs-panels,.tabs li a.tabs-inner,.tabs li.tabs-selected a.tabs-inner,.tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,.tabs-header-left .tabs li.tabs-selected a.tabs-inner,.tabs-header-right .tabs li.tabs-selected a.tabs-inner
+	{
+	border-color: #d3d3d3;
+}
+
+.tabs {
+	border: 0; 
+	height : 26px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 0 4px;
+	width: 50000px;
+	height: 26px;
+}
+
+.icon_up{ background:url(/images/admin/up.png) no-repeat;display: block;
+    float: left;
+    height: 16px;
+    width: 16px;}
+.icon_down{ background:url(/images/admin/down.png) no-repeat;
+	float: left;
+    height: 16px;
+    width: 16px;}

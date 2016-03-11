@@ -1,0 +1,17 @@
+.l-btn-left {
+    display: inline-block;
+    overflow: hidden;
+    padding-left: 4px;
+    position: relative;
+    vertical-align: top;
+}
+#msg{
+	color: red;
+    float: right;
+    height: 26px;
+    line-height: 26px;
+}
+.mytoolbar{
+	border:1px solid #ddd;
+	border-bottom:none;
+}
