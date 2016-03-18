@@ -28,7 +28,7 @@
 	list-style-type: none;
 	cursor: pointer;
 	padding: 5px;
-	margin-top:5px;
+	margin-top: 5px;
 }
 
 .category ul li:hover {
@@ -39,7 +39,7 @@
 	background-color: orange;
 	color: white;
 	border-radius: 5px;
-	padding:10px auto;
+	padding: 10px auto;
 }
 
 .selectedType:hover {
@@ -69,33 +69,37 @@
 	font-size: 30px;
 	font-weight: bolder;
 	color: orange;
-	padding-bottom:2px;
+	padding-bottom: 2px;
 }
-.product table{
-	border-top:1px solid orange;
-	border-left:1px solid orange;
+
+.product table {
+	border-top: 1px solid orange;
+	border-left: 1px solid orange;
 }
+
 .product table tr {
 	height: 30px;
 }
 
 .product table td {
 	padding: 10px;
-	border-right:1px solid orange;
-	border-bottom:1px solid orange;
-}
-.product .list{
-	width:100%;
-	display:inline-block;
-	margin-bottom:40px;
-}
-.product .list table:hover{
-	cursor:pointer;
-	box-shadow:0 0 16px orange;
+	border-right: 1px solid orange;
+	border-bottom: 1px solid orange;
 }
 
-.product .cctv{
-	font-weight:bolder;
+.product .list {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 40px;
+}
+
+.product .list table:hover {
+	cursor: pointer;
+	box-shadow: 0 0 16px orange;
+}
+
+.product .cctv {
+	font-weight: bolder;
 }
 
 .searchBar {
@@ -147,7 +151,7 @@
 	font-weight: bolder;
 	color: white;
 	padding-left: 10px;
-	text-align:center;
+	text-align: center;
 }
 
 .selectBar {
@@ -189,5 +193,5 @@
 
 .year li:hover {
 	background-color: white;
-	color:orange;
+	color: orange;
 }

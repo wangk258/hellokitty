@@ -170,34 +170,32 @@
 				style="margin-top: 40px; display: block; float: right; font-size: 20px;">当前用户：${sessionScope.SESSION_LOGIN_KEY.username}</span>
 		</div>
 	</div>
-	<div data-options="region:'west'" style="width: 150px; height: 100%;" >
-		<div id="menuAccordion">
-		
-		</div>
+	<div data-options="region:'west'" style="width: 150px; height: 100%;">
+		<div id="menuAccordion"></div>
 	</div>
-	
+
 	<div style="display: none" id="initMenu">
 		<div title="导航管理" style="height: 100%">
-				<ul>
-					<li><a href="javascript:void(0)" onclick="addTab(this)"
-						url='${ctx}/admin/pages/navigation/navigationlist.jsp'
-						id="initOpenA" fun="navigationlist">导航维护</a></li>
-				</ul>
-			</div>
+			<ul>
+				<li><a href="javascript:void(0)" onclick="addTab(this)"
+					url='${ctx}/admin/pages/navigation/navigationlist.jsp'
+					id="initOpenA" fun="navigationlist">导航维护</a>
+				</li>
+			</ul>
+		</div>
 		<!-- 	<c:if test="${sessionScope.SESSION_LOGIN_KEY.username eq applicationScope.currentUser} "></c:if> -->
-			
-			<div title="菜单管理" style="height: 100%" id="menuManage">
-				<ul>
-					<li><a href="javascript:void(0)" onclick="addTab(this)"
-						url="${ctx}/admin/pages/menu/menulist.jsp"
-						fun="millCycloneHome">菜单维护</a></li>
-				</ul>
-			</div>
-			
+
+		<div title="菜单管理" style="height: 100%" id="menuManage">
+			<ul>
+				<li><a href="javascript:void(0)" onclick="addTab(this)"
+					url="${ctx}/admin/pages/menu/menulist.jsp" fun="millCycloneHome">菜单维护</a>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 	<div data-options="region:'center'" id="rightContentDiv">
-		<div id="tabs" class="easyui-tabs" style="width: 100% ;">
-		</div>
+		<div id="tabs" class="easyui-tabs" style="width: 100%;"></div>
 	</div>
 	</div>
 	<div id="tabsMenu" class="easyui-menu"

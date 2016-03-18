@@ -7,7 +7,7 @@ a:hover {
 	text-decoration: none;
 }
 
-#addForm input,select{
+#addForm input,select {
 	background-color: white;
 	border: medium none;
 	box-shadow: 0 0 5px -2px black inset;
@@ -21,8 +21,9 @@ a:hover {
 	width: 100%;
 	margin-top: 20px;
 }
+
 #addForm table td {
-	height:30px;
+	height: 30px;
 }
 
 #addForm .upload {
@@ -73,8 +74,8 @@ element.style {
 }
 
 .tabs {
-	border: 0; 
-	height : 26px;
+	border: 0;
+	height: 26px;
 	list-style-type: none;
 	margin: 0;
 	padding: 0 0 0 4px;
@@ -82,11 +83,17 @@ element.style {
 	height: 26px;
 }
 
-.icon_up{ background:url(/images/admin/up.png) no-repeat;display: block;
-    float: left;
-    height: 16px;
-    width: 16px;}
-.icon_down{ background:url(/images/admin/down.png) no-repeat;
+.icon_up {
+	background: url(/images/admin/up.png) no-repeat;
+	display: block;
 	float: left;
-    height: 16px;
-    width: 16px;}
+	height: 16px;
+	width: 16px;
+}
+
+.icon_down {
+	background: url(/images/admin/down.png) no-repeat;
+	float: left;
+	height: 16px;
+	width: 16px;
+}
