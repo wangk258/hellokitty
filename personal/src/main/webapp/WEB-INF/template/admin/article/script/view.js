@@ -1,0 +1,24 @@
+$(document).ready(function(){
+	$.ajaxSetup({
+		async:false,
+		error:function(){
+			alert("error");
+		}
+	});
+	$.post(top.basePath+"article/queryOne.do",{id:parent.typeId},function(result){
+		if(result){
+			if(result.flag){
+				$("#title").html("<h1>"+result.data.title+"</h1>");
+				$("#author").text("本文作者："+result.data.author);
+				$("#fromAddress").text("本文来自："+result.data.fromAddress);
+				$("#content").html(result.data.content);
+				var $iframe=$(window.parent.document.getElementById("dialog_frame"));
+				$iframe.attr("height",document.body.scrollHeight+50);
+			}else{
+				alert(result.msg);
+			}
+		}else{
+			alert("服务器响应超时！");
+		}
+	});
+});
