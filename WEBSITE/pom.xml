@@ -8,9 +8,9 @@
 		<groupId>com.plate</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>WEBSITE</artifactId>
+	<artifactId>website</artifactId>
 	<packaging>war</packaging>
-	<name>WEBSITE</name>
+	<name>website</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -20,6 +20,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>WEBSITE</finalName>
+		<finalName>website</finalName>
 	</build>
 </project>
