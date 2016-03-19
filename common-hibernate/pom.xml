@@ -13,11 +13,7 @@
 	<name>common-hibernate</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>common-hibernate</finalName>
