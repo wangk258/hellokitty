@@ -3,8 +3,6 @@ package com.xiaoxuanfeng.plate.user.service.impl;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseDao;
-import org.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,6 +14,9 @@ import com.xiaoxuanfeng.plate.common.util.SessionUtil;
 import com.xiaoxuanfeng.plate.user.dao.UserDao;
 import com.xiaoxuanfeng.plate.user.domain.User;
 import com.xiaoxuanfeng.plate.user.service.UserService;
+
+import common.base.BaseDao;
+import common.base.BaseServiceImpl;
 
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User> implements

@@ -1,8 +1,8 @@
 package com.xiaoxuanfeng.plate.team.dao;
 
-import org.base.BaseDao;
-
 import com.xiaoxuanfeng.plate.team.domain.Team;
+
+import common.base.BaseDao;
 
 public interface TeamDao extends BaseDao<Team>{
 

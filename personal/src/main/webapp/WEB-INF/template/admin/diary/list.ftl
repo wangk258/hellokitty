@@ -1,6 +1,5 @@
 <#include "/common/main.ftl">
 <@head title="心灵日记管理" isAdmin=true>
-	<script type="text/javascript" src="${path.contextPath}/js/admin/diary/list.js"></script>
 	<script type="text/javascript">
 		var contextPath="${path.contextPath}";
 	</script>
@@ -9,19 +8,7 @@
 	<div>
 		<ul>
 			<li class="toolbar">
-				<div style="float:left;">
-					<div onclick="diary.addDiary()" style="float:left;">
-						<img src="${path.contextPath}/images/admin/icons/add.ico" width="15px" height="15px" />
-						<span>添加</span>
-					</div>
-					<div onclick="diary.del(null,false)" style="float:left;">
-						<img src="${path.contextPath}/images/admin/icons/delete.ico" width="15px" height="15px"/>
-						<span>删除</span>
-					</div>
-				</div>
-				<div class="search">
-					<input type="text"/>
-				</div>
+				<div style="float:left;"></div>
 			</li>
 			<li class="maincontent">
 				<table width="100%" cellpadding="0" cellspacing="0" align="center" class="datacontainer"  >
@@ -49,8 +36,8 @@
 									<td>${text}</td>
 									<td>${data.creatTime?string("yyyy-MM-dd")}</td>
 									<td>
-										<a href="javascript:void(0);" onclick="diary.edit('${data.id}')"><img src="${path.contextPath}/images/admin/icons/modify.ico" width="15px" height="15px"/></a>&emsp;
-										<a href="javascript:void(0);" onclick="diary.del('${data.id}',true)"><img src="${path.contextPath}/images/admin/icons/delete.ico" width="15px" height="15px"/></a>
+										<a href="javascript:void(0);" class="edit" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/modify.ico" width="15px" height="15px"/></a>&emsp;
+										<a href="javascript:void(0);" class="del" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/delete.ico" width="15px" height="15px"/></a>
 									</td>
 								</tr>
 							</#list>
@@ -67,13 +54,10 @@
 		 style="left:0px;right: 0px;bottom: 0px;"></iframe>
 	</div>
 	<script type="text/javascript">
-		window.using("pagination",function(){
-			var option={
-				total:${pageBean.recordCount},
-				pageSize:10,
-				showPageList:false
-			}
-			$("#pageBar").pagination(option);
-		});
+		var pageObj = {
+			totalPage : ${pageBean.pageCount},
+			pageSize : ${pageBean.pageSize}
+		};
 	</script>
+	<script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/js/config.js" data-src="${path.contextPath}/js/admin/diary/list.js"></script>
 </@body>

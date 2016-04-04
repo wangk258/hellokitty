@@ -3,8 +3,6 @@ package com.xiaoxuanfeng.plate.msg.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.base.BaseController;
-import org.bo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +15,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.xiaoxuanfeng.plate.msg.bo.MsgQueryObject;
 import com.xiaoxuanfeng.plate.msg.domain.Msg;
 import com.xiaoxuanfeng.plate.msg.service.MsgService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
 
 @Controller
 @RequestMapping(value="/msg")

@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.user.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class UserQueryObject extends QueryObject {

@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseController;
-import org.bo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +19,9 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.diary.bo.DiaryQueryObject;
 import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
 
 @Controller
 @RequestMapping(value="/diary")
@@ -73,19 +74,13 @@ public class DiaryController extends BaseController {
 	@RequestMapping(value = "/delete",method = RequestMethod.POST)
 	public void delete(HttpServletRequest request,HttpServletResponse response,HttpSession session,@RequestParam("ids") String ids) throws Exception{
 		try {
-			if(StringUtils.isNotBlank(ids)){
-				this.diaryService.delete(ids);
-				resultFlag=this.setRightFlag(null);
-			}
-			else{
-				resultFlag=this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
-			}
+			String result = this.diaryService.deleteDiaries(ids,Diary.class);
+			resultFlag=this.setRightFlag(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultFlag= this.setErrorFlag(e.getMessage());
 		}
 		this.write(response);
-		
 	}
 	
 	
@@ -121,7 +116,7 @@ public class DiaryController extends BaseController {
 	 * @param result
 	 * @return
 	 */
-	@RequestMapping(value = "/getone")
+	@RequestMapping(value = "/single")
 	public ModelAndView getone(HttpServletRequest request,HttpSession session,Long id,String path){
 		ModelAndView mv=new ModelAndView("bigpage/diary/view");
 		try {

@@ -4,9 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseController;
-import org.bo.PageBean;
-import org.bo.ResultFlag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +15,10 @@ import com.xiaoxuanfeng.plate.common.constants.MessageConstants;
 import com.xiaoxuanfeng.plate.user.bo.UserQueryObject;
 import com.xiaoxuanfeng.plate.user.domain.User;
 import com.xiaoxuanfeng.plate.user.service.UserService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
+import common.bo.ResultFlag;
 
 @Controller
 @RequestMapping(value = "/user")

@@ -7,12 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sf.json.JSONObject;
-
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseController;
-import org.bo.PageBean;
-import org.bo.ResultFlag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +19,11 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.mood.bo.MoodBackgroundQueryObject;
 import com.anan.plate.mood.domain.MoodBackground;
 import com.anan.plate.mood.service.MoodBackgroundService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
+import common.bo.ResultFlag;
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping(value="/moodBackground",method=RequestMethod.POST)

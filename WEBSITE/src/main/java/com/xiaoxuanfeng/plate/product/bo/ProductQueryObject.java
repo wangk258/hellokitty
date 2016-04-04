@@ -1,7 +1,8 @@
 package com.xiaoxuanfeng.plate.product.bo;
 
 import org.apache.commons.lang.StringUtils;
-import org.bo.QueryObject;
+
+import common.bo.QueryObject;
 
 public class ProductQueryObject extends QueryObject {
 

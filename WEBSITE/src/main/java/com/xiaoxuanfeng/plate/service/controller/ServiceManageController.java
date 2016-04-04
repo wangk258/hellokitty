@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseController;
-import org.bo.PageBean;
-import org.bo.ResultFlag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
-import org.util.FileUploadUtil;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xiaoxuanfeng.plate.common.constants.Constant;
@@ -27,6 +23,11 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.service.bo.ServiceManageQueryObject;
 import com.xiaoxuanfeng.plate.service.domain.ServiceManage;
 import com.xiaoxuanfeng.plate.service.service.ServiceManageService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
+import common.bo.ResultFlag;
+import common.util.FileUploadUtil;
 
 @Controller
 @RequestMapping(value="/service")

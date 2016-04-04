@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseController;
-import org.bo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +16,9 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.webSiteCollection.bo.WebSiteCollectionQueryObject;
 import com.anan.plate.webSiteCollection.domain.WebSiteCollection;
 import com.anan.plate.webSiteCollection.service.WebSiteCollectionService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
 
 @Controller
 @RequestMapping(value = "/webSiteCollection")

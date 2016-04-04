@@ -5,8 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.base.BaseController;
-import org.bo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +17,9 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.navigation.bo.NavigationQueryObject;
 import com.xiaoxuanfeng.plate.navigation.domain.Navigation;
 import com.xiaoxuanfeng.plate.navigation.service.NavigationService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
 
 @Controller
 @RequestMapping(value = "/navigation")

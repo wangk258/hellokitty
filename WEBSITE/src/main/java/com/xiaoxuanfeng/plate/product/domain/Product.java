@@ -12,10 +12,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.base.BaseBean;
-
 import com.xiaoxuanfeng.plate.common.constants.CommonConstants;
 import com.xiaoxuanfeng.plate.productType.domain.ProductType;
+
+import common.base.BaseBean;
 
 @Entity
 @Table(name = "t_product")

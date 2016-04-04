@@ -1,13 +1,14 @@
 package com.xiaoxuanfeng.plate.millCycloneHome.service.impl;
 
-import org.base.BaseDao;
-import org.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xiaoxuanfeng.plate.millCycloneHome.dao.MillCycloneHomeDao;
 import com.xiaoxuanfeng.plate.millCycloneHome.domain.MillCycloneHome;
 import com.xiaoxuanfeng.plate.millCycloneHome.service.MillCycloneHomeService;
+
+import common.base.BaseDao;
+import common.base.BaseServiceImpl;
 @Service
 public class MillCycloneHomeServiceImpl extends BaseServiceImpl<MillCycloneHome> implements MillCycloneHomeService {
 	@Autowired

@@ -1,8 +1,8 @@
 package com.anan.plate.appraise.dao;
 
-import org.base.BaseDao;
-
 import com.anan.plate.appraise.domain.Appraise;
+
+import common.base.BaseDao;
 
 public interface AppraiseDao extends BaseDao<Appraise>{
 

@@ -1,8 +1,8 @@
 package com.xiaoxuanfeng.plate.navigation.service;
 
-import org.base.BaseService;
-
 import com.xiaoxuanfeng.plate.navigation.domain.Navigation;
+
+import common.base.BaseService;
 
 public interface NavigationService extends BaseService<Navigation> {
 

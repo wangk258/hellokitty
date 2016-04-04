@@ -6,9 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.base.BaseBean;
-
 import com.xiaoxuanfeng.plate.common.constants.CommonConstants;
+
+import common.base.BaseBean;
 
 @Entity
 @Table(name = "t_banner")

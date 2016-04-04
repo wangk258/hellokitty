@@ -38,6 +38,16 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>spring-mvc</servlet-name>
+		<url-pattern>*.aspx</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>spring-mvc</servlet-name>
+		<url-pattern>*.ashx</url-pattern>
+	</servlet-mapping>
+	
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
@@ -73,7 +83,7 @@
 	</filter-mapping>
 	 -->
 	<!-- charset config-->
-	<!-- <servlet>
+	<servlet>
 		<servlet-name>default</servlet-name>
 		<servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
 		<init-param>
@@ -81,7 +91,7 @@
 			<param-value>false</param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>
-	</servlet> -->
+	</servlet>
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

@@ -58,7 +58,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="fileService" class="org.util.FileUploadUtil"/>
+	<bean id="fileService" class="common.util.FileUploadUtil"/>
 
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

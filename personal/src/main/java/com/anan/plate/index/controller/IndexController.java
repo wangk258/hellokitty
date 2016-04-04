@@ -1,6 +1,5 @@
 package com.anan.plate.index.controller;
 
-import org.bo.QueryObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +13,8 @@ import com.anan.plate.photo.bo.AlbumQueryObject;
 import com.anan.plate.photo.service.AlbumService;
 import com.anan.plate.webSiteCollection.bo.WebSiteCollectionQueryObject;
 import com.anan.plate.webSiteCollection.service.WebSiteCollectionService;
+
+import common.bo.QueryObject;
 
 @Controller
 public class IndexController {

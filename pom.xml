@@ -193,9 +193,9 @@
 				<version>2.1</version>
 				<configuration>
 					<port>8080</port>
-					<path>webapp</path>
+					<path>/</path>
 					<uriEncoding>UTF-8</uriEncoding>
-					<finalName>WEBSITE</finalName>
+					<finalName></finalName>
 					<server>tomcat7</server>
 				</configuration>
 			</plugin>
@@ -225,8 +225,8 @@
 		</resources>
 	</build>
 	<modules>
-		<module>website</module>
 		<module>common-hibernate</module>
+		<module>website</module>
 		<module>personal</module>
 	</modules>
 

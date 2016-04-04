@@ -2,7 +2,6 @@ package com.xiaoxuanfeng.plate.Index.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.base.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.xiaoxuanfeng.plate.banner.service.BannerService;
 import com.xiaoxuanfeng.plate.product.service.ProductService;
+
+import common.base.BaseController;
 
 @Controller
 public class IndexController  extends BaseController {

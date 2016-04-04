@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.msg.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class MsgQueryObject extends QueryObject {

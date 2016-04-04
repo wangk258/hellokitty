@@ -7,8 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.base.BaseController;
-import org.bo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +19,9 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.productType.bo.ProductTypeQueryObject;
 import com.xiaoxuanfeng.plate.productType.domain.ProductType;
 import com.xiaoxuanfeng.plate.productType.service.ProductTypeService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
 
 @Controller
 @RequestMapping(value = "/productType")

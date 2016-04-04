@@ -1,6 +1,6 @@
 package com.anan.plate.photo.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 public class PhotosQueryObject extends QueryObject {
 	

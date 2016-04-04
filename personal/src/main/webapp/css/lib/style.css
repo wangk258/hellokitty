@@ -1,0 +1,212 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+a {
+    color: #00B7FF;
+}
+
+ul{
+    margin:0;
+    padding:0;
+}
+
+.index {
+    width: 100%;
+    height: 768px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.index  .p-n {
+    width: 910px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 100px auto 0;
+}
+
+.index .m-c{
+    margin:0 auto;
+}
+
+.index .p-n  .p-logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.index .p-n .p-text {
+    display: inline-block;
+    background: url("/images/opacity.png") repeat;
+    width: 910px;
+    margin: 30px auto;
+    color: white;
+    font-size: 20px;
+    text-indent: 40px;
+    line-height: 30px;
+    font-weight: bolder;
+    padding: 20px 10px;
+}
+
+.index .p-n  ul li {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin: 0px 11px;
+    line-height: 150px;
+    text-align: center;
+    list-style-type: none;
+    float: left;
+    cursor: pointer;
+    position: relative;
+}
+
+.index .p-n  ul li:hover .r-b {
+    -webkit-animation: rotate 2s linear infinite;
+    -moz-animation: rotate 2s linear infinite;
+    -o-animation:rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+}
+
+.index .p-n  ul li .p-n-m {
+    display: block;
+    color: yellowgreen;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    font-weight:bolder;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.index .p-n .r-b{
+    border-radius:100%;
+    background-color:green;
+    width:150px;
+    height:150px;
+    background: -webkit-linear-gradient(left top, green 10% , white 90%);
+    background: -o-linear-gradient(bottom right, green, white);
+    background: -moz-linear-gradient(bottom right, green, white);
+    background: linear-gradient(to bottom right, green , white);
+    position:relative;
+}
+.index .p-n .b-c{
+    width:140px;
+    height:140px;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    background-color:gray;
+    opacity:0.8;
+    border-radius:100%;
+}
+
+.index .p-n  ul li:hover .p-n-m {
+    animation: fadeOut 0.5s linear 0 1 alternate forwards;
+    -moz-animation: fadeOut 0.5s linear 0s 1 alternate forwards; /* Firefox */
+    -webkit-animation: fadeOut 0.5s linear 1 alternate forwards; /* Safari 和 Chrome */
+    -o-animation: fadeOut 0.5s linear 0 1 alternate forwards; /* Opera */
+}
+
+
+/*calendar*/
+._jt{
+    width:100%;
+    border:1px solid #eee;
+    border-collapse: collapse;
+}
+
+._jt td{
+    border:1px solid #eee;
+    height:30px;
+    text-align: center;
+    cursor: pointer;
+}
+._jt td:hover{
+    background-color:#abcdef;
+}
+
+._jt .selected{
+    background-color:lightgreen;
+}
+
+._cal{
+    width:100%;
+    display:inline-block;
+}
+
+._cal select{
+    height:30px;
+    border-radius: 0;
+    margin:0 0 1px 0;
+    padding:0;
+    border:1px solid #ccc;
+}
+
+._cal button{
+    width:22%;
+    height:30px;
+    min-width:15px;
+    border:1px solid #cccccc;
+    background-color:white;
+    margin-bottom: 1px;
+}
+
+._cal .prevMonth{
+    border-right:0;
+}
+._cal .nextMonth{
+    border-left:0;
+}
+
+._cal .t_r{
+    float:right;
+    width:50%;
+    text-align:right;
+}
+
+._cal .yearSelect{
+    width:50%;
+    min-width:65px;
+    float:left;
+}
+._cal .monthSelect{
+    width:47%;
+    border-radius:0;
+    min-width: 40px;
+}
+
+.headerBar{
+    background:url(/images/opacity.png) repeat;
+    width:100%;
+    height:50px;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+.headerBar a{
+    color:white;
+    float:right;
+    font-weight: bolder;
+    margin-right:10px;
+    display:block;
+    height:50px;
+    line-height: 50px;
+}
+.error{
+    color:red;
+    font-weight: bolder;
+    text-align: left;
+}

@@ -1,7 +1,8 @@
 package com.anan.plate.appraise.bo;
 
 import org.apache.commons.lang.StringUtils;
-import org.bo.QueryObject;
+
+import common.bo.QueryObject;
 
 public class AppraiseQueryObject extends QueryObject {
 	

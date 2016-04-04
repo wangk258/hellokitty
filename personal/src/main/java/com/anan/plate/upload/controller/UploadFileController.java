@@ -2,13 +2,14 @@ package com.anan.plate.upload.controller;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.bo.ResultFlag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
-import org.util.FileUploadUtil;
+
+import common.bo.ResultFlag;
+import common.util.FileUploadUtil;
 
 @Controller
 public class UploadFileController {

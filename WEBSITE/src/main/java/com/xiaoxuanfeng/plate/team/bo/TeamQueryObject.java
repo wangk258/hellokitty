@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.team.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class TeamQueryObject extends QueryObject {

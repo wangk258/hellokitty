@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.base.BaseController;
-import org.bo.ResultFlag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +18,9 @@ import com.anan.plate.article.bo.ArticleQueryObject;
 import com.anan.plate.article.domain.Article;
 import com.anan.plate.article.service.ArticleService;
 import com.anan.plate.constants.MessageConstants;
+
+import common.base.BaseController;
+import common.bo.ResultFlag;
 
 @Controller
 @RequestMapping(value="/article",method=RequestMethod.POST)

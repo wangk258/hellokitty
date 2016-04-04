@@ -7,26 +7,21 @@
 			<meta http-equiv="pragma" content="no-cache"/>
 			<meta http-equiv="cache-control" content="no-cache"/>
 			<meta http-equiv="expires" content="0"/>    
-			<meta http-equiv="keywords" content="keyword1,keyword2,keyword3"/>
-			<meta http-equiv="description" content="This is my page"/>
-			<link href="${path.contextPath}/css/jquery-ui.css" rel="stylesheet"/>
-			<link href="${path.contextPath}/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet"/>
-			<script type="text/javascript" src="${path.contextPath}/js/jquery-1.8.0.min.js"></script>
-			<script type="text/javascript" src="${path.contextPath}/js/jquery-ui.js"></script>
-			<script type="text/javascript" src="${path.contextPath}/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+			<meta http-equiv="keywords" content=""/>
+			<meta http-equiv="description" content=""/>
+			<link href="${path.contextPath}/css/lib/jquery-ui.css" rel="stylesheet"/>
+			<link href="${path.contextPath}/css/lib/bootstrap.min.css" rel="stylesheet"/>
+			<link href='${path.contextPath}/js/lib/jPaginate/css/style.css' rel='stylesheet'/>
+			<link href="${path.contextPath}/js/lib/artDialog/skins/blue.css" rel="stylesheet"/>
 			<#if isAdmin>
-				<script type="text/javascript">
-					var contextPath="${path.contextPath}";
-				</script>
-				<link href="${path.contextPath}/js/page/themes/default/pagination.css" rel="stylesheet"/>
-				<link href="${path.contextPath}/css/public_admin.css" rel="stylesheet"/>
-				<script type="text/javascript" src="${path.contextPath}/js/date/WdatePicker.js"></script>
-				<script type="text/javascript" src="${path.contextPath}/js/page/easyloader.js"></script>
-				<script type="text/javascript" src="${path.contextPath}/js/ueditor/ueditor.all.min.js"></script>
-				<script type="text/javascript" src="${path.contextPath}/js/ueditor/ueditor.config.js"></script>
+				<link href="${path.contextPath}/css/lib/toolbar.css" rel="stylesheet"/>
+				<link href="${path.contextPath}/css/lib/public_admin.css" rel="stylesheet"/>
 			</#if>
-			<script type="text/javascript" src="${path.contextPath}/js/public.js"></script>
 			<#nested>
+			<script type="text/javascript" src="${path.contextPath}/js/lib/jquery-1.8.0.min.js"></script>
+			<script type="text/javascript">
+				var contextPath = "${path.contextPath}";
+			</script>
 		</head>
 </#macro> 
 

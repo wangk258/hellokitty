@@ -1,6 +1,7 @@
 <#include "/common/main.ftl">
 <@head title="" isAdmin=true>
-	<script type="text/javascript" src="${path.contextPath}/js/admin/diary/add.js"></script>
+	<script type="text/javascript" src="${path.contextPath}/js/lib/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" src="${path.contextPath}/js/lib/ueditor/ueditor.config.js"></script>
 	<style type="text/css">
 		.form-table{
 		    width:95%;
@@ -17,7 +18,7 @@
 				<tr>
 					<td width="10%">日期：</td>
 					<td width="90%">
-						<input type="text"  name="date" id="date" class="form-control" onclick="WdatePicker()" value="${(diary.date)?if_exists}" class="form-control"/>
+						<input type="text"  name="date" id="date" class="form-control" value="${(diary.date)?if_exists}" />
 					</td>
 				</tr>
 				<tr>
@@ -39,4 +40,5 @@
 			</div>
 		</div>
 	</form>
+	<script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/js/config.js" data-src="${path.contextPath}/js/admin/diary/add.js"></script>
 </@body>

@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.service.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class ServiceManageQueryObject extends QueryObject {

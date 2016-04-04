@@ -1,8 +1,8 @@
 package com.xiaoxuanfeng.plate.product.service;
 
-import org.base.BaseService;
-
 import com.xiaoxuanfeng.plate.product.domain.Product;
+
+import common.base.BaseService;
 
 public interface ProductService extends BaseService<Product> {
 

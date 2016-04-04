@@ -104,7 +104,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="fileService" class="org.util.FileUploadUtil"/>
+	<bean id="fileService" class="common.util.FileUploadUtil"/>
 	<mvc:annotation-driven />
 	<aop:config>
 		<aop:aspect id="ServletContextCacheUtil" ref="servletContextCacheUtil">

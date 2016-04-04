@@ -1,7 +1,8 @@
 package com.xiaoxuanfeng.plate.navigation.bo;
 
 import org.apache.commons.lang.StringUtils;
-import org.bo.QueryObject;
+
+import common.bo.QueryObject;
 
 public class NavigationQueryObject extends QueryObject {
 	

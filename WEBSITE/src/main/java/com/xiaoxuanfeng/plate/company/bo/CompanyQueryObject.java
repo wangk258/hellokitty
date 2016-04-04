@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.company.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class CompanyQueryObject extends QueryObject {

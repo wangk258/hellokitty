@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.millCycloneHome.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class MillCycloneHomeQueryObject extends QueryObject {

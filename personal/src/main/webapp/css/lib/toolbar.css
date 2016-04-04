@@ -1,0 +1,26 @@
+.toolbar_ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.toolbar_ul li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    color:gray;
+    cursor: pointer;
+}
+.toolbar_ul li img{
+	height:15px;
+	width:15px;
+	margin-right:10px;
+}
+
+.toolbar_ul li:hover {
+    color: red;
+    text-decoration: underline
+}

@@ -1,8 +1,8 @@
 package com.anan.plate.mood.dao;
 
-import org.base.BaseDao;
-
 import com.anan.plate.mood.domain.MoodBackground;
+
+import common.base.BaseDao;
 
 public interface MoodBackgroundDao extends BaseDao<MoodBackground>{
 

@@ -1,6 +1,6 @@
 package com.anan.plate.article.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 public class ArticleQueryObject extends QueryObject {
 

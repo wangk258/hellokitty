@@ -1,6 +1,6 @@
 package com.anan.plate.message.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 public class MessageQueryObject extends QueryObject {
 

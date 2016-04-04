@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.Index.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class IndexQueryObject extends QueryObject {

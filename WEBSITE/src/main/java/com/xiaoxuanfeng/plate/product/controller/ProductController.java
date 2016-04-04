@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.base.BaseController;
-import org.bo.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.ModelAndView;
-import org.util.FileUploadUtil;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xiaoxuanfeng.plate.common.constants.Constant;
@@ -34,6 +31,10 @@ import com.xiaoxuanfeng.plate.product.domain.Product;
 import com.xiaoxuanfeng.plate.product.service.ProductService;
 import com.xiaoxuanfeng.plate.productType.domain.ProductType;
 import com.xiaoxuanfeng.plate.productType.service.ProductTypeService;
+
+import common.base.BaseController;
+import common.bo.PageBean;
+import common.util.FileUploadUtil;
 
 @Controller
 @RequestMapping(value = "/product")

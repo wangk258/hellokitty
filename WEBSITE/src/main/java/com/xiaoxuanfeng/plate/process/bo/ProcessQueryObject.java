@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.process.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class ProcessQueryObject extends QueryObject {

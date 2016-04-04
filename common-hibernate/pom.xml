@@ -9,12 +9,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>common-hibernate</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>common-hibernate</name>
 	<url>http://maven.apache.org</url>
-	<dependencies>
-		
-	</dependencies>
 	<build>
 		<finalName>common-hibernate</finalName>
 	</build>

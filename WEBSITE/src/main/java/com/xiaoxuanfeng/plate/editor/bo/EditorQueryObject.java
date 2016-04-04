@@ -1,6 +1,6 @@
 package com.xiaoxuanfeng.plate.editor.bo;
 
-import org.bo.QueryObject;
+import common.bo.QueryObject;
 
 
 public class EditorQueryObject extends QueryObject {
