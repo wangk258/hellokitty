@@ -58,7 +58,12 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="fileService" class="common.util.FileUploadUtil"/>
+	<bean id="fileService" class="common.util.FileUploadUtil">
+		<!-- 阿里云oss存储方案 -->
+		<property name="accessKeyId" value="extjHrTTKhCKUABL" />
+		<property name="accessKeySecret" value="If40QoALVRTodB9IEILoxTGjAXzwRB" />
+		<property name="endpoint" value="http://oss-cn-hangzhou.aliyuncs.com"></property>
+	</bean>
 
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

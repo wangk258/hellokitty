@@ -3,7 +3,7 @@
 <style type="text/css">
     html, body {
         overflow: hidden;
-        background: url("${path.contextPath}/images/admin/bg1.png") repeat scroll 0 0;
+        background: url("${path.contextPath}/images/admin/bg.png") repeat scroll 0 0;
     }
 
     ul {

@@ -13,6 +13,33 @@ import common.bo.ResultFlag;
 
 @Service
 public class FileUploadUtil {
+	/**
+	 * 阿里云oss存储 AccessKeyId
+	 */
+	private String accessKeyId;
+	
+	/**
+	 * 阿里云oss存储AccessKeySecret
+	 */
+	private String accessKeySecret;
+	
+	/**
+	 * 阿里云oss远程存储地址
+	 */
+	private String endpoint;
+	
+	public void setEndpoint(String endpoint) {
+		this.endpoint = endpoint;
+	}
+	
+	public void setAccessKeySecret(String accessKeySecret) {
+		this.accessKeySecret = accessKeySecret;
+	}
+	
+	public void setAccessKeyId(String accessKeyId) {
+		this.accessKeyId = accessKeyId;
+	}
+	
 	
 	public ResultFlag upload(MultipartRequest request, MultipartFile files,String filePath) throws Exception {
 		String originalFileName=files.getOriginalFilename();
