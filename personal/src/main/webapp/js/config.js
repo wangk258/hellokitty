@@ -13,6 +13,7 @@ require.config({
         "easyloader": "page/easyloader",
         "pageinate": "jPaginate/jquery.paginate",
         "artDialog":"artDialog/artDialog",
+        "iframeTools":"artDialog/plugins/iframeTools",
         "toolbar": "toolbar",
         "Tool": "Tool"
     },
@@ -28,16 +29,21 @@ require.config({
         },
         artDialog:{
         	exports:"artDialog"
+        },
+        iframeTools:{
+            exports:"iframeTools"
         }
     }
 });
 require(["artDialog"],function(){
-	$.each($("script[data-main]").attr("data-src").split(","), function (index, model) {
-	    require([model], function (m) {
-	        if (m && m.init && typeof m.init === "function") {
-	            m.init();
-	        }
-	    });
-	});
+    require(["iframeTools"],function(){
+        $.each($("script[data-main]").attr("data-src").split(","), function (index, model) {
+            require([model], function (m) {
+                if (m && m.init && typeof m.init === "function") {
+                    m.init();
+                }
+            });
+        });
+    })
 });
 

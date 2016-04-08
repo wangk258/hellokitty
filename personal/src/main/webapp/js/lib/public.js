@@ -1,4 +1,4 @@
-function openDialog(width, height, url, divId, frameId) {
+/*function openDialog(width, height, url, divId, frameId) {
     return $("#" + divId).dialog({
         width: width,
         height: height,
@@ -10,7 +10,7 @@ function openDialog(width, height, url, divId, frameId) {
             $("#" + frameId).attr("src", "");
         }
     });
-}
+}*/
 function pageClear() {
     $("input[type=text]").val("");
     $("input:hidden").val("");
@@ -65,13 +65,22 @@ function setDialogSize(height) {
     }
 }
 
-function showAlert(content){
+function showAlert(content,ok){
 	art.dialog({
 		title:"提示",
 		icon:"warning",
 		content:"<span style='color:gray;font-size:15px'>"+content+"</span>",
 		ok:function(){
-			return true;
+			if(ok && typeof ok === "function"){
+                ok();
+            }
 		}
-	});
+	}).lock();
+}
+function showPopWindow(title,width, height, url){
+    art.dialog.open(url,{
+        title:title,
+        width:width,
+        height:height
+    }).lock();
 }

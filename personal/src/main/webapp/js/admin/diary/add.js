@@ -16,8 +16,9 @@ define(["jQueryUI","publicJS"],function(){
 		$("#saveBtn").click(function(){
 			if(validateForm()){
 				$.post(contextPath+"/diary/saveOrUpdate.do",$("#form1").serialize(),function(result){
-					showAlert(result.flag?"恭喜发财！":"出错啦！"+result.msg);
-					window.parent.location.reload();
+                    showAlert(result.flag?"恭喜发财！":"出错啦！"+result.msg,function(){
+                        art.dialog.opener.location.reload();
+                    });
 				},"json");
 			}
 		});

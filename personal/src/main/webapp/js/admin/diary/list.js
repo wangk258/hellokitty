@@ -36,9 +36,13 @@ define(["publicJS", "easyloader", "toolbar", "jQueryUI"],function(){
 	function initPageBar(){
 		window.using("pagination",function(){
 			var option={
-				total: pageObj.totalPage || 0,
+				total: pageObj.recordCount || 1,
 				pageSize:pageObj.pageSize || 10,
-				showPageList:false
+                pageNumber:pageObj.pageNumber,
+				showPageList:false,
+                onSelectPage:function(pageNumber,pageSize){
+                    window.location.href=contextPath+"/diary/list.ashx?path=admin&currentPage="+pageNumber+"&pageSize="+pageSize;
+                }
 			}
 			$("#pageBar").pagination(option);
 		});
@@ -80,7 +84,7 @@ define(["publicJS", "easyloader", "toolbar", "jQueryUI"],function(){
 				this.edit("");
 			},
 			edit:function(id){
-				openDialog(900,500,contextPath+"/diary/single.ashx?id="+id+"&path=edit","dialog_div","dialog_frame");
+                showPopWindow("添加日记",900,650,contextPath+"/diary/single.ashx?id="+id+"&path=edit");
 			}
 	};
 	return {

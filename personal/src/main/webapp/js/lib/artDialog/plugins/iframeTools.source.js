@@ -452,7 +452,7 @@ $(function () {
 		};
 		
 		if (iframe && main.offsetWidth * main.offsetHeight > 307200) {
-			main.style.visibility = 'hidden';
+			main.style.visibility = '';
 		};
 	};
 	

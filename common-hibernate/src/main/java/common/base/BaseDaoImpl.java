@@ -79,7 +79,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 					public List<T> doInHibernate(Session session)
 							throws HibernateException, SQLException {
 						Query query = getQuery(qo, session, new StringBuilder(
-								"from " + cls.getSimpleName() + " where 1=1"));
+								"from " + cls.getSimpleName() + " where 1=1"),true);
 						return query.list();
 					}
 				});
@@ -98,7 +98,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 					public List<T> doInHibernate(Session session)
 							throws HibernateException, SQLException {
 						try {
-							Query query = getQuery(qo, session, sb);
+							Query query = getQuery(qo, session, sb,true);
 							List<Object[]> list = query.list();
 							return this.array2list(list, fields);
 						} catch (IllegalStateException e) {
@@ -187,9 +187,12 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 							throws HibernateException, SQLException {
 						Query query = getQuery(qo, session, new StringBuilder(
 								"select count(*) from " + cls.getSimpleName()
-										+ " where 1=1"));
-						return Integer
-								.parseInt(query.uniqueResult().toString());
+										+ " where 1=1"),false);
+						Object obj = query.uniqueResult();
+						if(null != obj){
+							return Integer.parseInt(obj.toString());
+						}
+						return 0;
 					}
 				});
 		return count;
@@ -287,19 +290,20 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @return
 	 */
 	private Query getQuery(final QueryObject qo, Session session,
-			final StringBuilder sb) {
+			final StringBuilder sb,boolean page) {
 		Query query = null;
 		if (!qo.getConditions().isEmpty()) {
 			String hql = connectSql(sb, qo.getConditions());
 			query = session.createQuery(hql);
 			query = setValue(new StringBuilder(hql), qo.getParams(), query);
-			if (qo.getCurrentPage() != -1) {// 分页
-				query.setFirstResult((qo.getCurrentPage() - 1)
-						* qo.getPageSize());
-				query.setMaxResults(qo.getPageSize());
-			}
 		} else {
 			query = session.createQuery(sb.toString());
+		}
+		if(page){
+			if (qo.getCurrentPage() != -1) {// 分页
+				query.setFirstResult((qo.getCurrentPage() - 1)* qo.getPageSize());
+				query.setMaxResults(qo.getPageSize());
+			}
 		}
 		return query;
 	}

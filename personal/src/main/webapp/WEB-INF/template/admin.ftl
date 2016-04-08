@@ -3,7 +3,7 @@
 <style type="text/css">
     html, body {
         overflow: hidden;
-        background: url("${path.contextPath}/images/admin/bg.png") repeat scroll 0 0;
+        background: url("${path.contextPath}/images/admin/bg1.png") repeat scroll 0 0;
     }
 
     ul {
@@ -91,7 +91,7 @@
 <@body>
 	<div style="width:1000px;margin:0 auto;">
 	    <ul>
-	        <li onclick="openDialog(1000,590,'${path.contextPath}/diary/list.do?path=admin','dialog_div','dialog_frame')">
+	        <li onclick="showPopWindow('日记列表',1000,500,'${path.contextPath}/diary/list.do?path=admin')">
 	            <div class="div_img">
 	                <img src="${path.contextPath}/images/admin/diary.png"/>
 	            </div>

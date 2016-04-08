@@ -1,8 +1,5 @@
 <#include "/common/main.ftl">
 <@head title="心灵日记管理" isAdmin=true>
-	<script type="text/javascript">
-		var contextPath="${path.contextPath}";
-	</script>
 </@head>
 <@body>
 	<div>
@@ -55,8 +52,10 @@
 	</div>
 	<script type="text/javascript">
 		var pageObj = {
-			totalPage : ${pageBean.pageCount},
-			pageSize : ${pageBean.pageSize}
+			recordCount : ${pageBean.recordCount},
+			pageSize : ${pageBean.pageSize},
+			pageNumber:${pageBean.currentPage}
+
 		};
 	</script>
 	<script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/js/config.js" data-src="${path.contextPath}/js/admin/diary/list.js"></script>
