@@ -12,7 +12,7 @@
 	<context:component-scan
 		base-package="com.anan.plate.**.controller,com.anan.plate.**.service.impl,com.anan.plate.**.dao.impl" />
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<context:property-placeholder location="classpath:jdbc.properties" />
+	<context:property-placeholder location="classpath:jdbc.properties,classpath:oss.properties" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName">
@@ -60,9 +60,11 @@
 
 	<bean id="fileService" class="common.util.FileUploadUtil">
 		<!-- 阿里云oss存储方案 -->
-		<property name="accessKeyId" value="extjHrTTKhCKUABL" />
-		<property name="accessKeySecret" value="If40QoALVRTodB9IEILoxTGjAXzwRB" />
-		<property name="endpoint" value="http://oss-cn-hangzhou.aliyuncs.com"></property>
+		<property name="accessKeyId" value="${oss.accessKeyId}" />
+		<property name="accessKeySecret" value="${oss.accessKeySecret}" />
+		<property name="endpoint" value="${oss.endpoint}"></property>
+		<property name="bucketName" value="${oss.bucketName}"></property>
+		<property name="readBaseUrl" value="${oss.readBaseUrl}"/>
 	</bean>
 
 	<bean id="freemarkerConfigurer"
