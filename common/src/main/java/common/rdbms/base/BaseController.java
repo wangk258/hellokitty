@@ -1,4 +1,4 @@
-package common.base;
+package common.rdbms.base;
 
 import java.io.OutputStream;
 

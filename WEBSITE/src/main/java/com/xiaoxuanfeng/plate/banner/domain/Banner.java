@@ -7,8 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.xiaoxuanfeng.plate.common.constants.CommonConstants;
-
-import common.base.BaseBean;
+import common.rdbms.base.BaseBean;
 
 @Entity
 @Table(name = "t_banner")

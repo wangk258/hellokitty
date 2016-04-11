@@ -15,9 +15,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.xiaoxuanfeng.plate.msg.bo.MsgQueryObject;
 import com.xiaoxuanfeng.plate.msg.domain.Msg;
 import com.xiaoxuanfeng.plate.msg.service.MsgService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
+import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value="/msg")

@@ -1,8 +1,7 @@
 package com.xiaoxuanfeng.plate.navigation.service;
 
 import com.xiaoxuanfeng.plate.navigation.domain.Navigation;
-
-import common.base.BaseService;
+import common.rdbms.base.BaseService;
 
 public interface NavigationService extends BaseService<Navigation> {
 

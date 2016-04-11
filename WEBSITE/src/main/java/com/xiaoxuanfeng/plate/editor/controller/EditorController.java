@@ -26,9 +26,8 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.editor.bo.EditorQueryObject;
 import com.xiaoxuanfeng.plate.editor.domain.Editor;
 import com.xiaoxuanfeng.plate.editor.service.EditorService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
+import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

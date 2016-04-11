@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.article.dao.ArticleDao;
 import com.anan.plate.article.domain.Article;
 import com.anan.plate.article.service.ArticleService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class ArticleServiceImpl extends BaseServiceImpl<Article> implements ArticleService {
 	@Autowired

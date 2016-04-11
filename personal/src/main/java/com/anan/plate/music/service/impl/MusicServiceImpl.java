@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.music.dao.MusicDao;
 import com.anan.plate.music.domain.Music;
 import com.anan.plate.music.service.MusicService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class MusicServiceImpl extends BaseServiceImpl<Music> implements MusicService {
 	@Autowired

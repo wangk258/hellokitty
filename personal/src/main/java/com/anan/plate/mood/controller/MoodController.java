@@ -24,9 +24,8 @@ import com.anan.plate.mood.domain.Mood;
 import com.anan.plate.mood.domain.MoodBackground;
 import com.anan.plate.mood.service.MoodBackgroundService;
 import com.anan.plate.mood.service.MoodService;
-
-import common.base.BaseController;
 import common.bo.ResultFlag;
+import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

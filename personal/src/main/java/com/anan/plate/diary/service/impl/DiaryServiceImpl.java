@@ -8,9 +8,8 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.diary.dao.DiaryDao;
 import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class DiaryServiceImpl extends BaseServiceImpl<Diary> implements DiaryService {
 	@Autowired

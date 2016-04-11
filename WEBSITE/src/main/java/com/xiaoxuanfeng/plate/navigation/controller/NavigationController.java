@@ -17,9 +17,8 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.navigation.bo.NavigationQueryObject;
 import com.xiaoxuanfeng.plate.navigation.domain.Navigation;
 import com.xiaoxuanfeng.plate.navigation.service.NavigationService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
+import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value = "/navigation")

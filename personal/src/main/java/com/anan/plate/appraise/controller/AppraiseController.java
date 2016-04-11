@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.anan.plate.appraise.bo.AppraiseQueryObject;
 import com.anan.plate.appraise.domain.Appraise;
 import com.anan.plate.appraise.service.AppraiseService;
-
 import common.bo.PageBean;
 import common.bo.ResultFlag;
 

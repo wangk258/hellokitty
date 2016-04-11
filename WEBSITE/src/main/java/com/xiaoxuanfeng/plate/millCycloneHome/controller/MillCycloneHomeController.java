@@ -23,10 +23,9 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.millCycloneHome.bo.MillCycloneHomeQueryObject;
 import com.xiaoxuanfeng.plate.millCycloneHome.domain.MillCycloneHome;
 import com.xiaoxuanfeng.plate.millCycloneHome.service.MillCycloneHomeService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
+import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

@@ -19,9 +19,8 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.diary.bo.DiaryQueryObject;
 import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
+import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value="/diary")

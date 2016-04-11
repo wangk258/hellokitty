@@ -1,4 +1,4 @@
-package common.base;
+package common.rdbms.base;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

@@ -23,10 +23,9 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.service.bo.ServiceManageQueryObject;
 import com.xiaoxuanfeng.plate.service.domain.ServiceManage;
 import com.xiaoxuanfeng.plate.service.service.ServiceManageService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
+import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

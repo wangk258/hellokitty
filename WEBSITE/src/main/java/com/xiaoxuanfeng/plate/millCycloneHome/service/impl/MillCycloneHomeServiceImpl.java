@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.xiaoxuanfeng.plate.millCycloneHome.dao.MillCycloneHomeDao;
 import com.xiaoxuanfeng.plate.millCycloneHome.domain.MillCycloneHome;
 import com.xiaoxuanfeng.plate.millCycloneHome.service.MillCycloneHomeService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class MillCycloneHomeServiceImpl extends BaseServiceImpl<MillCycloneHome> implements MillCycloneHomeService {
 	@Autowired

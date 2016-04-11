@@ -13,7 +13,6 @@ import com.anan.plate.photo.bo.AlbumQueryObject;
 import com.anan.plate.photo.service.AlbumService;
 import com.anan.plate.webSiteCollection.bo.WebSiteCollectionQueryObject;
 import com.anan.plate.webSiteCollection.service.WebSiteCollectionService;
-
 import common.bo.QueryObject;
 
 @Controller

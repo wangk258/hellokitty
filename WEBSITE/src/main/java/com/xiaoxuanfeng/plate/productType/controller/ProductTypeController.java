@@ -19,9 +19,8 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.productType.bo.ProductTypeQueryObject;
 import com.xiaoxuanfeng.plate.productType.domain.ProductType;
 import com.xiaoxuanfeng.plate.productType.service.ProductTypeService;
-
-import common.base.BaseController;
 import common.bo.PageBean;
+import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value = "/productType")

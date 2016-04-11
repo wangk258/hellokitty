@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.english.dao.EnglishDao;
 import com.anan.plate.english.domain.English;
 import com.anan.plate.english.service.EnglishService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class EnglishServiceImpl extends BaseServiceImpl<English> implements EnglishService {
 	@Autowired

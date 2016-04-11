@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import common.base.BaseBean;
+import common.rdbms.base.BaseBean;
 
 @Entity
 @Table(name = "t_process")

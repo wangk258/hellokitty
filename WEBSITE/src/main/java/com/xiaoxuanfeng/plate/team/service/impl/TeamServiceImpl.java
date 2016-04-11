@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.xiaoxuanfeng.plate.team.dao.TeamDao;
 import com.xiaoxuanfeng.plate.team.domain.Team;
 import com.xiaoxuanfeng.plate.team.service.TeamService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class TeamServiceImpl extends BaseServiceImpl<Team> implements TeamService {
 	@Autowired

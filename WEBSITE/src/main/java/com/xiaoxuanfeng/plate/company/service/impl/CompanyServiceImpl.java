@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 import com.xiaoxuanfeng.plate.company.dao.CompanyDao;
 import com.xiaoxuanfeng.plate.company.domain.Company;
 import com.xiaoxuanfeng.plate.company.service.CompanyService;
-
-import common.base.BaseDao;
-import common.base.BaseServiceImpl;
+import common.rdbms.base.BaseDao;
+import common.rdbms.base.BaseServiceImpl;
 @Service
 public class CompanyServiceImpl extends BaseServiceImpl<Company> implements CompanyService {
 	@Autowired

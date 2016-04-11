@@ -9,8 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.xiaoxuanfeng.plate.banner.service.BannerService;
 import com.xiaoxuanfeng.plate.product.service.ProductService;
-
-import common.base.BaseController;
+import common.rdbms.base.BaseController;
 
 @Controller
 public class IndexController  extends BaseController {

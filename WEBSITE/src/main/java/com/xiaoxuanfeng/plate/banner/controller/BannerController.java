@@ -22,9 +22,8 @@ import com.xiaoxuanfeng.plate.common.constants.Constant;
 import com.xiaoxuanfeng.plate.common.constants.MessageConstants;
 import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.common.util.RequestUtil;
-
-import common.base.BaseController;
 import common.bo.PageBean;
+import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.anan.plate.message.bo.MessageQueryObject;
 import com.anan.plate.message.domain.Message;
 import com.anan.plate.message.service.MessageService;
-
 import common.bo.PageBean;
 import common.bo.ResultFlag;
 
