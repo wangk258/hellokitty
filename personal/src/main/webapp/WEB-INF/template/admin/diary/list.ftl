@@ -13,7 +13,7 @@
 						<tr>
 							<th width="50px"><input type="checkbox" id="selectAll"/></th>
 							<th>日记概要</th>
-							<th width="200px">创建时间</th>
+							<th width="200px">时间</th>
 							<th width="150px">操作</th>
 							<th width="16px"></th>
 						</tr>
@@ -25,13 +25,13 @@
 							<#list pageBean.recordList  as data>
 								<tr id="${data.id}">
 									<td><input type="checkbox" id="box_${data.id}"/></td>
-									<#if data.plainText?length gt 20>
-										<#assign text=data.plainText?substring(0,20)/>
+									<#if data.plainText?length gt 40>
+										<#assign text=data.plainText?substring(0,40) + "..."/>
 									<#else>
 										<#assign text=data.plainText/>
 									</#if>
 									<td>${text}</td>
-									<td>${data.creatTime?string("yyyy-MM-dd")}</td>
+									<td>${data.date?number?number_to_date}</td>
 									<td>
 										<a href="javascript:void(0);" class="edit" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/modify.ico" width="15px" height="15px"/></a>&emsp;
 										<a href="javascript:void(0);" class="del" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/delete.ico" width="15px" height="15px"/></a>

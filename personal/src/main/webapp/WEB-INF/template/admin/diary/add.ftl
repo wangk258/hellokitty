@@ -12,7 +12,7 @@
 <@body>
 	<form id="form1">
 		<input type="hidden" id="diaryId" name="id" value="${(diary.id)?if_exists}"/>
-		<input type="hidden" id="plainText" name="plainText" value="${(diary.plainText)?if_exists}"/>
+		<input type="hidden" id="plainText" name="plainText" value='${(diary.plainText)?if_exists}'/>
 		<div style="width:900px;margin:0 auto;display:inline-block;">
 			<table class="form-table">
 				<tr>
