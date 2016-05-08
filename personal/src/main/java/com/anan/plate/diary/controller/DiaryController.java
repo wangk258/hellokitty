@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
 import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.diary.bo.DiaryQueryObject;
 import com.anan.plate.diary.domain.Diary;
@@ -92,7 +93,7 @@ public class DiaryController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/list")
-	public ModelAndView list(HttpServletRequest request,HttpSession session,DiaryQueryObject diaryQueryObject){
+	public ModelAndView list(HttpSession session,DiaryQueryObject diaryQueryObject){
 		ModelAndView mv=new ModelAndView("bigpage/diary/list");
 		try {
 			if(StringUtils.isNotBlank(diaryQueryObject.getPath())&&"admin".equals(diaryQueryObject.getPath())){
@@ -104,6 +105,24 @@ public class DiaryController extends BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return mv.addObject("error",e.getMessage());
+		}
+	}
+	
+	/**
+	 * 分页查询
+	 * @param request
+	 * @param session
+	 * @param ptMail
+	 * @param result
+	 * @return
+	 */
+	@RequestMapping(value = "/diaries")
+	public void listwidthjson(HttpServletResponse response,DiaryQueryObject diaryQueryObject){
+		try {
+			PageBean<Diary> pageBean=this.diaryService.list(diaryQueryObject);
+			response.getWriter().write(JSON.toJSONString(pageBean.getRecordList()));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
