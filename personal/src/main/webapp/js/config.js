@@ -9,14 +9,14 @@ require.config({
         "MD5": "md5.min",
         "calendar": "calendar",
         "angular": "angular.min",
-        "bootstrap": "bootstrap.min",
+        "bootstrap": "bootstrap/bootstrap.min",
         "publicJS": "public",
         "easyloader": "page/easyloader",
         "pageinate": "jPaginate/jquery.paginate",
         "artDialog": "artDialog/artDialog",
         "iframeTools": "artDialog/plugins/iframeTools",
         "toolbar": "toolbar",
-        "Tool": "Tool"
+        "Utils": "Utils"
     },
     shim: {
         angular: {

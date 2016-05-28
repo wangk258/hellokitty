@@ -31,7 +31,7 @@
         }
         options = options.toolbar;
         if ($.type(options) === "object") {
-            var _str = "<ul class='toolbar_ul'><li>" + options.element + "<span>" + options.content + "</span></li>";
+            var _str = "<ul class='toolbar_ul'><li>" + options.element + "<span>&nbsp;&nbsp;" + options.content + "</span></li>";
             _str += "</ul>";
             $(this).html(_str);
             $(this).delegate("li", "click", options.callback);
@@ -39,7 +39,7 @@
         else {
             ul = $("<ul class='toolbar_ul'></ul>").appendTo(this);
             for (var i = 0, j = options.length; i < j; i++) {
-                var _str = "<li>" + options[i].element + "<span>" + options[i].content + "</span></li>";
+                var _str = "<li>" + options[i].element + "<span>&nbsp;&nbsp;" + options[i].content + "</span></li>";
                 ul.append(_str);
                 ul.find("li:last").unbind().bind("click", options[i].callback);
             }

@@ -10,7 +10,7 @@
 			<meta http-equiv="keywords" content=""/>
 			<meta http-equiv="description" content=""/>
 			<link href="${path.contextPath}/css/lib/jquery-ui.css" rel="stylesheet"/>
-			<link href="${path.contextPath}/css/lib/bootstrap.min.css" rel="stylesheet"/>
+			<link href="${path.contextPath}/js/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 			<link href='${path.contextPath}/js/lib/jPaginate/css/style.css' rel='stylesheet'/>
 			<link href="${path.contextPath}/js/lib/artDialog/skins/blue.css" rel="stylesheet"/>
 			<#if isAdmin>

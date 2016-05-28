@@ -1,29 +1,22 @@
-define(["angular","publicJS", "easyloader", "toolbar", "jQueryUI"],function(angular){
+define(["angular","Utils", "easyloader", "toolbar", "jQueryUI"],function(angular,utils){
     var diary = {
-        del:function(id,isSingle){
-            var idArray=[];
-            if(isSingle){
-                idArray.push(id);
+        del:function(ids){
+            if(!ids || !ids.length){
+            	utils.showAlert("请选择要删除的日记！");
+            	return;
             }
-            else{
-                var boxs=$("table tr:not(:first)").find("input:checkbox:checked");
-                for(var i=0;i<boxs.length;i++){
-                    idArray.push($(boxs[i]).attr("id").slice(4));
-                }
-            }
-            if(!idArray.length){
-                alert("请勾选要删除的日记！");
-                return;
+            if(Object.prototype.toString.call(ids) !== "[object Array]"){
+            	ids = [ids];
             }
             if(window.confirm("你确定要做傻事吗？")){
-                $.post(contextPath+"/diary/delete.do",{ids:idArray.join(",")},function(result){
+                $.post(contextPath+"/diary/delete.do",{ids:ids.join(",")},function(result){
                     if(result){
                         if(result.flag){
-                            alert("好吧！这条日记彻底从地球上消失了！");
+                            utils.showAlert("好吧！这条日记彻底从地球上消失了！");
                             window.location.reload();
                         }
                         else{
-                            alert(result.msg);
+                            utils.showAlert(result.msg);
                         }
                     }
                     else{
@@ -36,48 +29,45 @@ define(["angular","publicJS", "easyloader", "toolbar", "jQueryUI"],function(angu
             this.edit("");
         },
         edit:function(id){
-            showPopWindow("添加日记",900,650,contextPath+"/diary/single.ashx?id="+id+"&path=edit");
+            showPopWindow("添加日记",900,550,contextPath+"/diary/single.ashx?id="+id+"&path=edit");
         }
     };
     angular.module('diaryListAdminApp', [])
         .controller("diaryListAdminController",function($scope){
+			initToolBar();
+			initPageBar();
             $scope.edit = diary.edit;
             $scope.del = diary.del;
+            $scope.arr= [];
+            $scope.selectItem = function(){
+            	if(this.checked){
+            		$scope.arr.push(this.id);
+            	}
+            }
         });
     angular.bootstrap(angular.element("#diaryListAdminApp"), ['diaryListAdminApp']);
-	function bindEvent(){
-		//$(".edit").click(function(){
-		//	var id = $(this).attr("data-id");
-		//	diary.edit(id);
-		//});
-		//$(".del").click(function(){
-		//	var id = $(this).attr("data-id");
-		//	diary.del(id,true);
-		//});
-		//$("#selectAll").click(function(){
-		//	$("input:checkbox").attr("checked",this.checked);
-		//});
-		setDialogSize();
-	}
 	function initToolBar(){
 		$(".toolbar div:first").toolBar({
             toolbar: [
                 {
-                    "element": "<img src='/images/admin/add.ico'/>",
-                    "content": "添加",
+                    "element": getBtnStr("plus"),
+                    "content":"添加",
                     "callback": function () {
                         diary.add();
                     }
                 },
                 {
-                    "element": "<img src='/images/admin/delete.ico'/>",
-                    "content": "删除",
+                    "element": getBtnStr("remove"),
+                    "content":"删除",
                     "callback": function () {
-                        diary.del(null, false);
+                        diary.del();
                     }
                 }
             ]
         });
+		function getBtnStr(type){
+			return "<span class='glyphicon glyphicon-"+type+"'></span>";
+		}
 	}
 	function initPageBar(){
 		window.using("pagination",function(){
@@ -95,9 +85,6 @@ define(["angular","publicJS", "easyloader", "toolbar", "jQueryUI"],function(angu
 	}
 	return {
 		init:function(){
-			bindEvent();
-			initToolBar();
-			initPageBar();
 		}
 	}
 });

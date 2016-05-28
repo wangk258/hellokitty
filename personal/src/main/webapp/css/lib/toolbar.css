@@ -7,9 +7,10 @@
 .toolbar_ul li {
     display: inline-block;
     list-style-type: none;
-    margin: 0 10px;
-    height: 30px;
-    line-height: 30px;
+    margin: 0 5px;
+    height: 25px;
+    padding:0 10px;
+    line-height: 25px;
     text-decoration: none;
     color:gray;
     cursor: pointer;
@@ -21,6 +22,6 @@
 }
 
 .toolbar_ul li:hover {
-    color: red;
-    text-decoration: underline
+    background-color:#c0c0c0;
+    border-radius:5px;
 }

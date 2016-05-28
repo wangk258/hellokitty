@@ -16,7 +16,7 @@ define(["jQueryUI","publicJS"],function(){
 		$("#saveBtn").click(function(){
 			if(validateForm()){
 				$.post(contextPath+"/diary/saveOrUpdate.do",$("#form1").serialize(),function(result){
-                    showAlert(result.flag?"恭喜发财！":"出错啦！"+result.msg,function(){
+                    utils.showAlert(result.flag?"恭喜发财！":"出错啦！"+result.msg,function(){
                         art.dialog.opener.location.reload();
                     });
 				},"json");
@@ -25,19 +25,19 @@ define(["jQueryUI","publicJS"],function(){
 	}
 	function validateForm(){
 		if(($.trim($("#date").val()))==""){
-			showAlert("你想写哪天的日记啊，好歹也选一下撒！");
+			utils.showAlert("你想写哪天的日记啊，好歹也选一下撒！");
 			return false;
 		}
 		if(($.trim($("#week").val()))==""){
-			showAlert("还记的那天是星期几不，不记得赶快去查一下，马上给我填上！");
+			utils.showAlert("还记的那天是星期几不，不记得赶快去查一下，马上给我填上！");
 			return false;
 		}
 		if(($.trim($("#weather").val()))==""){
-			showAlert("是不是那天的天气影响你的心情啦，你都不想写它？");
+			utils.showAlert("是不是那天的天气影响你的心情啦，你都不想写它？");
 			return false;
 		}
 		if(contentEditor.getContent()==""){
-			showAlert("虽然我不知道你是有多不愿意写，但是你还是多少写一点撒！");
+			utils.showAlert("虽然我不知道你是有多不愿意写，但是你还是多少写一点撒！");
 			return false;
 		}
 		else{
