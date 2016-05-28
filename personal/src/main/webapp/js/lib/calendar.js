@@ -8,7 +8,8 @@
     }
     return c(jQuery);
 }(!function ($) {
-    var self = null,tempOptions = {};
+    var self = null,
+        tempOptions = {};
     function _bindEvent() {
         $("._jt").on("click", "td", function () {
             tempOptions.onDayChange && typeof tempOptions.onDayChange === "function" && tempOptions.onDayChange(new Date($(this).attr("data-date")).getTime());

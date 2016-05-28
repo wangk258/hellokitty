@@ -2,7 +2,7 @@
 <@head title="心灵日记管理" isAdmin=true>
 </@head>
 <@body>
-	<div>
+	<div id="diaryListAdminApp">
 		<ul>
 			<li class="toolbar">
 				<div style="float:left;"></div>
@@ -18,7 +18,7 @@
 							<th width="16px"></th>
 						</tr>
 					</thead>
-					<tbody class="datalist">
+					<tbody class="datalist" ng-controller="diaryListAdminController">
 						<#if error??>
 						   ${error}
 						<#else>
@@ -33,8 +33,8 @@
 									<td>${text}</td>
 									<td>${data.date?number?number_to_date}</td>
 									<td>
-										<a href="javascript:void(0);" class="edit" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/modify.ico" width="15px" height="15px"/></a>&emsp;
-										<a href="javascript:void(0);" class="del" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/delete.ico" width="15px" height="15px"/></a>
+										<a href="javascript:void(0);" ng-click="edit(${data.id})" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/modify.ico" width="15px" height="15px"/></a>&emsp;
+										<a href="javascript:void(0);" ng-click="del(${data.id},true)" data-id="${data.id}"><img src="${path.contextPath}/images/admin/icons/delete.ico" width="15px" height="15px"/></a>
 									</td>
 								</tr>
 							</#list>

@@ -18,7 +18,6 @@
 				<link href="${path.contextPath}/css/lib/public_admin.css" rel="stylesheet"/>
 			</#if>
 			<#nested>
-			<script type="text/javascript" src="${path.contextPath}/js/lib/jquery-1.8.0.min.js"></script>
 			<script type="text/javascript">
 				var contextPath = "${path.contextPath}";
 			</script>
