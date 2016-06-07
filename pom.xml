@@ -118,10 +118,11 @@
 			<version>2.4</version>
 			<classifier>jdk15</classifier>
 		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
 		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>3.6.5.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
