@@ -15,6 +15,7 @@ require.config({
         "pageinate": "jPaginate/jquery.paginate",
         "artDialog": "artDialog/artDialog",
         "iframeTools": "artDialog/plugins/iframeTools",
+        "slider":"slider",
         "toolbar": "toolbar",
         "Utils": "Utils"
     },
@@ -28,6 +29,10 @@ require.config({
         artDialog: {
             deps: ["jquery"],
             exports: "artDialog"
+        },
+        slider:{
+            deps:["jquery"],
+            exports:"Slider"
         },
         iframeTools: {
             deps: ["artDialog"]

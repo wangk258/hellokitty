@@ -1,107 +1,23 @@
+@-webkit-keyframes slider{
+    0% { margin-left:0;}
+    23% { margin-left:0;}
+    33% { margin-left:-100%;}
+    56% { margin-left:-100%;}
+    66% { margin-left:-200%;}
+    90% { margin-left:-200%;}
+    100% {margin-left:0;}
+}
 html,body{
-	overflow:auto;
-	margin:0;
-	padding:0;
-	background:url('/images/bg.jpg');
+    margin:0;
+    padding:0;
+    overflow:hidden;
 }
-.opacity{
-	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
-	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
-	opacity:0.5;/*其他，透明度50%*/
+#banner{
+    height:10rem;
+    width:300%;
+    background-color:red;
+    -webkit-animation:slider 10s ease-out infinite;
 }
-.sentence{
-	font-size:40px;
-	font-weight:bolder;
-	height:50px;
-	background-color:#eee;
-}
-.shadow{
-	box-shadow:0 0 5px gray;
-}
-.quote{
-	color:black;
-	width:100%;
-	text-align:center;
-	min-height: 100px;
-	display:inline-block;
-	font-family:Microsoft YaHei;
-	font-size:20px;
-	line-height:50px;
-	padding:20px 0;
-	margin:4% auto;
-}
-.div_container{
-	max-width:1000px;
-	margin:0 auto;
-}
-.t{
-	margin-top:30px;
-	display:inline-block;
-	width:100%;
-}
-.huahua{
-	box-shadow:0 0 2px black;
-	background-color:white;
-	min-height:313px;
-	margin-top:10px;
-}
-.huahua li{
-	list-style-type: none;
-	line-height: 30px;
-	height:30px;
-}
-.huahua li a{
-	color:gray;
-	text-decoration: none;
-}
-.huahua li a:hover{
-	text-decoration: underline;
-	color:black;
-}
-.huahua li  img{
-	width:20px;
-	height:20px;
-	margin-right:5px;
-	display:block;
-	float:left;
-	margin-top:6px;
-}
-.huahua .chenlong{
-	display:block;
-	float:left;
-}
-.huahua .xingguangdadao{
-	font-size:30px;
-	font-weight:bolder;
-	display:block;
-	height:128px;
-}
-.nav{
-	width:100%;
-	margin:0;
-	padding:0;
-}
-.nav li{
-	width:100%;
-	list-style-type: none;
-	text-shadow: black;
-	height: 40px;
-	line-height: 40px;
-	min-height: 40px;
-	font-size:20px;
-}
-.nav li a:hover{
-	background:none;
-}
-.nav li a{
-	color:black;
-	text-decoration: none;
-}
-
-.nav li a:hover{
-	text-decoration: underline;
-	color:skyblue;
-}
-iframe{
-	background:transparent;
+#banner img{
+    float:left;
 }
