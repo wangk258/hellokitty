@@ -10,7 +10,6 @@ require.config({
         "calendar": "calendar",
         "angular": "angular.min",
         "bootstrap": "bootstrap/bootstrap.min",
-        "publicJS": "public",
         "easyloader": "page/easyloader",
         "pageinate": "jPaginate/jquery.paginate",
         "artDialog": "artDialog/artDialog",

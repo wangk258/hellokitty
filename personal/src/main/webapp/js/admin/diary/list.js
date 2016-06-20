@@ -1,7 +1,7 @@
 define(["angular","Utils", "easyloader", "toolbar", "jQueryUI"],function(angular,utils){
     var diary = {
         del:function(ids){
-            if(!ids || !ids.length){
+            if(!ids || (Object.prototype.toString.call(ids) === "[object Array]" && !ids.length)){
             	utils.showAlert("请选择要删除的日记！");
             	return;
             }
@@ -29,24 +29,26 @@ define(["angular","Utils", "easyloader", "toolbar", "jQueryUI"],function(angular
             this.edit("");
         },
         edit:function(id){
-            showPopWindow("添加日记",900,550,contextPath+"/diary/single.ashx?id="+id+"&path=edit");
+            utils.showPopWindow("添加日记",900,550,contextPath+"/diary/single.ashx?id="+id+"&path=edit");
         }
     };
     angular.module('diaryListAdminApp', [])
         .controller("diaryListAdminController",function($scope){
-			initToolBar();
-			initPageBar();
+			
             $scope.edit = diary.edit;
             $scope.del = diary.del;
             $scope.arr= [];
-            $scope.selectItem = function(){
-            	if(this.checked){
-            		$scope.arr.push(this.id);
+            $scope.selectItem = function(e){
+            	var target = e.target;
+            	if(target.checked){
+            		$scope.arr.push(target.id);
             	}
             }
+            initToolBar($scope);
+			initPageBar();
         });
     angular.bootstrap(angular.element("#diaryListAdminApp"), ['diaryListAdminApp']);
-	function initToolBar(){
+	function initToolBar($scope){
 		$(".toolbar div:first").toolBar({
             toolbar: [
                 {
@@ -60,7 +62,7 @@ define(["angular","Utils", "easyloader", "toolbar", "jQueryUI"],function(angular
                     "element": getBtnStr("remove"),
                     "content":"删除",
                     "callback": function () {
-                        diary.del();
+                        $scope.del($scope.arr);
                     }
                 }
             ]

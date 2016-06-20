@@ -43,6 +43,7 @@ define(function(){
         }
 
     }
+    window.utils = Utils;
     return  Utils;
 });
 

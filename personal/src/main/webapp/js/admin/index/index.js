@@ -1,7 +1,7 @@
 /**
  * Created by ahpeng on 2015/7/15.
  */
-define(["publicJS", "jQueryUI"], function () {
+define(["Utils", "jQueryUI"], function (utils) {
 	return {
 		init:function(){
 			$(".controlmenu").click(function () {

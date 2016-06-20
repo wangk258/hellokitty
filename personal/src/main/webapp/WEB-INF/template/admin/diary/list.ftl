@@ -24,7 +24,7 @@
 						<#else>
 							<#list pageBean.recordList  as data>
 								<tr id="${data.id}">
-									<td><input type="checkbox" id="${data.id}" ng-change="selectItem.bind(this)"/></td>
+									<td><input type="checkbox" id="${data.id}" ng-click="selectItem($event)"/></td>
 									<#if data.plainText?length gt 40>
 										<#assign text=data.plainText?substring(0,40) + "..."/>
 									<#else>
@@ -34,7 +34,7 @@
 									<td>${data.date?number?number_to_date}</td>
 									<td>
 										<button class="btn btn-info btn-xs" ng-click="edit(${data.id})"><span class="glyphicon glyphicon-pencil"><span>编辑</button>
-										<button class="btn btn-danger btn-xs"  ng-click="del(${data.id},true)"><span class="glyphicon glyphicon-remove"></span>删除</button>
+										<button class="btn btn-danger btn-xs"  ng-click="del(${data.id})"><span class="glyphicon glyphicon-remove"></span>删除</button>
 									</td>
 								</tr>
 							</#list>

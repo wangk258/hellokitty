@@ -91,7 +91,7 @@
 <@body>
 	<div style="width:1000px;margin:0 auto;">
 	    <ul>
-	        <li onclick="showPopWindow('日记列表',1000,500,'${path.contextPath}/diary/list.do?path=admin')">
+	        <li onclick="utils.showPopWindow('日记列表',1000,500,'${path.contextPath}/diary/list.do?path=admin')">
 	            <div class="div_img">
 	                <img src="${path.contextPath}/images/admin/diary.png"/>
 	            </div>
