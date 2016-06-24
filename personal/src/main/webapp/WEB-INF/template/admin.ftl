@@ -99,14 +99,7 @@
 	        </li>
 	    </ul>
 	</div>
-	<div class="controlmenu">
-	    <div class="b-left"></div>
-	    <div class="b-center">
-	        <div class="b-icon"></div>
-	        <div class="b-text">退出</div>
-	    </div>
-	    <div class="b-right"></div>
-	</div>
+
 	<div id="dialog_div" style="display:none;overflow: auto;overflow-x:hidden;">
 		<iframe id="dialog_frame" src="" width="100%" frameborder="0" scrolling="no"
 		 style="left:0px;right: 0px;bottom: 0px;"></iframe>

@@ -67,7 +67,7 @@ public class EnglishController  extends BaseController {
 			e.printStackTrace();
 			resultFlag=this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 	/**
 	 * 删除
@@ -92,7 +92,7 @@ public class EnglishController  extends BaseController {
 			e.printStackTrace();
 			resultFlag= this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 	
 	/**
@@ -160,7 +160,7 @@ public class EnglishController  extends BaseController {
 			e.printStackTrace();
 			resultFlag=this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 	
 	/**

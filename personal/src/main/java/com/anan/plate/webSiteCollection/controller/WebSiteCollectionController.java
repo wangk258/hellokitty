@@ -54,7 +54,7 @@ public class WebSiteCollectionController extends BaseController {
 			e.printStackTrace();
 			resultFlag = this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class WebSiteCollectionController extends BaseController {
 			e.printStackTrace();
 			resultFlag = this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 
 	/**

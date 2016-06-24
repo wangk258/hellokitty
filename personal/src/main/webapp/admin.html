@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="personal">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="/css/admin.css">
+    <link type="text/css" rel="stylesheet" href="/js/lib/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="main">
+    <div class="left" ng-controller="personalController">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default" ng-repeat="func in funcs">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse{{$index}}" ng-bind="func"></a>
+                    </h4>
+                </div>
+                <div id="collapse{{$index}}" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <div class="div_img">
+                                    <img src="/images/admin/diary.png"/>
+                                </div>
+                                <div class="div_title"><span>心灵日记</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right"></div>
+</div>
+
+<div class="controlmenu">
+    <div class="b-left"></div>
+    <div class="b-center">
+        <div class="b-icon"></div>
+        <div class="b-text">退出</div>
+    </div>
+    <div class="b-right"></div>
+</div>
+</body>
+<script type="text/javascript" src="/js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="/js/lib/angular.min.js"></script>
+<script>
+    var app = angular.module("personal", []);
+    app.controller("personalController", ["$scope", function ($scope) {
+        $scope.funcs = ["个人随笔", "爱好学习", "用户管理"];
+        $scope.count = 5;
+    }]);
+</script>
+<script type="text/javascript" src="/js/lib/bootstrap/js/bootstrap.min.js"></script>
+</html>

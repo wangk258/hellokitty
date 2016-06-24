@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
 import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.diary.bo.DiaryQueryObject;
 import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
+
 import common.bo.PageBean;
 import common.rdbms.base.BaseController;
 
@@ -60,7 +60,7 @@ public class DiaryController extends BaseController {
 			e.printStackTrace();
 			resultFlag=this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 	/**
 	 * 删除
@@ -80,7 +80,7 @@ public class DiaryController extends BaseController {
 			e.printStackTrace();
 			resultFlag= this.setErrorFlag(e.getMessage());
 		}
-		this.write(response);
+		this.writeFlag(response);
 	}
 	
 	
@@ -119,8 +119,8 @@ public class DiaryController extends BaseController {
 	@RequestMapping(value = "/diaries")
 	public void listwidthjson(HttpServletResponse response,DiaryQueryObject diaryQueryObject){
 		try {
-			PageBean<Diary> pageBean=this.diaryService.list(diaryQueryObject);
-			response.getWriter().write(JSON.toJSONString(pageBean.getRecordList()));
+			this.pageBean=this.diaryService.list(diaryQueryObject);
+			this.writeObject(response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
