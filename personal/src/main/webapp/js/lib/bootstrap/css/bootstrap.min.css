@@ -5392,7 +5392,9 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:hover,a.list-gro
 }
 
 .panel-title>a {
-	color: inherit
+	color: inherit;
+    display:block;
+    font-weight:bolder;
 }
 
 .panel-footer {

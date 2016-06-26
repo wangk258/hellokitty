@@ -1,7 +1,7 @@
 
 
 html, body {
-    overflow: auto;
+    overflow: hidden;
     height:100%;
     margin:0;
     padding:0;
@@ -23,21 +23,20 @@ ul {
     height: 97%;
     float: left;
 }
-.main .left .panel-group,.main .left .panel,.main .left .collapse.in{
-    height:100%;
+
+.main .left .panel-heading{
+    background:url('/images/table_bg.png') repeat-x;
+    padding:5px 15px;
+    color:darkblue;
+    font-weight:bolder;
+    text-align:center;
 }
 
-.main .left .panel-body{
-    height:95%;
-    overflow: auto;
-    overflow-x: hidden;
-}
 
 .main .left li{
     width: 100%;
     margin: 20px auto 0px auto;
     cursor: pointer;
-    border-bottom: 1px dotted gray;
     padding: 10px 0 20px 0;
 }
 

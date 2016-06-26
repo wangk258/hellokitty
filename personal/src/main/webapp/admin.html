@@ -17,10 +17,10 @@
                            href="#collapse{{$index}}" ng-bind="func"></a>
                     </h4>
                 </div>
-                <div id="collapse{{$index}}" class="panel-collapse collapse in">
+                <div id="collapse{{$index}}" class="panel-collapse collapse" style="height:0px">
                     <div class="panel-body">
                         <ul>
-                            <li>
+                            <li ng-repeat="num in count track by $index">
                                 <div class="div_img">
                                     <img src="/images/admin/diary.png"/>
                                 </div>
@@ -46,12 +46,13 @@
 </body>
 <script type="text/javascript" src="/js/lib/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="/js/lib/angular.min.js"></script>
+<script type="text/javascript" src="/js/lib/bootstrap/js/bootstrap.min.js"></script>
 <script>
     var app = angular.module("personal", []);
     app.controller("personalController", ["$scope", function ($scope) {
         $scope.funcs = ["个人随笔", "爱好学习", "用户管理"];
-        $scope.count = 5;
+        $scope.count=[];
+        $scope.count.length = 6;
     }]);
 </script>
-<script type="text/javascript" src="/js/lib/bootstrap/js/bootstrap.min.js"></script>
 </html>

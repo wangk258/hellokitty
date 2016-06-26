@@ -9,13 +9,15 @@ define([ "angular", "jQueryUI" ], function(angular) {
 		contentEditor.render("content");
 	}
 	angular.module("DiaryAddApp", []).controller("DiaryAddController",
-			function($scope,$http) {
+			function($scope,$http,$timeout) {
 				$scope.diary={};
-				$scope.$apply();
+                $timeout(function(){
+                   $scope.$apply();
+                });
 				$scope.submit = function() {
 					console.log($scope.diary);
 				}
-			});
+	});
 	angular.bootstrap(angular.element("#DiaryAddApp"), [ "DiaryAddApp" ]);
 	function bindEvent() {
 		$("#week").attr("readonly", true);
