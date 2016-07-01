@@ -48,7 +48,7 @@ public class EnglishController  extends BaseController {
 	public void add(HttpServletResponse response,English english) throws Exception{
 		try {
 			if(english==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			if(null==english.getId()){
 				englishService.save(english);
@@ -56,16 +56,16 @@ public class EnglishController  extends BaseController {
 			else{
 				English old=this.englishService.get(english.getId());
 				if(old==null){
-					resultFlag=this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
+					this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
 				}
 				english.setMp3Url(old.getMp3Url());
 				english.setOrginalName(old.getOrginalName());
 				englishService.update(english);
 			}
-			resultFlag=this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		this.writeFlag(response);
 	}
@@ -83,14 +83,14 @@ public class EnglishController  extends BaseController {
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				this.englishService.delete(ids);
-				resultFlag=this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				resultFlag=this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag= this.setErrorFlag(e.getMessage());
+			 this.setErrorFlag(e.getMessage());
 		}
 		this.writeFlag(response);
 	}
@@ -155,17 +155,16 @@ public class EnglishController  extends BaseController {
 	public void one(HttpServletResponse response,Long id) throws Exception{
 		try {
 			English english=this.englishService.get(id);
-			resultFlag=this.setRightFlag(english);
+			this.setRightFlag(english);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		this.writeFlag(response);
 	}
 	
 	/**
-	 * mp3文件上传
-	 * @param request
+	 * mp3文件上传	 * @param request
 	 * @param session
 	 * @param ptMail
 	 * @param result

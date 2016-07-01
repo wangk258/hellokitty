@@ -41,7 +41,7 @@ public class ArticleController extends BaseController {
 	public ResultFlag add(HttpServletRequest request,HttpSession session,Article article){
 		try {
 			if(article==null){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			article.setCreateTime(new Timestamp(new Date().getTime()));
 			articleService.save(article);
@@ -114,17 +114,18 @@ public class ArticleController extends BaseController {
 			if(articleQueryObject==null){
 				return new ResultFlag(false,"数据传输错误！");
 			}
-			return this.setRightFlag(this.articleService.list(articleQueryObject));
+			this.setRightFlag(this.articleService.list(articleQueryObject));
 		} catch (Exception e) {
 			if(e instanceof org.hibernate.exception.JDBCConnectionException){
 				try {
-					return this.setRightFlag(this.articleService.list(articleQueryObject));
+					this.setRightFlag(this.articleService.list(articleQueryObject));
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
 			}
 			return new ResultFlag(false,e.getMessage());
 		}
+		return null;
 	}
 	
 	/**

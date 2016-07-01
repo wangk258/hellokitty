@@ -1,0 +1,28 @@
+<form>
+    <input type="hidden" id="diaryId" name="id" ng-model="diary.id" value="{{diary.id}}"/>
+    <input type="hidden" id="plainText" name="plainText" ng-model="diary.plainText" value="{{diary.plainText}}"/>
+    <table class="form-table">
+        <tr>
+            <td width="10%">日期：</td>
+            <td width="90%">
+                <input type="text" ng-model="diary.date|date:'yyyy-MM-dd'" week="diary.week" class="form-control datepicker" />
+            </td>
+        </tr>
+        <tr>
+            <td>星期：</td>
+            <td><input type="text" ng-model="diary.week"  class="form-control"/></td>
+        </tr>
+        <tr>
+            <td>天气：</td>
+            <td><input type="text" ng-model="diary.weather" class="form-control"/></td>
+        </tr>
+        <tr>
+            <td>内容：</td>
+            <td><script type="text/plain" ng-bind="diary.content" id="content"></script></td>
+        </tr>
+    </table>
+    <div style="width:200px; margin:20px auto;">
+        <input type="button"  value="确定" ng-click="submit()" class="btn btn-success"/>
+        &emsp;<input type="reset" value="重写" class="btn btn-info" />
+    </div>
+</form>

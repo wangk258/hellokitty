@@ -42,17 +42,16 @@ public class MoodBackgroundController  extends BaseController {
 	 */
 	@RequestMapping(value = "/add")
 	public void add(HttpServletResponse response,@RequestParam("imageUrls") String imageUrls){
-		ResultFlag resultFlag=null;
 		try {
 			for(String imageUrl : imageUrls.split(",")){
 				MoodBackground mb=new MoodBackground();
 				mb.setImageUrl(imageUrl);
 				moodBackgroundService.save(mb);
 			}
-			resultFlag=this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -75,15 +74,16 @@ public class MoodBackgroundController  extends BaseController {
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				this.moodBackgroundService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**
@@ -99,14 +99,15 @@ public class MoodBackgroundController  extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,MoodBackground moodBackground){
 		try {
 			if(moodBackground==null||null==moodBackground.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.moodBackgroundService.update(moodBackground);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**
@@ -122,13 +123,14 @@ public class MoodBackgroundController  extends BaseController {
 	public ResultFlag list(HttpServletRequest request,HttpSession session,MoodBackgroundQueryObject moodBackgroundQueryObject){
 		try {
 			if(moodBackgroundQueryObject==null){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			PageBean<MoodBackground> pageBean=this.moodBackgroundService.list(moodBackgroundQueryObject);
-			return this.setRightFlag(pageBean);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 }

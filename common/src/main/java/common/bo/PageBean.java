@@ -1,4 +1,5 @@
 package common.bo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +11,16 @@ public class PageBean<T> {
 
 	// 查询数据库
 
-	private List<T> recordList=new ArrayList<T>(); // 本页的数据列表
+	private List<T> recordList = new ArrayList<T>(); // 本页的数据列表
 	private Integer recordCount; // 总记录数
 
 	// 计算
 	private Integer pageCount; // 总页数
 	private Integer beginPageIndex; // 页码列表的开始索引（包含）
 	private Integer endPageIndex; // 页码列表的结束索引（包含）
+
+	public PageBean() {
+	};
 
 	/**
 	 * 只接受4个必要的属性，会自动的计算出其他3个属性的值
@@ -30,21 +34,21 @@ public class PageBean<T> {
 		this.currentPage = currentPage;
 		this.pageSize = pageSize;
 		this.recordCount = recordCount;
-		
-		if(currentPage==null||currentPage<=1){
-			this.currentPage=1;
+
+		if (currentPage == null || currentPage <= 1) {
+			this.currentPage = 1;
 		}
-		
-		if(pageSize==null||pageSize<=0){
-			this.pageSize=15;
+
+		if (pageSize == null || pageSize <= 0) {
+			this.pageSize = 15;
 		}
 		// 计算 pageCount
 		pageCount = (recordCount + pageSize - 1) / pageSize;
-		
-		if(currentPage!=null&&currentPage>=pageCount){
-			this.currentPage=pageCount;
+
+		if (currentPage != null && currentPage >= pageCount) {
+			this.currentPage = pageCount;
 		}
- 
+
 		// 计算 beginPageIndex 与 endPageIndex
 		// >> 总页码小于等于10页时，全部显示
 		if (pageCount <= 6) {

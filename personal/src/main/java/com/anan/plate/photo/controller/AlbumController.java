@@ -49,17 +49,16 @@ public class AlbumController extends BaseController {
 	 */
 	@RequestMapping(value = "/add",method = RequestMethod.POST)
 	public void  add(HttpServletResponse response,HttpSession session,Album album){
-		ResultFlag resultFlag=null;
 		try {
 			if(album==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			album.setImageUrl(PhotoConstants.ALBUM_DEFAULT);
 			albumService.save(album);
-			resultFlag=this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -78,24 +77,23 @@ public class AlbumController extends BaseController {
 	 */
 	@RequestMapping(value = "/delete",method = RequestMethod.POST)
 	public void delete(HttpServletResponse response,@RequestParam("id") Long id){
-		ResultFlag resultFlag=null;
 		try {
 			if(id!=null){
 				List<Photos> list=this.photoService.list("from Photos where albumId=?",id);
 				if(list.size()>0){
-					resultFlag= this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
+					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
 				}
 				else{
 					this.albumService.delete(id);
-					resultFlag= this.setRightFlag(null);
+					 this.setRightFlag(null);
 				}
 			}
 			else{
-				resultFlag= this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				 this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag= this.setErrorFlag(e.getMessage());
+			 this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -119,14 +117,15 @@ public class AlbumController extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,Album album){
 		try {
 			if(album==null||null==album.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.albumService.update(album);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**

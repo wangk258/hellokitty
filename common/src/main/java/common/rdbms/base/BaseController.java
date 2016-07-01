@@ -10,31 +10,30 @@ import common.bo.PageBean;
 import common.bo.ResultFlag;
 import net.sf.json.JSONObject;
 
-
 public class BaseController<T> {
 
-	protected static ResultFlag resultFlag=new ResultFlag();
-	
-	protected PageBean<T> pageBean = null;
-	
-	public ResultFlag setRightFlag(Object o){
+	protected static ResultFlag resultFlag = new ResultFlag();
+
+	protected PageBean<T> pageBean;
+
+	public void setRightFlag(Object o) {
 		resultFlag.setFlag(true);
+		resultFlag.setMsg("");
 		resultFlag.setData(o);
-		return resultFlag;
 	}
-	
-	public ResultFlag setErrorFlag(String msg){
+
+	public void setErrorFlag(String msg) {
 		resultFlag.setFlag(false);
+		resultFlag.setData(null);
 		resultFlag.setMsg(msg);
-		return resultFlag;
 	}
-	
-	public void writeFlag(HttpServletResponse response) throws Exception{
-		OutputStream out=response.getOutputStream();
+
+	public void writeFlag(HttpServletResponse response) throws Exception {
+		OutputStream out = response.getOutputStream();
 		out.write(JSONObject.fromObject(resultFlag).toString().getBytes());
 	}
-	
-	public void writeObject(HttpServletResponse response) throws Exception{
-		response.getWriter().write(JSON.toJSONString(pageBean));
+
+	public void writeObject(HttpServletResponse response,Object object) throws Exception {
+		response.getWriter().write(JSON.toJSONString(object));
 	}
 }

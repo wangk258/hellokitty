@@ -41,18 +41,17 @@ public class WebSiteCollectionController extends BaseController {
 			WebSiteCollection webSiteCollection) throws Exception {
 		try {
 			if (webSiteCollection == null) {
-				resultFlag = this
-						.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			if (webSiteCollection.getId() == null) {
 				webSiteCollectionService.save(webSiteCollection);
 			} else {
 				webSiteCollectionService.update(webSiteCollection);
 			}
-			resultFlag = this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag = this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		this.writeFlag(response);
 	}
@@ -73,14 +72,13 @@ public class WebSiteCollectionController extends BaseController {
 		try {
 			if (StringUtils.isNotBlank(ids)) {
 				this.webSiteCollectionService.delete(ids);
-				resultFlag = this.setRightFlag(null);
+				this.setRightFlag(null);
 			} else {
-				resultFlag = this
-						.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag = this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		this.writeFlag(response);
 	}

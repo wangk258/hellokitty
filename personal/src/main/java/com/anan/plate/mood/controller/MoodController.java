@@ -61,14 +61,15 @@ public class MoodController  extends BaseController {
 	public ResultFlag add(HttpServletRequest request,HttpSession session,Mood mood){
 		try {
 			if(mood==null){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			moodService.save(mood);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	/**
 	 * 删除
@@ -84,15 +85,16 @@ public class MoodController  extends BaseController {
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				this.moodService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**
@@ -108,14 +110,15 @@ public class MoodController  extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,Mood mood){
 		try {
 			if(mood==null||null==mood.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.moodService.update(mood);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**

@@ -24,68 +24,79 @@ import common.bo.PageBean;
 import common.rdbms.base.BaseController;
 
 @Controller
-@RequestMapping(value="/diary")
-public class DiaryController extends BaseController {
+@RequestMapping(value = "/diary")
+public class DiaryController extends BaseController<Diary> {
 
 	@Autowired
 	private DiaryService diaryService;
-	
+
 	/**
 	 * 添加
+	 * 
 	 * @param request
 	 * @param session
 	 * @param ptMail
 	 * @param result
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	@RequestMapping(value = "/saveOrUpdate",method = RequestMethod.POST)
-	public void add(HttpServletRequest request,HttpServletResponse response,HttpSession session,Diary diary) throws Exception{
-		
+	@RequestMapping(value = "/saveOrUpdate", method = RequestMethod.POST)
+	public void add(HttpServletRequest request, HttpServletResponse response,
+			HttpSession session, Diary diary){
+
 		try {
-			if(diary==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
-			}
-			if(diary.getId()!=null){
-				Diary old=this.diaryService.get(diary.getId());
-				diary.setCreatTime(old.getCreatTime());
-				this.diaryService.update(diary);
+			if (diary == null) {
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			else{
-				diary.setCreatTime(new Timestamp(new Date().getTime()));
-				diaryService.save(diary);
+				if (diary.getId() != null) {
+					Diary old = this.diaryService.get(diary.getId());
+					diary.setCreatTime(old.getCreatTime());
+					this.diaryService.update(diary);
+				} else {
+					diary.setCreatTime(new Timestamp(new Date().getTime()));
+					diaryService.save(diary);
+				}
+				this.setRightFlag(null);
 			}
-			resultFlag=this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
-		this.writeFlag(response);
+		try {
+			this.writeObject(response,resultFlag);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+
 	/**
 	 * 删除
+	 * 
 	 * @param request
 	 * @param session
 	 * @param ptMail
 	 * @param result
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	@RequestMapping(value = "/delete",method = RequestMethod.POST)
-	public void delete(HttpServletRequest request,HttpServletResponse response,HttpSession session,@RequestParam("ids") String ids) throws Exception{
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public void delete(HttpServletRequest request,
+			HttpServletResponse response, HttpSession session,
+			@RequestParam("ids") String ids) throws Exception {
 		try {
-			String result = this.diaryService.deleteDiaries(ids,Diary.class);
-			resultFlag=this.setRightFlag(result);
+			String result = this.diaryService.deleteDiaries(ids, Diary.class);
+			this.setRightFlag(result);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag= this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
-		this.writeFlag(response);
+		this.writeObject(response,resultFlag);
 	}
-	
-	
+
 	/**
 	 * 分页查询
+	 * 
 	 * @param request
 	 * @param session
 	 * @param ptMail
@@ -93,23 +104,26 @@ public class DiaryController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/list")
-	public ModelAndView list(HttpSession session,DiaryQueryObject diaryQueryObject){
-		ModelAndView mv=new ModelAndView("bigpage/diary/list");
+	public ModelAndView list(HttpSession session,
+			DiaryQueryObject diaryQueryObject) {
+		ModelAndView mv = new ModelAndView("bigpage/diary/list");
 		try {
-			if(StringUtils.isNotBlank(diaryQueryObject.getPath())&&"admin".equals(diaryQueryObject.getPath())){
+			if (StringUtils.isNotBlank(diaryQueryObject.getPath())
+					&& "admin".equals(diaryQueryObject.getPath())) {
 				mv.setViewName("admin/diary/list");
 			}
-			PageBean<Diary> pageBean=this.diaryService.list(diaryQueryObject);
+			PageBean<Diary> pageBean = this.diaryService.list(diaryQueryObject);
 			mv.addObject("pageBean", pageBean);
 			return mv;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return mv.addObject("error",e.getMessage());
+			return mv.addObject("error", e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * 分页查询
+	 * 
 	 * @param request
 	 * @param session
 	 * @param ptMail
@@ -117,17 +131,25 @@ public class DiaryController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/diaries")
-	public void listwidthjson(HttpServletResponse response,DiaryQueryObject diaryQueryObject){
+	public void listwidthjson(HttpServletResponse response,
+			DiaryQueryObject diaryQueryObject) {
 		try {
-			this.pageBean=this.diaryService.list(diaryQueryObject);
-			this.writeObject(response);
+			pageBean = this.diaryService.list(diaryQueryObject);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
+			this.setErrorFlag(e.getMessage());
+		}
+		try {
+			this.writeObject(response,resultFlag);
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 查询单条日记
+	 * 
 	 * @param request
 	 * @param session
 	 * @param ptMail
@@ -135,32 +157,22 @@ public class DiaryController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/single")
-	public ModelAndView getone(HttpServletRequest request,HttpSession session,Long id,String path){
-		ModelAndView mv=new ModelAndView("bigpage/diary/view");
+	public void getone(HttpServletRequest request,HttpServletResponse response,Long id) {
 		try {
-			if(StringUtils.isNotBlank(path)){
-				if("admin".equals(path)){
-					mv.setViewName("admin/diary/view");
-				}
-				else if("edit".equals(path)){
-					mv.setViewName("admin/diary/add");
-				}
-				else if("add".equals(path)){
-					mv.setViewName("admin/diary/add");
-					return mv;
-				}
-			}
-			if(id==null){
-				mv.addObject("error",MessageConstants.DATA_TRANSFORM_ERROR);
-			}
-			else{
-				Diary diary=this.diaryService.get(id);
-				mv.addObject("diary",diary);
+			if (id == null) {
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+			} else {
+				Diary diary = this.diaryService.get(id);
+				this.setRightFlag(diary);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			mv.addObject("error",e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
-		return mv;
+		try {
+			this.writeObject(response, resultFlag);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 }

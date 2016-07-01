@@ -7,7 +7,7 @@
 .toolbar_ul li {
     display: inline-block;
     list-style-type: none;
-    margin: 0 5px;
+    margin: 1px 5px;
     height: 25px;
     padding:0 10px;
     line-height: 25px;
@@ -24,4 +24,5 @@
 .toolbar_ul li:hover {
     background-color:#c0c0c0;
     border-radius:5px;
+    color:black;
 }

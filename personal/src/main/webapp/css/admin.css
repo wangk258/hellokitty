@@ -22,10 +22,11 @@ ul {
     width:200px;
     height: 97%;
     float: left;
+    border-right:1px solid #eee;
 }
 
 .main .left .panel-heading{
-    background:url('/images/table_bg.png') repeat-x;
+    background:url('/images/admin/menubar.jpg') repeat-x;
     padding:5px 15px;
     color:darkblue;
     font-weight:bolder;
@@ -60,8 +61,12 @@ ul {
 
 .main .right{
     margin-left: 200px;
-    height:100%;
-    background-color: blue;
+    height:97.5%;
+    position:relative;
+}
+
+.main .right .content{
+    height:95%;
 }
 
 .controlmenu{
@@ -107,3 +112,5 @@ ul {
     height:30px;
     float:left;
 }
+
+

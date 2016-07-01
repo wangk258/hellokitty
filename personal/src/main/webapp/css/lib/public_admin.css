@@ -35,7 +35,7 @@ ul li {
 }
 
 input[type=text] {
-	width: 98%;
+	width: 100%;
 }
 
 .search {
@@ -84,7 +84,6 @@ input[type=text] {
 
 .maincontent {
 	height: 476px;
-	position: relative;
 }
 
 .datacontainer {
@@ -104,7 +103,15 @@ input[type=text] {
 	border-bottom: 1px solid #eee;
 	border-right: 1px solid #eee;
 	text-align: center;
-	height: 25px;
+	height: 45px;
+}
+
+.datacontainer .datalist .plainText{
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding:5px 10px;
 }
 
 .datacontainer .datalist tr td div {
@@ -130,7 +137,7 @@ input[type=text] {
 }
 
 #pageBar {
-	background-image: url('/images/admin/toolbar.gif');
+	background-image: url('/images/admin/menubar.jpg');
 	width: 100%;
 	margin: 0;
 	border-radius: 0;
@@ -140,7 +147,6 @@ input[type=text] {
 }
 #pageBar input{
 	padding:0;
-    margin-bottom:3px;
 }
 
 .error{

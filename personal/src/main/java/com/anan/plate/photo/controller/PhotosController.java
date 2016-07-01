@@ -57,10 +57,9 @@ public class PhotosController extends BaseController {
 	 */
 	@RequestMapping(value = "/add",method = RequestMethod.POST)
 	public void add(HttpServletResponse response,@RequestParam("imageUrls") String imageUrls,@RequestParam("albumId") Long albumId){
-		ResultFlag resultFlag=null;
 		try {
 			if(StringUtils.isBlank(imageUrls)||albumId==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			String[] urlArray=imageUrls.split(",");
 			if(urlArray.length>0){
@@ -77,14 +76,14 @@ public class PhotosController extends BaseController {
 				for (int i=1;i<urlArray.length;i++) {
 					savePhoto(albumId, urlArray[i], PhotoConstants.IS_COVER_NO);
 				}
-				resultFlag=this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -112,7 +111,6 @@ public class PhotosController extends BaseController {
 	 */
 	@RequestMapping(value = "/delete",method = RequestMethod.POST)
 	public void delete(HttpServletRequest request,HttpServletResponse  response,@RequestParam("ids") String ids){
-		ResultFlag resultFlag=null;
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				String[] idArray=ids.split(",");
@@ -128,14 +126,14 @@ public class PhotosController extends BaseController {
 					}
 					this.photosService.delete(Long.valueOf(id));
 				}
-				resultFlag=this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				resultFlag=this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -158,14 +156,15 @@ public class PhotosController extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,Photos photos){
 		try {
 			if(photos==null||null==photos.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.photosService.update(photos);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**
@@ -203,25 +202,24 @@ public class PhotosController extends BaseController {
 	 */
 	@RequestMapping(value = "/setCover",method = RequestMethod.POST)
 	public void setCover(HttpServletResponse response,@RequestParam("id") Long id){
-		ResultFlag resultFlag=null;
 		try {
 			if(id==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			Photos photo=this.photosService.get(id);
 			if(photo==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
+				this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
 			}
 			Album album=this.albumService.get(photo.getAlbumId());
 			if(album==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
+				this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
 			}
 			album.setImageUrl(photo.getImageUrl());
 			this.albumService.update(album);
-			resultFlag=this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -242,19 +240,18 @@ public class PhotosController extends BaseController {
 	 */
 	@RequestMapping(value = "/setToMainPage",method = RequestMethod.POST)
 	public void setToMainPage(HttpServletResponse response,@RequestParam("id") Long id,@RequestParam("flag") Integer flag){
-		ResultFlag resultFlag=null;
 		try {
 			if(id==null){
-				resultFlag= this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				 this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			Photos photo=this.photosService.get(id);
 			if(photo==null){
-				resultFlag=this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
+				this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
 			}
 			if(flag==1){
 				List<Photos> list=this.photosService.list("from Photos where showInTheMainPage=?",PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
 				if(list.size()>=5){
-					resultFlag= this.setErrorFlag(MessageConstants.DATA_FULL);
+					 this.setErrorFlag(MessageConstants.DATA_FULL);
 				}
 				photo.setShowInTheMainPage(PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
 			}
@@ -262,10 +259,10 @@ public class PhotosController extends BaseController {
 				photo.setShowInTheMainPage(PhotoConstants.SHOW_IN_THE_MAINPAGE_NO);
 			}
 			this.photosService.update(photo);
-			resultFlag=this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resultFlag=this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
 		try {
 			OutputStream out=response.getOutputStream();
@@ -295,7 +292,7 @@ public class PhotosController extends BaseController {
 	public void uploadPhoto(MultipartRequest req,HttpServletResponse response){
 		try {
 			MultipartFile file=req.getFile("filedata");
-			ResultFlag resultFlag=this.fileService.upload(req, file,"photo");
+			this.fileService.upload(req, file,"photo");
 			if(resultFlag.getFlag()){
 				response.getWriter().print(resultFlag.getData());
 			}

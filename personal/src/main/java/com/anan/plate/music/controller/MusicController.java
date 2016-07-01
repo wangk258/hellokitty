@@ -54,14 +54,15 @@ public class MusicController  extends BaseController {
 	public ResultFlag add(HttpServletRequest request,HttpSession session,Music music){
 		try {
 			if(music==null){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			musicService.save(music);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	/**
 	 * 删除
@@ -77,15 +78,16 @@ public class MusicController  extends BaseController {
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				this.musicService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**
@@ -101,14 +103,15 @@ public class MusicController  extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,Music music){
 		try {
 			if(music==null||null==music.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.musicService.update(music);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 	
 	/**
