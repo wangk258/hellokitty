@@ -10,9 +10,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.anan.plate.constants.MessageConstants;
@@ -21,6 +23,7 @@ import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
 
 import common.bo.PageBean;
+import common.bo.ResultFlag;
 import common.rdbms.base.BaseController;
 
 @Controller
@@ -41,8 +44,8 @@ public class DiaryController extends BaseController<Diary> {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/saveOrUpdate", method = RequestMethod.POST)
-	public void add(HttpServletRequest request, HttpServletResponse response,
-			HttpSession session, Diary diary){
+	@ResponseBody
+	public ResultFlag add(HttpServletRequest request, HttpServletResponse response, @RequestBody Diary diary){
 
 		try {
 			if (diary == null) {
@@ -63,11 +66,7 @@ public class DiaryController extends BaseController<Diary> {
 			e.printStackTrace();
 			this.setErrorFlag(e.getMessage());
 		}
-		try {
-			this.writeObject(response,resultFlag);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		return resultFlag;
 	}
 
 	/**
@@ -80,18 +79,23 @@ public class DiaryController extends BaseController<Diary> {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public void delete(HttpServletRequest request,
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public ResultFlag delete(HttpServletRequest request,
 			HttpServletResponse response, HttpSession session,
 			@RequestParam("ids") String ids) throws Exception {
 		try {
 			String result = this.diaryService.deleteDiaries(ids, Diary.class);
-			this.setRightFlag(result);
+			if(null != result){
+				this.setErrorFlag(result);
+			}else{
+				this.setRightFlag(null);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			this.setErrorFlag(e.getMessage());
 		}
-		this.writeObject(response,resultFlag);
+		return resultFlag;
 	}
 
 	/**
@@ -131,7 +135,8 @@ public class DiaryController extends BaseController<Diary> {
 	 * @return
 	 */
 	@RequestMapping(value = "/diaries")
-	public void listwidthjson(HttpServletResponse response,
+	@ResponseBody
+	public ResultFlag listwidthjson(HttpServletResponse response,
 			DiaryQueryObject diaryQueryObject) {
 		try {
 			pageBean = this.diaryService.list(diaryQueryObject);
@@ -140,11 +145,7 @@ public class DiaryController extends BaseController<Diary> {
 			e.printStackTrace();
 			this.setErrorFlag(e.getMessage());
 		}
-		try {
-			this.writeObject(response,resultFlag);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		return resultFlag;
 	}
 
 	/**
@@ -157,7 +158,8 @@ public class DiaryController extends BaseController<Diary> {
 	 * @return
 	 */
 	@RequestMapping(value = "/single")
-	public void getone(HttpServletRequest request,HttpServletResponse response,Long id) {
+	@ResponseBody
+	public ResultFlag getone(HttpServletRequest request,HttpServletResponse response,Long id) {
 		try {
 			if (id == null) {
 				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
@@ -169,10 +171,6 @@ public class DiaryController extends BaseController<Diary> {
 			e.printStackTrace();
 			this.setErrorFlag(e.getMessage());
 		}
-		try {
-			this.writeObject(response, resultFlag);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		return resultFlag;
 	}
 }

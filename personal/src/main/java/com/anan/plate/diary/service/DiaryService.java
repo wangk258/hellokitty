@@ -6,4 +6,5 @@ import common.rdbms.base.BaseService;
 public interface DiaryService extends BaseService<Diary> {
 	
 	public String deleteDiaries(String ids,Class<Diary> cls) throws Exception;
+	
 }

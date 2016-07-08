@@ -24,7 +24,7 @@ public class MoodServiceTest extends TestBase {
 	@Test
 	public void getMP3() {
 		try {
-			String key=URLEncoder.encode("%");
+			String key="天涯";
 			URL url = new URL("http://cloud.kugou.com/app/getSearchResult.php?key={"+key+"}&pageNo={1}&pageSize={-1}");
 			InputStreamReader isr = new InputStreamReader(url.openStream());
 			BufferedReader br = new BufferedReader(isr);
@@ -38,6 +38,7 @@ public class MoodServiceTest extends TestBase {
 			isr.close();
 			s=sb.toString();
 			s.replace("\"", "'");
+			System.out.println(s);
 			JSONObject jo=JSONObject.fromObject(s);
 			if(jo.getJSONArray("data").size()>1){
 				JSONArray datas=jo.getJSONArray("data");

@@ -20,7 +20,7 @@
                     <td ng-bind="diary.date|date:'yyyy-MM-dd'"></td>
                     <td>
                         <a class="btn btn-info btn-xs" href="#/diarydetail/{{diary.id}}"><span class="glyphicon glyphicon-pencil"><span>编辑</a>
-                        <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>删除</a>
+                        <a class="btn btn-danger btn-xs" ng-click="delete([diary.id])"><span class="glyphicon glyphicon-remove"></span>删除</a>
                     </td>
                 </tr>
             </tbody>

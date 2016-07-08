@@ -6,7 +6,7 @@
  * Time: 10:47 AM
  * To change this template use File | Settings | File Templates.
  */
-define(function(){
+define(["artDialog"],function(art){
     var Utils = {
         getParameter: function (name) {
             var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
@@ -41,9 +41,7 @@ define(function(){
                 height:height
             }).lock();
         }
-
     }
-    window.utils = Utils;
     return  Utils;
 });
 

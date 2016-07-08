@@ -3,6 +3,7 @@ package com.anan.plate.diary.service.impl;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.diary.dao.DiaryDao;
@@ -20,6 +21,7 @@ public class DiaryServiceImpl extends BaseServiceImpl<Diary> implements DiarySer
 		return diaryDao;
 	}
 	
+	@Transactional(rollbackFor=Exception.class)
 	public String deleteDiaries(String ids,Class<Diary> cls) throws Exception {
 		if(StringUtils.isNotBlank(ids)){
 			this.delete(ids, cls);

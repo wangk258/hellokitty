@@ -148,9 +148,3 @@ input[type=text] {
 #pageBar input{
 	padding:0;
 }
-
-.error{
-    color:red;
-    font-weight: bolder;
-    text-align: left;
-}

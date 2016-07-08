@@ -1,72 +1,113 @@
 /**
  * Created by ahpeng on 2016/6/29.
  */
-define(["require","toolbar","easyloader"],function(require){
-    var loadedpage = false;
-    app.controller("DiaryListController",["$scope","DiaryService","$routeParams","$location",function($scope,diaryService,$routeParams,$location){
-        diaryService.getlist($routeParams.pageIndex).then(function(data){
-            if(data && data.flag){
-                $scope.diarylist = data.data.recordList;
-                if(loadedpage) return;
+define(["require","Utils","toolbar", "easyloader", "DateTimePickerDirective"], function (require,utils) {
+    var loadedpage = false,
+        initToolBar = function($scope){
+            $(".toolbar div:first").toolBar({
+                toolbar: [
+                    {
+                        "element": getBtnStr("plus"),
+                        "content": "添加",
+                        "callback": function () {
+                            window.location.href = "#/diarydetail/0";
+                        }
+                    },
+                    {
+                        "element": getBtnStr("remove"),
+                        "content": "删除",
+                        "callback": function () {
+                            //$scope.del($scope.arr);
+                        }
+                    }
+                ]
+            });
+            function getBtnStr(type) {
+                return "<span class='glyphicon glyphicon-" + type + "'></span>";
+            }
+        };
+
+    app.controller("DiaryListController", ["$scope", "DiaryService", "$routeParams", "$location", function ($scope, diaryService, $routeParams, $location) {
+        diaryService.getlist($routeParams.pageIndex).then(function (data) {
+            if (data && data.flag) {
+                data = data.data;
+                $scope.diarylist = data.recordList;
+                if (loadedpage) return;
                 loadedpage = true;
-                window.using("pagination",function(){
-                    var option={
+                window.using("pagination", function () {
+                    var option = {
                         total: data.recordCount || 1,
-                        pageSize:data.pageSize || 15,
-                        pageNumber:data.currentPage || 1,
-                        showPageList:false,
-                        onSelectPage:function(pageNumber,pageSize){
-                            window.location.href = "#/diarylist/"+pageNumber;
+                        pageSize: data.pageSize || 15,
+                        pageNumber: data.currentPage || 1,
+                        showPageList: false,
+                        onSelectPage: function (pageNumber, pageSize) {
+                            window.location.href = "#/diarylist/" + pageNumber;
                         }
                     }
                     angular.element("#pageBar").pagination(option);
                 });
-            }else{
+            } else {
                 $scope.diarylist = [];
             }
         });
+        $scope.delete = function(ids){
+            if(ids && ids.length){
+                diaryService.delete(ids).then(function(data){
+                    if(data){
+                        if(data.flag){
+                            window.location.href="#/diarylist/1#";
+                        }else{
+                            utils.showAlert(data.msg);
+                        }
+                    }else{
+                        utils.showAlert("网络错误！");
+                    }
+                });
+            }
+        }
         initToolBar($scope);
     }]);
-    app.controller("DiaryDetailController",["$scope","DiaryService","$routeParams",function($scope,DiaryService,$routeParams){
-        require(["ueditor","ueditor-config","datetimepicker","datetimepicker-local","DateTimePickerDirective"],function(UE){
+
+    app.controller("DiaryDetailController", ["$scope", "DiaryService", "$routeParams","$timeout", function ($scope, DiaryService, $routeParams,$timeout) {
+        require(["ueditor","Utils","ueditor-config"], function (UE,utils) {
             var contentEditor = new UE.ui.Editor({
-                initialFrameWidth : "100%",
-                initialFrameHeight : angular.element(".content").height() * 0.75,
-                imageUrl : baseUrl + "/upload.do?type=diary"
+                initialFrameWidth: "100%",
+                initialFrameHeight: window.screen.availHeight * 0.60,
+                imageUrl: baseUrl + "/upload.do?type=diary"
             });
-            DiaryService.getDetailById($routeParams.id).then(function(data){
-                if(data && data.flag){
+            DiaryService.getDetailById($routeParams.id).then(function (data) {
+                if (data && data.flag) {
                     $scope.diary = data.data;
-                }else{
+                } else {
                     $scope.diary = {};
                 }
-                setTimeout(function(){
+                setTimeout(function () {
                     contentEditor.render("content");
-                },0);
+                    contentEditor.ready(function(){
+                        contentEditor.addListener("contentChange",function(){
+                            $scope.diary.content = contentEditor.getContent();
+                        });
+                    });
+                }, 0);
             });
+            $scope.submit = function(invalid){
+                if(invalid){
+                    $scope.submitted = true;
+                    return;
+                }
+                $scope.diary.plainText =contentEditor.getPlainTxt();
+                DiaryService.save($scope.diary).then(function(data){
+                    if(data){
+                        if(data.flag){
+                            window.location.href="#/diarylist/1";
+                        }else{
+                            utils.showAlert(data.msg);
+                        }
+                    }else{
+                        utils.showAlert("服务器无响应!");
+                    }
+                });
+            }
         });
     }]);
-    function initToolBar($scope){
-        $(".toolbar div:first").toolBar({
-            toolbar: [
-                {
-                    "element": getBtnStr("plus"),
-                    "content":"添加",
-                    "callback": function () {
-                        diary.add();
-                    }
-                },
-                {
-                    "element": getBtnStr("remove"),
-                    "content":"删除",
-                    "callback": function () {
-                        $scope.del($scope.arr);
-                    }
-                }
-            ]
-        });
-        function getBtnStr(type){
-            return "<span class='glyphicon glyphicon-"+type+"'></span>";
-        }
-    }
 });

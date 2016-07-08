@@ -113,4 +113,12 @@ ul {
     float:left;
 }
 
+.error{
+    color:red;
+    margin:5px auto;
+    font-weight:bolder;
+}
+.error-icon{
+    margin-right:5px;
+}
 

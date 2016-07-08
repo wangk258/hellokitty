@@ -16,7 +16,7 @@
             "angular": libUrl + "angular.min",
             "angularRouter": libUrl + "angular-route.min",
             "bootstrap": libUrl + "bootstrap/js/bootstrap.min",
-            "datetimepicker": libUrl + "bootstrap/js/bootstrap-datetimepicker.min",
+            "datetimepicker": libUrl + "bootstrap/js/bootstrap-datetimepicker",
             "datetimepicker-local": libUrl + "bootstrap/js/bootstrap-datetimepicker.zh-CN",
             "easyloader": libUrl + "page/easyloader",
             "pageinate": libUrl + "jPaginate/jquery.paginate",
@@ -61,14 +61,17 @@
             },
             ueditor: {
                 exports: "UE"
+            },
+            "datetimepicker-local": {
+                deps: ["datetimepicker"]
             }
         }
     });
     require(["jquery"], function () {
-        require(["angular"], function (angular) {
+        require(["angular","artDialog"], function (angular) {
             require(["angularRouter"], function () {
                 app = angular.module("personalApp", ["ngRoute"]);
-                require(["admin/app"], function () {
+                    require(["admin/app"], function () {
                 });
             });
         });
