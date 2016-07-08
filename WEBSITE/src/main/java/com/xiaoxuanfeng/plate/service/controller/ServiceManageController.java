@@ -74,10 +74,10 @@ public class ServiceManageController  extends BaseController {
 			if(id == null){
 			 List<ServiceManage> serviceManages  = serviceManageService.list();	
 			 if(serviceManages.size()>0){
-				 return serviceManages.get(0);
+				 serviceManages.get(0);
 			 }
 			}else {
-				return serviceManageService.get(id);
+				serviceManageService.get(id);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,15 +98,16 @@ public class ServiceManageController  extends BaseController {
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				this.serviceManageService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 	
 	/**
@@ -122,14 +123,16 @@ public class ServiceManageController  extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,ServiceManage serviceManage){
 		try {
 			if(serviceManage==null||null==serviceManage.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.serviceManageService.update(serviceManage);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		
+		return resultFlag;
 	}
 	
 	/**
@@ -145,15 +148,19 @@ public class ServiceManageController  extends BaseController {
 	public ResultFlag list(HttpServletRequest request,HttpSession session,ServiceManageQueryObject serviceManageQueryObject){
 		try {
 			if(serviceManageQueryObject==null){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			PageBean<ServiceManage> pageBean=this.serviceManageService.list(serviceManageQueryObject);
-			return this.setRightFlag(pageBean);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		
+		return resultFlag;
 	}
+	
+	
 	@RequestMapping(value = "/uploadFile.ajax")
 	public void uploadFile(MultipartRequest request, HttpServletResponse response) throws Exception {
 		try {

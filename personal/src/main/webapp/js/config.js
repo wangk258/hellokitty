@@ -10,6 +10,7 @@
         paths: {
             /*load libs*/
             "jquery": libUrl + "jquery-1.8.0.min",
+            "underscore" : libUrl + "underscore-1.8.3.min",
             "jQueryUI": libUrl + "jquery-ui",
             "MD5": libUrl + "md5.min",
             "calendar": libUrl + "calendar",
@@ -67,7 +68,7 @@
             }
         }
     });
-    require(["jquery"], function () {
+    require(["jquery","underscore"], function () {
         require(["angular","artDialog"], function (angular) {
             require(["angularRouter"], function () {
                 app = angular.module("personalApp", ["ngRoute"]);

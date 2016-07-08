@@ -62,14 +62,15 @@ public class UserController extends BaseController {
 	public ResultFlag add(HttpServletRequest request, HttpSession session, User user) {
 		try {
 			if (user == null) {
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			userService.save(user);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 
 	/**
@@ -87,14 +88,15 @@ public class UserController extends BaseController {
 		try {
 			if (StringUtils.isNotBlank(ids)) {
 				this.userService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			} else {
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 
 	/**
@@ -111,14 +113,15 @@ public class UserController extends BaseController {
 	public ResultFlag update(HttpServletRequest request, HttpSession session, User user) {
 		try {
 			if (user == null || null == user.getId()) {
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.userService.update(user);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 
 	/**
@@ -135,13 +138,15 @@ public class UserController extends BaseController {
 	public ResultFlag list(HttpServletRequest request, HttpSession session, UserQueryObject userQueryObject) {
 		try {
 			if (userQueryObject == null) {
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			PageBean<User> pageBean = this.userService.list(userQueryObject);
-			return this.setRightFlag(pageBean);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		
+		return resultFlag;
 	}
 }

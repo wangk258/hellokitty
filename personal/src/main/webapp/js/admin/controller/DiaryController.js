@@ -17,7 +17,8 @@ define(["require","Utils","toolbar", "easyloader", "DateTimePickerDirective"], f
                         "element": getBtnStr("remove"),
                         "content": "删除",
                         "callback": function () {
-                            //$scope.del($scope.arr);
+                            console.log($scope.checkedArr);
+                            //$scope.delete($scope.checkedArr);
                         }
                     }
                 ]
@@ -50,6 +51,21 @@ define(["require","Utils","toolbar", "easyloader", "DateTimePickerDirective"], f
                 $scope.diarylist = [];
             }
         });
+        $scope.selectItem = function(id,checked){
+            console.log("selectItem");
+            if(checked){
+                if($scope.checkedArr){
+                    $scope.checkedArr.push(id);
+                }else{
+                    $scope.checkedArr = [id];
+                }
+            }else{
+                $scope.checkedArr.splice(_.indexOf($scope.checkedArr,id),1);
+            }
+        }
+        $scope.selectAll = function(e){
+            $scope.checked = e.target.checked;
+        }
         $scope.delete = function(ids){
             if(ids && ids.length){
                 diaryService.delete(ids).then(function(data){

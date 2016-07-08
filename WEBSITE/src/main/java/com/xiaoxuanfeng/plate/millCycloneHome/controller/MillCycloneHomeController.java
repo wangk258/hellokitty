@@ -30,7 +30,7 @@ import common.util.FileUploadUtil;
 
 @Controller
 @RequestMapping(value = "/millCycloneHome")
-public class MillCycloneHomeController extends BaseController {
+public class MillCycloneHomeController extends BaseController<MillCycloneHome> {
 
 	@Autowired
 	private MillCycloneHomeService millCycloneHomeService;
@@ -75,11 +75,11 @@ public class MillCycloneHomeController extends BaseController {
 	public MillCycloneHome loadEdit(Long id) {
 		try {
 			if (id != null) {
-				return millCycloneHomeService.get(id);
+				millCycloneHomeService.get(id);
 			} else {
 				List<MillCycloneHome> millCycloneHomes = millCycloneHomeService.list();
 				if (millCycloneHomes.size() > 0)
-					return millCycloneHomes.get(0);
+					millCycloneHomes.get(0);
 			}
 
 		} catch (Exception e) {
@@ -103,14 +103,16 @@ public class MillCycloneHomeController extends BaseController {
 		try {
 			if (StringUtils.isNotBlank(ids)) {
 				this.millCycloneHomeService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			} else {
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		
+		return null;
 	}
 
 	/**
@@ -127,14 +129,15 @@ public class MillCycloneHomeController extends BaseController {
 	public ResultFlag update(HttpServletRequest request, HttpSession session, MillCycloneHome millCycloneHome) {
 		try {
 			if (millCycloneHome == null || null == millCycloneHome.getId()) {
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.millCycloneHomeService.update(millCycloneHome);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return null;
 	}
 
 	/**
@@ -152,14 +155,15 @@ public class MillCycloneHomeController extends BaseController {
 			MillCycloneHomeQueryObject millCycloneHomeQueryObject) {
 		try {
 			if (millCycloneHomeQueryObject == null) {
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			PageBean<MillCycloneHome> pageBean = this.millCycloneHomeService.list(millCycloneHomeQueryObject);
-			return this.setRightFlag(pageBean);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 	
 	@RequestMapping(value = "/uploadFile.ajax")

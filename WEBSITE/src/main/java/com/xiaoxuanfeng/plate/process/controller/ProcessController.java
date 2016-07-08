@@ -30,7 +30,7 @@ import common.util.FileUploadUtil;
 
 @Controller
 @RequestMapping(value="/process")
-public class ProcessController  extends BaseController {
+public class ProcessController  extends BaseController<Process> {
 
 	@Autowired
 	private ProcessService processService;
@@ -72,11 +72,11 @@ public class ProcessController  extends BaseController {
 	public Process loadEdit(Long id){
 		try {
 			if(id != null){
-				return processService.get(id);
+				processService.get(id);
 			}else{
 				List<Process> processes  = processService.list();	
 				 if(processes.size()>0){
-					 return processes.get(0);
+					 processes.get(0);
 				 }
 			}
 		} catch (Exception e) {
@@ -98,15 +98,16 @@ public class ProcessController  extends BaseController {
 		try {
 			if(StringUtils.isNotBlank(ids)){
 				this.processService.delete(ids);
-				return this.setRightFlag(null);
+				this.setRightFlag(null);
 			}
 			else{
-				return this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+				this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 	
 	/**
@@ -122,14 +123,15 @@ public class ProcessController  extends BaseController {
 	public ResultFlag update(HttpServletRequest request,HttpSession session,Process process){
 		try {
 			if(process==null||null==process.getId()){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			this.processService.update(process);
-			return this.setRightFlag(null);
+			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		return resultFlag;
 	}
 	
 	/**
@@ -145,14 +147,16 @@ public class ProcessController  extends BaseController {
 	public ResultFlag list(HttpServletRequest request,HttpSession session,ProcessQueryObject processQueryObject){
 		try {
 			if(processQueryObject==null){
-				return this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
 			PageBean<Process> pageBean=this.processService.list(processQueryObject);
-			return this.setRightFlag(pageBean);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getMessage());
 		}
+		
+		return resultFlag;
 	}
 	
 	@RequestMapping(value = "/uploadFile.ajax")
