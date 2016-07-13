@@ -21,8 +21,9 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.company.bo.CompanyQueryObject;
 import com.xiaoxuanfeng.plate.company.domain.Company;
 import com.xiaoxuanfeng.plate.company.service.CompanyService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
-import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

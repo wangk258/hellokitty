@@ -1,7 +1,8 @@
 package com.anan.plate.diary.service;
 
 import com.anan.plate.diary.domain.Diary;
-import common.rdbms.base.BaseService;
+
+import common.base.BaseService;
 
 public interface DiaryService extends BaseService<Diary> {
 	

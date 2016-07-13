@@ -26,9 +26,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.music.domain.Music;
 import com.anan.plate.music.service.MusicService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
-import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value="/music")

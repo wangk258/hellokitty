@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.product.dao.ProductDao;
 import com.xiaoxuanfeng.plate.product.domain.Product;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao{
 

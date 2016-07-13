@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.xiaoxuanfeng.plate.navigation.dao.NavigationDao;
 import com.xiaoxuanfeng.plate.navigation.domain.Navigation;
 import com.xiaoxuanfeng.plate.navigation.service.NavigationService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class NavigationServiceImpl extends BaseServiceImpl<Navigation> implements NavigationService {
 	@Autowired

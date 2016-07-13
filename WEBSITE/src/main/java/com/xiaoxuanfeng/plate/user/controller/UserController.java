@@ -15,9 +15,10 @@ import com.xiaoxuanfeng.plate.common.constants.MessageConstants;
 import com.xiaoxuanfeng.plate.user.bo.UserQueryObject;
 import com.xiaoxuanfeng.plate.user.domain.User;
 import com.xiaoxuanfeng.plate.user.service.UserService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
-import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value = "/user")

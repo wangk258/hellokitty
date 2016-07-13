@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.anan.plate.photo.dao.PhotosDao;
 import com.anan.plate.photo.domain.Photos;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class PhotosDaoImpl extends BaseDaoImpl<Photos> implements PhotosDao{
 

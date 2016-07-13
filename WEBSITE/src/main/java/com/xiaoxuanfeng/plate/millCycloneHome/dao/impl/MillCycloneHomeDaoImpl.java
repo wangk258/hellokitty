@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.millCycloneHome.dao.MillCycloneHomeDao;
 import com.xiaoxuanfeng.plate.millCycloneHome.domain.MillCycloneHome;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class MillCycloneHomeDaoImpl extends BaseDaoImpl<MillCycloneHome> implements MillCycloneHomeDao{
 

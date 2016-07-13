@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.appraise.dao.AppraiseDao;
 import com.anan.plate.appraise.domain.Appraise;
 import com.anan.plate.appraise.service.AppraiseService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class AppraiseServiceImpl extends BaseServiceImpl<Appraise> implements AppraiseService {
 	@Autowired

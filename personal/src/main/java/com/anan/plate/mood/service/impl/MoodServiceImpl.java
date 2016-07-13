@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.mood.dao.MoodDao;
 import com.anan.plate.mood.domain.Mood;
 import com.anan.plate.mood.service.MoodService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class MoodServiceImpl extends BaseServiceImpl<Mood> implements MoodService {
 	@Autowired

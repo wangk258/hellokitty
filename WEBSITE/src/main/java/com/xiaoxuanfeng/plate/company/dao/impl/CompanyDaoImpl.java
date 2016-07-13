@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.company.dao.CompanyDao;
 import com.xiaoxuanfeng.plate.company.domain.Company;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class CompanyDaoImpl extends BaseDaoImpl<Company> implements CompanyDao{
 

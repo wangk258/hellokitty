@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.webSiteCollection.dao.WebSiteCollectionDao;
 import com.anan.plate.webSiteCollection.domain.WebSiteCollection;
 import com.anan.plate.webSiteCollection.service.WebSiteCollectionService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class WebSiteCollectionServiceImpl extends BaseServiceImpl<WebSiteCollection> implements WebSiteCollectionService {
 	@Autowired

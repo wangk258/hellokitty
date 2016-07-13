@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.Index.dao.IndexDao;
 import com.xiaoxuanfeng.plate.Index.domain.Index;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class IndexDaoImpl extends BaseDaoImpl<Index> implements IndexDao{
 

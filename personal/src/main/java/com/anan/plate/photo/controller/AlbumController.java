@@ -26,9 +26,10 @@ import com.anan.plate.photo.domain.Album;
 import com.anan.plate.photo.domain.Photos;
 import com.anan.plate.photo.service.AlbumService;
 import com.anan.plate.photo.service.PhotosService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
-import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value="/album")

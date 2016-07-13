@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import common.rdbms.base.BaseBean;
+import common.base.BaseBean;
 
 @Entity
 @Table(name = "t_editor")

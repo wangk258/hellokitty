@@ -14,8 +14,9 @@ import com.xiaoxuanfeng.plate.common.util.SessionUtil;
 import com.xiaoxuanfeng.plate.user.dao.UserDao;
 import com.xiaoxuanfeng.plate.user.domain.User;
 import com.xiaoxuanfeng.plate.user.service.UserService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User> implements

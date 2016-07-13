@@ -14,7 +14,8 @@ import javax.persistence.Table;
 
 import com.xiaoxuanfeng.plate.common.constants.CommonConstants;
 import com.xiaoxuanfeng.plate.productType.domain.ProductType;
-import common.rdbms.base.BaseBean;
+
+import common.base.BaseBean;
 
 @Entity
 @Table(name = "t_product")

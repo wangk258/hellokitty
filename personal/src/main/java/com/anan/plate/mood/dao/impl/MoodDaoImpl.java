@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.anan.plate.mood.dao.MoodDao;
 import com.anan.plate.mood.domain.Mood;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class MoodDaoImpl extends BaseDaoImpl<Mood> implements MoodDao{
 

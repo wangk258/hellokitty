@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.xiaoxuanfeng.plate.Index.dao.IndexDao;
 import com.xiaoxuanfeng.plate.Index.domain.Index;
 import com.xiaoxuanfeng.plate.Index.service.IndexService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class IndexServiceImpl extends BaseServiceImpl<Index> implements IndexService {
 	@Autowired

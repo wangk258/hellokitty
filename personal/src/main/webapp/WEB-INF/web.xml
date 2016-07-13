@@ -67,21 +67,6 @@
 		<session-timeout>60</session-timeout>
 	</session-config>
 	
-	<!-- user login filter -->
-	<!-- <filter>
-	    <filter-name>userInfoFilter</filter-name>
-	    <filter-class>com.hongli.plate.core.filter.UserLoginCheckFilter</filter-class>
-	</filter>
-	<filter-mapping>
-	    <filter-name>userInfoFilter</filter-name>
-	    <url-pattern>/function/*</url-pattern>
-	</filter-mapping>
-	
-	<filter-mapping>
-	    <filter-name>userInfoFilter</filter-name>
-	    <url-pattern>/general/*</url-pattern>
-	</filter-mapping>
-	 -->
 	<!-- charset config-->
 	<servlet>
 		<servlet-name>default</servlet-name>

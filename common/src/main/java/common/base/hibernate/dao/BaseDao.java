@@ -1,4 +1,4 @@
-package common.rdbms.base;
+package common.base.hibernate.dao;
 
 import java.io.Serializable;
 import java.util.List;

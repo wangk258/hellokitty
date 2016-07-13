@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.anan.plate.webSiteCollection.dao.WebSiteCollectionDao;
 import com.anan.plate.webSiteCollection.domain.WebSiteCollection;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class WebSiteCollectionDaoImpl extends BaseDaoImpl<WebSiteCollection> implements WebSiteCollectionDao{
 

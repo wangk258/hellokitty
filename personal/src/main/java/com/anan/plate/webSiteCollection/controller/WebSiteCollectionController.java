@@ -16,8 +16,9 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.webSiteCollection.bo.WebSiteCollectionQueryObject;
 import com.anan.plate.webSiteCollection.domain.WebSiteCollection;
 import com.anan.plate.webSiteCollection.service.WebSiteCollectionService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
-import common.rdbms.base.BaseController;
 
 @Controller
 @RequestMapping(value = "/webSiteCollection")

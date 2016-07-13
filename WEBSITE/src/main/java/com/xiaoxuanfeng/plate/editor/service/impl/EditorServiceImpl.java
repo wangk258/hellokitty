@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.xiaoxuanfeng.plate.editor.dao.EditorDao;
 import com.xiaoxuanfeng.plate.editor.domain.Editor;
 import com.xiaoxuanfeng.plate.editor.service.EditorService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class EditorServiceImpl extends BaseServiceImpl<Editor> implements EditorService {
 	@Autowired

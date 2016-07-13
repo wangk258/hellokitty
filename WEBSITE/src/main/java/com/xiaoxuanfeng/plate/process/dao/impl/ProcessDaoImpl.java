@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.process.dao.ProcessDao;
 import com.xiaoxuanfeng.plate.process.domain.Process;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class ProcessDaoImpl extends BaseDaoImpl<Process> implements ProcessDao{
 

@@ -21,9 +21,10 @@ import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.english.bo.EnglishQueryObject;
 import com.anan.plate.english.domain.English;
 import com.anan.plate.english.service.EnglishService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
-import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller

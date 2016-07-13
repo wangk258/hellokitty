@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.msg.dao.MsgDao;
 import com.xiaoxuanfeng.plate.msg.domain.Msg;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class MsgDaoImpl extends BaseDaoImpl<Msg> implements MsgDao{
 

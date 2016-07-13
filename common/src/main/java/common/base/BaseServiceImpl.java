@@ -1,4 +1,4 @@
-package common.rdbms.base;
+package common.base;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 
+import common.base.hibernate.dao.BaseDao;
 import common.bo.PageBean;
 import common.bo.QueryObject;
 

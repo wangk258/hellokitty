@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import com.anan.plate.message.dao.MessageDao;
 import com.anan.plate.message.domain.Message;
 import com.anan.plate.message.service.MessageService;
-import common.rdbms.base.BaseDao;
-import common.rdbms.base.BaseServiceImpl;
+
+import common.base.BaseServiceImpl;
+import common.base.hibernate.dao.BaseDao;
 @Service
 public class MessageServiceImpl extends BaseServiceImpl<Message> implements MessageService {
 	@Autowired

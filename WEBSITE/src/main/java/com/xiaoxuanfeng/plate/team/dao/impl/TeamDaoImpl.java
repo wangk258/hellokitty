@@ -4,7 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoxuanfeng.plate.team.dao.TeamDao;
 import com.xiaoxuanfeng.plate.team.domain.Team;
-import common.rdbms.base.BaseDaoImpl;
+
+import common.base.hibernate.dao.BaseDaoImpl;
 @Repository
 public class TeamDaoImpl extends BaseDaoImpl<Team> implements TeamDao{
 

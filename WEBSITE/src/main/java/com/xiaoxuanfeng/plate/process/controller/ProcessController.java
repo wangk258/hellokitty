@@ -23,9 +23,10 @@ import com.xiaoxuanfeng.plate.common.util.BeanPropertyUtil;
 import com.xiaoxuanfeng.plate.process.bo.ProcessQueryObject;
 import com.xiaoxuanfeng.plate.process.domain.Process;
 import com.xiaoxuanfeng.plate.process.service.ProcessService;
+
+import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
-import common.rdbms.base.BaseController;
 import common.util.FileUploadUtil;
 
 @Controller
