@@ -12,7 +12,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -28,8 +27,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 				.getGenericSuperclass();
 		cls = (Class<?>) type.getActualTypeArguments()[0];
 	}
-
-	@Autowired
+	
 	protected HibernateTemplate hibernateTemplate;
 
 	public void save(T t) throws Exception {

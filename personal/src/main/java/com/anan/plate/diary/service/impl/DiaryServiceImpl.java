@@ -11,7 +11,7 @@ import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class DiaryServiceImpl extends BaseServiceImpl<Diary> implements DiaryService {
 	@Autowired
