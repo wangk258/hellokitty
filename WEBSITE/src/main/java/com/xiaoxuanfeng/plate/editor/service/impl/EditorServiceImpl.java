@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.editor.domain.Editor;
 import com.xiaoxuanfeng.plate.editor.service.EditorService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class EditorServiceImpl extends BaseServiceImpl<Editor> implements EditorService {
 	@Autowired

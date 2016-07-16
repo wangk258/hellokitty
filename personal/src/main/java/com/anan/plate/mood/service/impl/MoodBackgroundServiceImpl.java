@@ -8,7 +8,7 @@ import com.anan.plate.mood.domain.MoodBackground;
 import com.anan.plate.mood.service.MoodBackgroundService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class MoodBackgroundServiceImpl extends BaseServiceImpl<MoodBackground> implements MoodBackgroundService {
 	@Autowired

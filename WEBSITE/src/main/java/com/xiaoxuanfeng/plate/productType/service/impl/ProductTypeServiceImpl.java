@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.productType.domain.ProductType;
 import com.xiaoxuanfeng.plate.productType.service.ProductTypeService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class ProductTypeServiceImpl extends BaseServiceImpl<ProductType> implements ProductTypeService {
 	@Autowired

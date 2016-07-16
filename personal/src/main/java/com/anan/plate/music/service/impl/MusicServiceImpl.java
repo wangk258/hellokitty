@@ -8,7 +8,7 @@ import com.anan.plate.music.domain.Music;
 import com.anan.plate.music.service.MusicService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class MusicServiceImpl extends BaseServiceImpl<Music> implements MusicService {
 	@Autowired

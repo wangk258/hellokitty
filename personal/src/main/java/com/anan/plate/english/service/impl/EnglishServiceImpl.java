@@ -8,7 +8,7 @@ import com.anan.plate.english.domain.English;
 import com.anan.plate.english.service.EnglishService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class EnglishServiceImpl extends BaseServiceImpl<English> implements EnglishService {
 	@Autowired

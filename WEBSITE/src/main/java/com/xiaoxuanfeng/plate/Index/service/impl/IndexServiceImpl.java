@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.Index.domain.Index;
 import com.xiaoxuanfeng.plate.Index.service.IndexService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class IndexServiceImpl extends BaseServiceImpl<Index> implements IndexService {
 	@Autowired

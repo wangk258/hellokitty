@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.millCycloneHome.domain.MillCycloneHome;
 import com.xiaoxuanfeng.plate.millCycloneHome.service.MillCycloneHomeService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class MillCycloneHomeServiceImpl extends BaseServiceImpl<MillCycloneHome> implements MillCycloneHomeService {
 	@Autowired

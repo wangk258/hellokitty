@@ -8,7 +8,7 @@ import com.anan.plate.webSiteCollection.domain.WebSiteCollection;
 import com.anan.plate.webSiteCollection.service.WebSiteCollectionService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class WebSiteCollectionServiceImpl extends BaseServiceImpl<WebSiteCollection> implements WebSiteCollectionService {
 	@Autowired

@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.company.domain.Company;
 import com.xiaoxuanfeng.plate.company.service.CompanyService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class CompanyServiceImpl extends BaseServiceImpl<Company> implements CompanyService {
 	@Autowired

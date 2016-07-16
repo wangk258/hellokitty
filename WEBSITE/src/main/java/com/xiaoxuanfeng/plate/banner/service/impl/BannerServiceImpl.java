@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.banner.domain.Banner;
 import com.xiaoxuanfeng.plate.banner.service.BannerService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class BannerServiceImpl extends BaseServiceImpl<Banner> implements BannerService {
 	@Autowired

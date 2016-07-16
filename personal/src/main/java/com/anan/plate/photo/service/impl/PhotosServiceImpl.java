@@ -8,7 +8,7 @@ import com.anan.plate.photo.domain.Photos;
 import com.anan.plate.photo.service.PhotosService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class PhotosServiceImpl extends BaseServiceImpl<Photos> implements PhotosService {
 	@Autowired

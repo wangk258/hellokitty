@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.navigation.domain.Navigation;
 import com.xiaoxuanfeng.plate.navigation.service.NavigationService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class NavigationServiceImpl extends BaseServiceImpl<Navigation> implements NavigationService {
 	@Autowired

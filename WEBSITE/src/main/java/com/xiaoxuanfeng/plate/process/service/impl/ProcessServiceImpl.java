@@ -8,7 +8,7 @@ import com.xiaoxuanfeng.plate.process.domain.Process;
 import com.xiaoxuanfeng.plate.process.service.ProcessService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 @Service
 public class ProcessServiceImpl extends BaseServiceImpl<Process> implements ProcessService {
 	@Autowired

@@ -16,7 +16,7 @@ import com.xiaoxuanfeng.plate.user.domain.User;
 import com.xiaoxuanfeng.plate.user.service.UserService;
 
 import common.base.BaseServiceImpl;
-import common.base.hibernate.dao.BaseDao;
+import common.base.mybatis.dao.BaseDao;
 
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User> implements

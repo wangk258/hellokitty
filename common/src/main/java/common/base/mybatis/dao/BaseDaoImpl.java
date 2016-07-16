@@ -5,14 +5,16 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import common.bo.PageBean;
 import common.bo.QueryObject;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
+	@Autowired
 	private SqlSessionTemplate sqlSession;
-	
+
 	private Class<?> entity;
 	
 	public BaseDaoImpl(){
