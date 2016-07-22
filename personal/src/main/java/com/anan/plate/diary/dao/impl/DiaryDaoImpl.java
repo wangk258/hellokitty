@@ -8,6 +8,6 @@ import com.anan.plate.diary.domain.Diary;
 import common.base.mybatis.dao.BaseDaoImpl;
 
 @Repository
-public class DiaryDaoImpl extends BaseDaoImpl<Diary> implements DiaryDao{
+public class DiaryDaoImpl extends BaseDaoImpl<Diary> implements DiaryDao {
 
 }
