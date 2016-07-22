@@ -15,6 +15,14 @@ public abstract class QueryObject {
 	public void setPath(String path) {
 		this.path = path;
 	}
+	
+	public Integer getStart() {
+		return (this.currentPage - 1) * this.pageSize;
+	}
+
+	public Integer getEnd() {
+		return this.pageSize;
+	}
 
 	private Integer currentPage=1;
 	

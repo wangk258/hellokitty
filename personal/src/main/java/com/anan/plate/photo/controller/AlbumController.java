@@ -80,14 +80,14 @@ public class AlbumController extends BaseController {
 	public void delete(HttpServletResponse response,@RequestParam("id") Long id){
 		try {
 			if(id!=null){
-				List<Photos> list=this.photoService.list("from Photos where albumId=?",id);
-				if(list.size()>0){
-					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
-				}
-				else{
-					this.albumService.delete(id);
-					 this.setRightFlag(null);
-				}
+//				List<Photos> list=this.photoService.list("from Photos where albumId=?",id);
+//				if(list.size()>0){
+//					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
+//				}
+//				else{
+//					this.albumService.delete(id);
+//					 this.setRightFlag(null);
+//				}
 			}
 			else{
 				 this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);

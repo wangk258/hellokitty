@@ -12,7 +12,6 @@
 	<context:component-scan
 		base-package="com.anan.plate.**.controller,com.anan.plate.**.service.impl,com.anan.plate.**.dao.impl" />
 		
-	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<context:property-placeholder location="classpath:jdbc.properties,classpath:oss.properties" />
 	
@@ -23,6 +22,8 @@
 	<import resource="classpath:freemarker.xml"></import>
 	
 	<import resource="classpath:springMVC.xml"></import>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<bean id="fileService" class="common.util.FileUploadUtil">
 		<!-- 阿里云oss存储方案 -->

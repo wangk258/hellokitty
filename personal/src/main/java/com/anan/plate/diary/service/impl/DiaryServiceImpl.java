@@ -11,25 +11,32 @@ import com.anan.plate.diary.domain.Diary;
 import com.anan.plate.diary.service.DiaryService;
 
 import common.base.BaseServiceImpl;
-import common.base.mybatis.dao.BaseDao;;
+import common.base.mybatis.dao.BaseDao;
+
 @Service
-public class DiaryServiceImpl extends BaseServiceImpl<Diary> implements DiaryService {
+public class DiaryServiceImpl extends BaseServiceImpl<Diary> implements DiaryService{
+	
 	@Autowired
 	private DiaryDao diaryDao;
 	
-	@Override
-	public BaseDao<Diary> getDao() {
-		return diaryDao;
-	}
-	
 	@Transactional(rollbackFor=Exception.class)
-	public String deleteDiaries(String ids,Class<Diary> cls) throws Exception {
+	public String deleteDiaries(String ids,Class<?> cls) throws Exception {
 		if(StringUtils.isNotBlank(ids)){
-			this.delete(ids, cls);
+			this.delete(ids);
 			return null;
 		}
 		else{
 			return MessageConstants.SELECT_ITEM_EMPTY;
 		}
+	}
+
+	@Override
+	public BaseDao<Diary> getDao() {
+		return diaryDao;
+	}
+
+	@Transactional(rollbackFor=Exception.class)
+	public void insertBatch() throws Exception {
+			
 	}
 }

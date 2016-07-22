@@ -6,9 +6,8 @@ import java.util.List;
 import common.bo.PageBean;
 import common.bo.QueryObject;
 
-
 public interface BaseDao<T> {
-
+	
 	/**
 	 * 保存一个对象
 	 * @param t
@@ -21,12 +20,6 @@ public interface BaseDao<T> {
 	 */
 	
 	public void update(T t)throws Exception;
-	
-	/**
-	 * 删除一个对象
-	 * @param t
-	 */
-	public void delete(T t)throws Exception;
 	
 	/**
 	 * 通过Id删除一个对象
@@ -42,27 +35,10 @@ public interface BaseDao<T> {
 	public T get(Serializable id)throws Exception;
 	
 	/**
-	 * 查询指定的一个对象
-	 * @param hql
-	 * @param objects
-	 * @return
-	 */
-	public T get(String hql,Object...objects)throws Exception;
-	
-	/**
 	 * 查询所有对象
 	 * @return
 	 */
 	public List<T> list()throws Exception;
-	
-	/**
-	 * 查询指定的对象集合
-	 * @param hql
-	 * @param objects
-	 * @return
-	 */
-	
-	public List<T> list(String hql,Object...objects)throws Exception;
 	
 	/**
 	 * 分页查询对象集合
@@ -86,21 +62,5 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	public Integer getCount(QueryObject qo)throws Exception;
-	
-	/**
-	 * 执行原生DDL SQL语句
-	 * @param sql
-	 * @param params
-	 * @throws Exception
-	 */
-	public Integer executeBySQL(final String sql,Object...params) throws Exception;
-	
-	/**
-	 * 执行原生查询 SQL语句
-	 * @param sql
-	 * @param params
-	 * @throws Exception
-	 */
-	public List<T> findBySQL(final String sql, final Object... objects) throws Exception;
 	
 }

@@ -1,7 +1,5 @@
 package com.anan.plate.diary.domain;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.ibatis.type.Alias;
+
+import common.base.BaseBean;
+
 
 @Entity
 @Table(name = "t_diary")
-public class Diary implements java.io.Serializable{
+@Alias("Diary")
+public class Diary extends BaseBean implements java.io.Serializable{
 	
 	private static final long serialVersionUID = 764770202044160554L;
 	
@@ -34,8 +37,6 @@ public class Diary implements java.io.Serializable{
 	public void setPlainText(String plainText) {
 		this.plainText = plainText;
 	}
-	private Timestamp creatTime;
-	
 	public String getDate() {
 		return date;
 	}
@@ -61,12 +62,7 @@ public class Diary implements java.io.Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Timestamp getCreatTime() {
-		return creatTime;
-	}
-	public void setCreatTime(Timestamp creatTime) {
-		this.creatTime = creatTime;
-	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {

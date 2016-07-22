@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,43 +28,38 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public void update(T t) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(T t) throws Exception {
-		// TODO Auto-generated method stub
+		this.sqlSession.update(entity.getName()+".update",t);
 		
 	}
 
 	public void delete(Serializable id) throws Exception {
-		// TODO Auto-generated method stub
-		
+		if(null != id){
+			if(StringUtils.isNotBlank(id.toString())){
+				String[] ids = id.toString().split(",");
+				if(null != ids && ids.length > 0){
+					if(ids.length == 1){
+						this.sqlSession.delete(entity.getName()+".deleteById",Long.parseLong(ids[0]));
+					}else{
+						this.sqlSession.delete(entity.getName()+".delete",ids);
+					}
+				}
+			}
+		}
 	}
 
 	public T get(Serializable id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public T get(String hql, Object... objects) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectOne(entity.getName()+".getById",id);
 	}
 
 	public List<T> list() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectList(entity.getName()+".getAll");
 	}
 
-	public List<T> list(String hql, Object... objects) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@SuppressWarnings("unchecked")
 	public PageBean<T> list(QueryObject qo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		PageBean<T> pageBean = new PageBean<T>(qo.getCurrentPage(),qo.getPageSize(),this.getCount(qo));
+		pageBean.setRecordList((List<T>) this.sqlSession.selectList(entity.getName()+".getSome", qo));
+		return pageBean;
 	}
 
 	public PageBean<T> list(String[] fields, QueryObject qo) throws Exception {
@@ -72,18 +68,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public Integer getCount(QueryObject qo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Integer executeBySQL(String sql, Object... params) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<T> findBySQL(String sql, Object... objects) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectOne(entity.getName()+".getCount",qo);
 	}
 
 }

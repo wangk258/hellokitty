@@ -250,11 +250,11 @@ public class PhotosController extends BaseController {
 				this.setErrorFlag(MessageConstants.DATA_NOT_EXISTS);
 			}
 			if(flag==1){
-				List<Photos> list=this.photosService.list("from Photos where showInTheMainPage=?",PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
-				if(list.size()>=5){
-					 this.setErrorFlag(MessageConstants.DATA_FULL);
-				}
-				photo.setShowInTheMainPage(PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
+//				List<Photos> list=this.photosService.list("from Photos where showInTheMainPage=?",PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
+//				if(list.size()>=5){
+//					 this.setErrorFlag(MessageConstants.DATA_FULL);
+//				}
+//				photo.setShowInTheMainPage(PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
 			}
 			else{
 				photo.setShowInTheMainPage(PhotoConstants.SHOW_IN_THE_MAINPAGE_NO);
@@ -282,8 +282,8 @@ public class PhotosController extends BaseController {
 	@RequestMapping(value="/showinfront")
 	public void showPhotoInMainPage(HttpServletResponse response){
 		try {
-			List<Photos> photos=this.photosService.list("from Photos where showInTheMainPage=?", PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
-			response.getWriter().println(JSONArray.fromObject(photos));
+//			List<Photos> photos=this.photosService.list("from Photos where showInTheMainPage=?", PhotoConstants.SHOW_IN_THE_MAINPAGE_YES);
+//			response.getWriter().println(JSONArray.fromObject(photos));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

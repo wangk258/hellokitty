@@ -130,4 +130,11 @@ public class PageBean<T> {
 		this.endPageIndex = endPageIndex;
 	}
 
+	@Override
+	public String toString() {
+		return "PageBean [currentPage=" + currentPage + ", pageSize=" + pageSize + ", recordList=" + recordList
+				+ ", recordCount=" + recordCount + ", pageCount=" + pageCount + ", beginPageIndex=" + beginPageIndex
+				+ ", endPageIndex=" + endPageIndex + "]";
+	}
+
 }

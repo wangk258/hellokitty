@@ -44,8 +44,8 @@ public class MoodController  extends BaseController {
 	@RequestMapping("/addview")
 	public ModelAndView addView() throws Exception{
 		ModelAndView mv=new ModelAndView("admin/mood/add");
-		List<MoodBackground> list=this.moodBackgroundService.list("from MoodBackground");
-		mv.addObject("images",list);
+//		List<MoodBackground> list=this.moodBackgroundService.list("from MoodBackground");
+//		mv.addObject("images",list);
 		return mv;
 	}
 	
@@ -132,8 +132,8 @@ public class MoodController  extends BaseController {
 			if(StringUtils.isNotBlank(moodQueryObject.getPath())&&"admin".equals(moodQueryObject.getPath())){
 				mv.setViewName("admin/mood/background");
 			}
-			List<MoodBackground> images=this.moodBackgroundService.list("from MoodBackground");
-			mv.addObject("images",images);
+//			List<MoodBackground> images=this.moodBackgroundService.list("from MoodBackground");
+//			mv.addObject("images",images);
 		} catch (Exception e) {
 			e.printStackTrace();
 			mv.addObject("error",e.getMessage());
@@ -157,8 +157,8 @@ public class MoodController  extends BaseController {
 			if(StringUtils.isNotBlank(moodQueryObject.getPath())&&"admin".equals(moodQueryObject.getPath())){
 				mv.setViewName("admin/mood/list");
 			}
-			List<Mood> list=this.moodService.list("from Mood");
-		    mv.addObject("moods",list);
+//			List<Mood> list=this.moodService.list("from Mood");
+//		    mv.addObject("moods",list);
 		} catch (Exception e) {
 			e.printStackTrace();
 			mv.addObject("error",e.getMessage());

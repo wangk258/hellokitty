@@ -12,8 +12,6 @@
 	<context:component-scan
 		base-package="com.anan.plate.**.controller,com.anan.plate.**.service.impl,com.anan.plate.**.dao.impl" />
 		
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	
 	<context:property-placeholder location="classpath:jdbc.properties,classpath:oss.properties" />
 	
 	<!-- <import resource="classpath:hibernate.xml"></import> -->
@@ -24,11 +22,6 @@
 	
 	<import resource="classpath:springMVC.xml"></import>
 	
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
 	<bean id="fileService" class="common.util.FileUploadUtil">
 		<!-- 阿里云oss存储方案 -->
 		<property name="accessKeyId" value="${oss.accessKeyId}" />
@@ -37,5 +30,8 @@
 		<property name="bucketName" value="${oss.bucketName}"></property>
 		<property name="readBaseUrl" value="${oss.readBaseUrl}"/>
 	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
 	<context:annotation-config />
 </beans>

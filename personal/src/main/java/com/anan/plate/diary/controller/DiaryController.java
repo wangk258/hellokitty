@@ -1,8 +1,5 @@
 package com.anan.plate.diary.controller;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -53,11 +50,8 @@ public class DiaryController extends BaseController<Diary> {
 			}
 			else{
 				if (diary.getId() != null) {
-					Diary old = this.diaryService.get(diary.getId());
-					diary.setCreatTime(old.getCreatTime());
 					this.diaryService.update(diary);
 				} else {
-					diary.setCreatTime(new Timestamp(new Date().getTime()));
 					diaryService.save(diary);
 				}
 				this.setRightFlag(null);
