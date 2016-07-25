@@ -37,7 +37,7 @@ CREATE TABLE `t_album` (
   `imageUrl` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_album
@@ -91,7 +91,7 @@ CREATE TABLE `t_english` (
   `text` text,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_english
@@ -107,7 +107,7 @@ CREATE TABLE `t_mood` (
   `createTime` datetime DEFAULT NULL,
   `imageUrl` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_mood
@@ -121,7 +121,7 @@ CREATE TABLE `t_mood_background` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `imageUrl` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_mood_background
@@ -138,7 +138,7 @@ CREATE TABLE `t_photos` (
   `isCover` int(11) DEFAULT NULL,
   `showInTheMainPage` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_photos
@@ -169,7 +169,7 @@ CREATE TABLE `t_websitecollection` (
   `content` varchar(255) DEFAULT NULL,
   `webSiteUrl` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_websitecollection

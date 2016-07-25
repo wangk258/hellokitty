@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="/js/lib/bootstrap/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+	<div class="top_div"></div>
+	<div id="loginModual"
+		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; text-align: center;">
+		<div style="width: 165px; height: 96px; position: absolute;">
+			<div class="tou"></div>
+			<div class="initial_left_hand" id="left_hand"></div>
+			<div class="initial_right_hand" id="right_hand"></div>
+		</div>
+		<form id="loginForm" ng-controller="loginCtl" name="loginForm"
+			ng-submit="login(loginForm.$invalid)" novalidate="novalidate"
+			ng-cloak>
+			<p style="margin: 34px 0px 10px; position: relative;">
+				<span class="icon u_logo"></span> <input class="ipt" name="username"
+					type="text" required placeholder="请输入用户名" value=""
+					ng-model="user.username" /> <br /> 
+			</p>
+
+
+			<p style="position: relative;">
+				<span class="icon p_logo"></span> <input class="ipt" name="password"
+					type="password" placeholder="请输入密码" value=""
+					ng-model="user.password" required /> <br /> 
+					<!-- <span class="error" ng-if="loginForm.password.$error.required && loginForm.$invalid && loginSubmitted">请输入密码！</span> -->
+			</p>
+
+			<div
+				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
+				<p style="margin: 0px 35px 20px 45px;">
+					<span style="float: left;"> <a
+						style="color: rgb(204, 204, 204);" href="/">返回主页</a>
+					</span> <span style="float: right;"> <a
+						style="color: rgb(204, 204, 204); margin-right: 10px;"
+						href="javascript:void(0)" id="registerLink">注册</a> <input
+						type="submit" value="登录" id="saveBtn" class="btn btn-success" />
+					</span>
+				</p>
+			</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" src="/javascripts/lib/require.min.js"
+	data-main="/javascripts/config.js"
+	data-src="/javascripts/admin/user/login.js"></script>
+</html>
