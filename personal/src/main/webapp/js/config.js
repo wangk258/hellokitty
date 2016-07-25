@@ -68,12 +68,12 @@
             }
         }
     });
+    
     require(["jquery","underscore"], function () {
         require(["angular","artDialog"], function (angular) {
             require(["angularRouter"], function () {
                 app = angular.module("personalApp", ["ngRoute"]);
-                    require(["admin/app"], function () {
-                });
+                require(["admin/app"], function () {});
             });
         });
     });
@@ -87,5 +87,4 @@
     //        });
     //    });
     //});
-
 })();
