@@ -1,12 +1,80 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
-<script type="text/javascript">
-	window.location.href="index.do";
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="js/lib/accordion/jquery.accordion.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+        a{
+            text-decoration: none;
+        }
+        ul{
+            padding:0;
+            margin:0;
+        }
+        .accordion{
+            position:absolute;
+            top:0;
+            bottom:0;
+        }
+        .div_title {
+            background-image: url('/images/opacity.png');
+            width:50%;
+            text-align: center;
+            margin:10px auto;
+            color:white;
+            border-radius: 30px;
+            padding:5px;
+        }
+        .div_img{
+            text-align: center;
+            width:100%;
+        }
+        .div_img img{
+            height:50px;
+            width:50px;
+        }
+    </style>
+    <script type="text/javascript">
+        //window.location.href = "index.do";
+    </script>
 </head>
 <body>
+    <div class="accordion"></div>
 </body>
+<script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/lib/accordion/jquery.accrodion.js"></script>
+<script type="text/javascript">
+    var items = [];
+    var sub = [];
+    for(var k = 0;k<=15;k++){
+        sub.push({
+                    text:"心灵日记",
+                    href:"#/diarylist/1",
+                    icon:"/images/admin/diary.png"
+                },
+                {
+                    text:"子项二",
+                    href:"#/diarylist/1",
+                    icon:"/images/admin/diary.png"
+                });
+    }
+    for(var i=0;i<5;i++){
+        items.push({
+            text:"第一项",
+            sub:sub
+        });
+    }
+    $(".accordion").accordion({
+       items:items,
+        subItemTmpl:'<li class="w-accordion_sub_item">\
+                            <a href="${href}">\
+                                <div class="div_img">\
+                                    <img src="${icon}">\
+                                </div>\
+                                <div class="div_title"><span>${text}</span></div>\
+                            </a>\
+                        </li>'
+    });
+</script>
 </html>

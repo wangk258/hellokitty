@@ -9,7 +9,8 @@
     return c(jQuery);
 }(!function ($) {
     var self = null,
-        tempOptions = {};
+        tempOptions = {},
+        template = '<table class>';
     function _bindEvent() {
         $("._jt").on("click", "td", function () {
             tempOptions.onDayChange && typeof tempOptions.onDayChange === "function" && tempOptions.onDayChange(new Date($(this).attr("data-date")).getTime());
@@ -122,35 +123,29 @@
         $("table._jt").remove();
         $(table).appendTo(this);
     }
-    var methods = {
-        init: function () {
-            $.fn._default = {
-                year: new Date().getFullYear(),
-                month: new Date().getMonth(),
-                day: new Date().getDate(),
-                onYearChange:function(){},
-                onMonthChange:function(){},
-                onDayChange:function(){}
-            }
-            var options = tempOptions = $.extend({}, $.fn._default, arguments[0]);
-            return this.each(function () {
-                _renderBody.call(this,options);
-                _bindEvent();
-            });
+    function Calendar(options){
+        $.fn._default = {
+            year: new Date().getFullYear(),
+            month: new Date().getMonth(),
+            day: new Date().getDate(),
+            onYearChange:function(){},
+            onMonthChange:function(){},
+            onDayChange:function(){}
         }
+        this.options = tempOptions = $.extend({}, $.fn._default, options);
+        this.render();
     }
-    var calendar = function () {
-        return new $.fn.calendar();
+
+    $.extend({},Calendar.prototype,{
+       render:function(){
+           _renderBody.call(this,options);
+           _bindEvent();
+       }
+    });
+    $.fn.calendar = function (options) {
+        return this.each(function(){
+            new Calendar(options);
+        });
     };
-    $.fn.calendar = function () {
-        self = this;
-        var method = arguments[0];
-        if (!method || typeof method === "object") {
-            methods.init.call(this, arguments[0]);
-        }
-        else {
-            methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        }
-    };
-    return calendar;
+    return Calendar;
 }(jQuery));
