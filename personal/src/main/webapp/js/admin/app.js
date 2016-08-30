@@ -1,7 +1,7 @@
 /**
  * Created by ahpeng on 2016/6/29.
  */
-define(["bootstrap","DiaryController","DiaryService"],function(){
+define(["bootstrap","DiaryController","DiaryService","accordion"],function(){
     app.config(function($routeProvider){
         $routeProvider.
             when('/diarylist/:pageIndex',{
@@ -14,9 +14,28 @@ define(["bootstrap","DiaryController","DiaryService"],function(){
             });
     });
     app.controller("personalController", ["$scope","DiaryService",function ($scope,service) {
-        $scope.funcs = ["个人随笔", "爱好学习", "用户管理"];
-        $scope.count=[];
-        $scope.count.length = 1;
+        $(".p-accordion").accordion({
+            items:[
+                {
+                    text:"个人随笔",
+                    sub:[
+                        {
+                            text:"心灵日记",
+                            href:"#/diarylist/1",
+                            icon:"/images/admin/diary.png"
+                        }
+                    ]
+                }
+            ],
+            subItemTmpl:'<li class="w-accordion_sub_item">\
+                            <a href="${href}">\
+                                <div class="div_img">\
+                                    <img src="${icon}">\
+                                </div>\
+                                <div class="div_title"><span>${text}</span></div>\
+                            </a>\
+                        </li>'
+        });
     }]);
     angular.bootstrap(angular.element("#personalApp"), ['personalApp']);
 });

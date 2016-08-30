@@ -27,6 +27,7 @@
             "toolbar": libUrl + "toolbar",
             "ueditor": libUrl + "ueditor/ueditor.all",
             "ueditor-config": libUrl + "ueditor/ueditor.config",
+            "accordion":libUrl + "accordion/jquery.accordion",
             "Utils": libUrl + "Utils",
 
 

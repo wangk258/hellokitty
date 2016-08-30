@@ -20,25 +20,17 @@ ul {
 }
 .main .left{
     width:200px;
-    height: 97%;
     float: left;
     border-right:1px solid #eee;
+    position:relative;
+    height:97%;
 }
 
-.main .left .panel-heading{
-    background:url('/images/admin/menubar.jpg') repeat-x;
-    padding:5px 15px;
-    color:darkblue;
-    font-weight:bolder;
-    text-align:center;
-}
-
-
-.main .left li{
-    width: 100%;
-    margin: 20px auto 0px auto;
-    cursor: pointer;
-    padding: 10px 0 20px 0;
+.main .p-accordion{
+    position: absolute;
+    top: 0;
+    bottom: 30px;
+    width:100%;
 }
 
 .main .left .div_title {
