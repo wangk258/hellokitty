@@ -5,6 +5,6 @@
 /*/.project
 /*/.classpath
 /*/.settings/
-./*.log
+*.log
 /*/target
 .metadata
