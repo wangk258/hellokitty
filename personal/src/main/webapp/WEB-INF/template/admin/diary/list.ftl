@@ -5,7 +5,7 @@
 	<div id="diaryListAdminApp">
 		<ul>
 			<li class="toolbar">
-				<div style="float:left;"></div>
+				<div></div>
 			</li>
 			<li class="maincontent">
 				<table width="100%" cellpadding="0" cellspacing="0" align="center" class="datacontainer"  >

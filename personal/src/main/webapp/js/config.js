@@ -24,7 +24,7 @@
             "artDialog": libUrl + "artDialog/artDialog",
             "iframeTools": libUrl + "artDialog/plugins/iframeTools",
             "slider": libUrl + "slider",
-            "toolbar": libUrl + "toolbar",
+            "toolbar": libUrl + "toolbar/jquery.toolbar",
             "ueditor": libUrl + "ueditor/ueditor.all",
             "ueditor-config": libUrl + "ueditor/ueditor.config",
             "accordion":libUrl + "accordion/jquery.accordion",

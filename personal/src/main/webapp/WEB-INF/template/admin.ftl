@@ -3,19 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link type="text/css" rel="stylesheet" href="${path.contextPath}/css/admin.css">
     <link type="text/css" rel="stylesheet" href="${path.contextPath}/js/lib/bootstrap/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="${path.contextPath}/js/lib/bootstrap/css/bootstrap-datetimepicker.min.css">
     <link type="text/css" rel="stylesheet" href="${path.contextPath}/js/lib/accordion/jquery.accordion.css">
-    <link type="text/css" rel="stylesheet" href="${path.contextPath}/css/lib/public_admin.css">
-    <link type="text/css" rel="stylesheet" href="${path.contextPath}/css/lib/toolbar.css">
+    <link type="text/css" rel="stylesheet" href="${path.contextPath}/js/lib/toolbar/jquery.toolbar.css">
+    <link type="text/css" rel="stylesheet" href="${path.contextPath}/css/admin.css">
 </head>
 <body>
 <div class="main" id="personalApp">
     <div class="left" ng-controller="personalController">
-        <div class="p-accordion">
-
-        </div>
+        <div class="p-accordion"></div>
     </div>
     <div class="right">
         <div class="content" ng-view></div>
