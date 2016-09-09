@@ -1,0 +1,27 @@
+.w-tips{
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    display: inline-block;
+    border-radius: 5px;
+    left: 10%;
+    top: 2rem;
+    z-index: 2;
+    display:none;
+}
+.w-tips .w-tips_content{
+    padding: 5px 15px;
+    color:white;
+    line-height:1.5rem;
+}
+.w-tips .w-tips_arrow{
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 0.6rem solid rgba(0,0,0,0.5);
+    position: absolute;
+    top: -0.6rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

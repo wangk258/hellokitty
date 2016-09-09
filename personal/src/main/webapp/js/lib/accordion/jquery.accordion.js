@@ -2,9 +2,8 @@
  * Created by qmtv on 2016/8/29.
  */
 !function (P) {
-    var define;
     if (define && define.amd && typeof define === "function") {
-        return define(P);
+        return define(["jquery"],P);
     }
     return P(jQuery);
 }(function ($) {

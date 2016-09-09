@@ -1,0 +1,41 @@
+.w-accordion{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-width:150px;
+}
+.w-accordion_title{
+    width: 100%;
+    background: url("../../../images/admin/menubar.jpg") repeat-x 0px 0px lightblue;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    margin-top: 1px;
+    font-size:15px;
+    text-align: center;
+    color:gray;
+}
+.w-accordion_sub_wrap{
+    display:none;
+    overflow: auto;
+}
+.w-accordion_sub_item{
+    width:100%;
+    margin:10% auto;
+    list-style-type: none;
+}
+.w-accordion_a{
+    display:block;
+    width:100%;
+    text-align:center;
+    color:gray;
+    text-decoration: none;
+    font-size:13px;
+    transition:.8s ease;
+    height:30px;
+    line-height:30px;
+}
+.w-accordion_a:hover{
+    color:red;
+}

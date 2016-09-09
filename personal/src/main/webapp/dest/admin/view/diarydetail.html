@@ -1,0 +1,44 @@
+<form name="diaryForm" novalidate="novalidate" ng-submit="submit(diaryForm.$invalid)">
+    <input type="hidden" id="diaryId" name="id" ng-model="diary.id" value="{{diary.id}}"/>
+    <input type="hidden" id="plainText" name="plainText" ng-model="diary.plainText" value="{{diary.plainText}}"/>
+    <table class="form-table">
+        <tr>
+            <td width="10%">日期：</td>
+            <td width="90%">
+                <input type="text" name="date" ng-model="diary.date" week="diary.week" class="form-control datepicker" required />
+                <div class="error" ng-show="submitted && diaryForm.date.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign error-icon"></span>
+                    <span>你想写哪天的日记啊，好歹也选一下撒！</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>星期：</td>
+            <td><input type="text" ng-model="diary.week"  class="form-control" readonly="readonly"/></td>
+        </tr>
+        <tr>
+            <td>天气：</td>
+            <td>
+                <input type="text" name="weather" ng-model="diary.weather" class="form-control" required/>
+                <div class="error" ng-show="submitted && diaryForm.weather.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign error-icon"></span>
+                    <span>是不是那天的天气影响你的心情啦，你都不想写它？</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>内容：</td>
+            <td>
+                <textarea type="text/plain" ng-model="diary.content" name="content" id="content" required></textarea>
+                <div class="error" ng-show="submitted && diaryForm.content.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign error-icon"></span>
+                    <span>虽然我不知道你是有多不愿意写，但是你还是多少写一点撒！</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="width:200px; margin:20px auto;">
+        <input type="submit"  value="确定" class="btn btn-success"/>
+        &emsp;<input type="reset" value="重写" class="btn btn-info" />
+    </div>
+</form>

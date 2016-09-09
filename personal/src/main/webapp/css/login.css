@@ -38,7 +38,7 @@ body {
 .icon{
 	position: absolute;
     top: 0;
-    left: 60px;
+    left: 10%;
     bottom: 0;
     margin: auto;
     display: block;

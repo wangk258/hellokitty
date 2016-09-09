@@ -1,0 +1,1 @@
+define(["Utils","jQueryUI"],function(n){return{init:function(){$(".controlmenu").click(function(){window.confirm("是否确定退出系统？")&&(window.location.href="/admin/user/loginout/"+encodeURIComponent("/admin"))})}}});

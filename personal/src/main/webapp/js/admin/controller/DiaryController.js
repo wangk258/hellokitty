@@ -1,7 +1,7 @@
 /**
  * Created by ahpeng on 2016/6/29.
  */
-define(["require","Utils","toolbar", "easyloader", "DateTimePickerDirective"], function (require,utils) {
+define(["require","Utils","toolbar", "page","DateTimePickerDirective"], function (require,utils) {
     var loadedpage = false,
         initToolBar = function($scope){
             $(".toolbar div:first").toolBar({
@@ -35,18 +35,14 @@ define(["require","Utils","toolbar", "easyloader", "DateTimePickerDirective"], f
                 $scope.diarylist = data.recordList;
                 if (loadedpage) return;
                 loadedpage = true;
-                window.using("pagination", function () {
-                    var option = {
-                        total: data.recordCount || 1,
-                        pageSize: data.pageSize || 15,
-                        pageNumber: data.currentPage || 1,
-                        showPageList: false,
-                        onSelectPage: function (pageNumber, pageSize) {
-                            window.location.href = "#/diarylist/" + pageNumber;
-                        }
+                var option = {
+                    totalPages: data.pageCount,
+                    visiblePages: 7,
+                    onPageClick: function (event, page) {
+                        window.location.href = "#/diarylist/" + page;
                     }
-                    angular.element("#pageBar").pagination(option);
-                });
+                }
+                angular.element("#pageBar").twbsPagination(option);
             } else {
                 $scope.diarylist = [];
             }

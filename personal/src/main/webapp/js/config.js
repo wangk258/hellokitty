@@ -1,44 +1,32 @@
 /**
  * Created by ahpeng on 2015/7/15.
  */
-(function () {
-    var libUrl = "lib/",
-        controllerUrl = "admin/controller/",
-        serviceUrl = "admin/service/",
-        directiveUrl = "admin/directive/";
     require.config({
-        paths: {
-            /*load libs*/
-            "jquery": libUrl + "jquery-1.8.0.min",
-            "underscore" : libUrl + "underscore-1.8.3.min",
-            "jQueryUI": libUrl + "jquery-ui",
-            "MD5": libUrl + "md5.min",
-            "calendar": libUrl + "calendar",
-            "angular": libUrl + "angular.min",
-            "angularRouter": libUrl + "angular-route.min",
-            "bootstrap": libUrl + "bootstrap/js/bootstrap.min",
-            "datetimepicker": libUrl + "bootstrap/js/bootstrap-datetimepicker",
-            "datetimepicker-local": libUrl + "bootstrap/js/bootstrap-datetimepicker.zh-CN",
-            "easyloader": libUrl + "page/easyloader",
-            "pageinate": libUrl + "jPaginate/jquery.paginate",
-            "artDialog": libUrl + "artDialog/artDialog",
-            "iframeTools": libUrl + "artDialog/plugins/iframeTools",
-            "slider": libUrl + "slider",
-            "toolbar": libUrl + "toolbar/jquery.toolbar",
-            "ueditor": libUrl + "ueditor/ueditor.all",
-            "ueditor-config": libUrl + "ueditor/ueditor.config",
-            "accordion":libUrl + "accordion/jquery.accordion",
-            "Utils": libUrl + "Utils",
+        paths:{
+            "jquery": "lib/jquery-1.8.0.min",
+            "underscore" : "lib/underscore-1.8.3.min",
+            "MD5": "lib/md5.min",
+            "calendar": "lib/calendar",
+            "angular": "lib/angular.min",
+            "angularRouter": "lib/angular-route.min",
+            "bootstrap": "lib/bootstrap/js/bootstrap.min",
+            "datetimepicker": "lib/bootstrap/js/bootstrap-datetimepicker",
+            "datetimepicker-local": "lib/bootstrap/js/bootstrap-datetimepicker.zh-CN",
+            "page":"lib/bootstrap/js/jquery.bootstrap.pagination.min",
+            "artDialog": "lib/artDialog/artDialog",
+            "iframeTools": "lib/artDialog/plugins/iframeTools",
+            "toolbar": "lib/toolbar/jquery.toolbar",
+            "ueditor": "lib/ueditor/ueditor.all",
+            "ueditor-config": "lib/ueditor/ueditor.config",
+            "accordion":"lib/accordion/jquery.accordion",
+            "Utils": "lib/Utils",
 
 
-            /*load controller*/
-            "DiaryController": controllerUrl + "DiaryController",
+            "DiaryController":"admin/controller/DiaryController",
 
-            /*load service*/
-            "DiaryService": serviceUrl + "DiaryService",
+            "DiaryService":"admin/service/DiaryService",
 
-            /*load directive*/
-            "DateTimePickerDirective": directiveUrl + "DateTimePickerDirective"
+            "DateTimePickerDirective": "admin/directive/DateTimePickerDirective"
         },
         shim: {
             angular: {
@@ -66,26 +54,16 @@
             },
             "datetimepicker-local": {
                 deps: ["datetimepicker"]
+            },
+            page:{
+                deps:["jquery"],
+                exports:"page"
             }
-        }
+        },
     });
-    
-    require(["jquery","underscore"], function () {
-        require(["angular","artDialog"], function (angular) {
-            require(["angularRouter"], function () {
-                app = angular.module("personalApp", ["ngRoute"]);
-                require(["admin/app"], function () {});
-            });
+    require(["jquery","angular"], function () {
+        require(["angularRouter"],function(){
+            app = angular.module("personalApp", ["ngRoute"]);
+            require(["admin/app"],function(){});
         });
     });
-
-    //require(["jquery"], function () {
-    //    $.each($("script[data-main]").attr("data-src").split(","), function (index, model) {
-    //        require([model], function (m) {
-    //            if (m && m.init && typeof m.init === "function") {
-    //                m.init();
-    //            }
-    //        });
-    //    });
-    //});
-})();

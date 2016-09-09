@@ -16,9 +16,9 @@
     </div>
     <div class="right">
         <div class="content" ng-view></div>
-        <div id="pageBar"></div>
     </div>
 </div>
+<div id="pageBar"></div>
 <div class="controlmenu">
     <div class="b-left"></div>
     <div class="b-center">
@@ -31,5 +31,5 @@
 <script type="text/javascript">
     var baseUrl = "${path.contextPath}";
 </script>
-<script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/js/config.js"></script>
+<script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/dest/config"></script>
 </html>

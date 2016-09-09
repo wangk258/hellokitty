@@ -1,7 +1,13 @@
 /**
  * Created by ahpeng on 2016/6/29.
  */
-define(["bootstrap","DiaryController","DiaryService","accordion"],function(){
+define([
+    "require",
+    "underscore",
+    "bootstrap",
+    "DiaryController",
+    "DiaryService",
+    "accordion"],function(require){
     app.config(function($routeProvider){
         $routeProvider.
             when('/diarylist/:pageIndex',{
