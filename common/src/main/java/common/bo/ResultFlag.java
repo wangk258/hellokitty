@@ -2,7 +2,7 @@ package common.bo;
 
 public class ResultFlag {
 	
-	private Boolean flag;
+	private Boolean error;
 	
 	private String msg;
 	
@@ -20,34 +20,27 @@ public class ResultFlag {
 		
 	}
 	
-	public ResultFlag(Boolean flag) {
-		this.flag = flag;
+	public ResultFlag(Boolean error) {
+		this.error = error;
 	}
 
 	
-	public ResultFlag(Boolean flag, Object data) {
-		this.flag = flag;
+	public ResultFlag(Boolean error, Object data) {
+		this.error = error;
 		this.data = data;
 	}
 
-	public ResultFlag(Boolean flag, String msg, Object data) {
-		this.flag = flag;
+	public ResultFlag(Boolean error, String msg, Object data) {
+		this.error = error;
 		this.msg = msg;
 		this.data = data;
 	}
 
-	public ResultFlag(Boolean flag, String msg) {
-		this.flag = flag;
+	public ResultFlag(Boolean error, String msg) {
+		this.error = error;
 		this.msg = msg;
 	}
-	
-	public Boolean getFlag() {
-		return flag;
-	}
 
-	public void setFlag(Boolean flag) {
-		this.flag = flag;
-	}
 
 	public String getMsg() {
 		return msg;
@@ -55,5 +48,13 @@ public class ResultFlag {
 
 	public void setMsg(String msg) {
 		this.msg = msg;
+	}
+
+	public Boolean getError() {
+		return error;
+	}
+
+	public void setError(Boolean error) {
+		this.error = error;
 	}
 }

@@ -111,7 +111,7 @@ public class MessageController {
 			}
 			PageBean<Message> pageBean=this.messageService.list(messageQueryObject);
 			ResultFlag resultFlag=new ResultFlag();
-			resultFlag.setFlag(true);
+			resultFlag.setError(true);
 			resultFlag.setData(pageBean);
 			return resultFlag;
 		} catch (Exception e) {

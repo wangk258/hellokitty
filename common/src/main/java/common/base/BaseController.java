@@ -17,13 +17,13 @@ public class BaseController<T> {
 	protected PageBean<T> pageBean;
 
 	public void setRightFlag(Object o) {
-		resultFlag.setFlag(true);
+		resultFlag.setError(false);
 		resultFlag.setMsg("");
 		resultFlag.setData(o);
 	}
 
 	public void setErrorFlag(String msg) {
-		resultFlag.setFlag(false);
+		resultFlag.setError(true);
 		resultFlag.setData(null);
 		resultFlag.setMsg(msg);
 	}

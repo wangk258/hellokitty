@@ -294,7 +294,7 @@ public class PhotosController extends BaseController {
 		try {
 			MultipartFile file=req.getFile("filedata");
 			this.fileService.upload(req, file,"photo");
-			if(resultFlag.getFlag()){
+			if(resultFlag.getError()){
 				response.getWriter().print(resultFlag.getData());
 			}
 		} catch (Exception e) {

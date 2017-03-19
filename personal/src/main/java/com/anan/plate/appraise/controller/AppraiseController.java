@@ -115,7 +115,7 @@ public class AppraiseController {
 			}
 			PageBean<Appraise> pageBean=this.appraiseService.list(appraiseQueryObject);
 			ResultFlag resultFlag=new ResultFlag();
-			resultFlag.setFlag(true);
+			resultFlag.setError(true);
 			resultFlag.setData(pageBean);
 			return resultFlag;
 		} catch (Exception e) {

@@ -63,4 +63,6 @@ public interface BaseDao<T> {
 	 */
 	public Integer getCount(QueryObject qo)throws Exception;
 	
+	public Object list(String sql) throws Exception;
+	
 }

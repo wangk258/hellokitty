@@ -178,7 +178,7 @@ public class EnglishController  extends BaseController {
 			MultipartFile files=request.getFile("filedata");
 			if(files!=null){
 				ResultFlag flag=this.fileService.upload(request,files,"english_player");
-				if(flag.getFlag()){
+				if(flag.getError()){
 					JSONObject jo=JSONObject.fromObject(flag.getData());
 					PrintWriter pw=response.getWriter();
 					pw.println(jo);

@@ -60,6 +60,8 @@ public interface BaseService<T> {
 	 */
 	public PageBean<T> list(String[] fields,QueryObject qo)throws Exception;
 	
+	public Object list(String sql) throws Exception;
+	
 	/**
 	 * 分页查询对象的集合的个数
 	 * @param qo

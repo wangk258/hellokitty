@@ -66,10 +66,10 @@ public class FileUploadUtil {
 			OSSClient client = new OSSClient(endpoint,accessKeyId,accessKeySecret);
 			String  key = type+"/"+newFileName;
 			client.putObject(bucketName, key, files.getInputStream());
-			flag.setFlag(true);
+			flag.setError(true);
 			flag.setData("{'url':'"+readBaseUrl+"/"+key+"','fileType':'"+extName+"','state':'SUCCESS','original':'"+originalFileName+"'}");
 		}catch(Exception e){
-			flag.setFlag(true);
+			flag.setError(true);
 			flag.setData("{'url':'','fileType':'','state':'SUCCESS','original':''}");
 			throw new RuntimeException(e.getMessage());
 		}

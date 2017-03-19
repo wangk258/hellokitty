@@ -171,7 +171,7 @@ public class MoodController  extends BaseController {
 		try {
 			MultipartFile file=req.getFile("filedata");
 			ResultFlag resultFlag=this.fileService.upload(req, file, MoodConstant.BACKGROUND_UPLOADPATH);
-			if(resultFlag.getFlag()){
+			if(resultFlag.getError()){
 				response.getWriter().print(resultFlag.getData());
 			}
 		} catch (Exception e) {

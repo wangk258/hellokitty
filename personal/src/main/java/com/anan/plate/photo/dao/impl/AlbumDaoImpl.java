@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.anan.plate.photo.dao.AlbumDao;
 import com.anan.plate.photo.domain.Album;
 
-import common.base.hibernate.dao.BaseDaoImpl;
+import common.base.mybatis.dao.BaseDaoImpl;
 @Repository
 public class AlbumDaoImpl extends BaseDaoImpl<Album> implements AlbumDao{
 

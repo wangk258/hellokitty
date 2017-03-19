@@ -146,7 +146,7 @@ public class ArticleController extends BaseController {
 			}
 			Article article=this.articleService.get(id);
 			ResultFlag resultFlag=new ResultFlag();
-			resultFlag.setFlag(true);
+			resultFlag.setError(true);
 			resultFlag.setData(article);
 			return resultFlag;
 		} catch (Exception e) {

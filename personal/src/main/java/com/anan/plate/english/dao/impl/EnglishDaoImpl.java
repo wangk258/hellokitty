@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.anan.plate.english.dao.EnglishDao;
 import com.anan.plate.english.domain.English;
 
-import common.base.hibernate.dao.BaseDaoImpl;
+import common.base.mybatis.dao.BaseDaoImpl;
 @Repository
 public class EnglishDaoImpl extends BaseDaoImpl<English> implements EnglishDao{
 

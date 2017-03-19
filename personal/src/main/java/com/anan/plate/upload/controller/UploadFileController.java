@@ -28,7 +28,7 @@ public class UploadFileController {
 		try {
 			MultipartFile file = req.getFile("filedata");
 			ResultFlag resultFlag = this.fileService.upload(req, file,type);
-			if (resultFlag.getFlag()) {
+			if (resultFlag.getError()) {
 				response.getWriter().print(resultFlag.getData());
 			}
 		} catch (Exception e) {

@@ -44,6 +44,10 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	public PageBean<T> list(String[] fields, QueryObject qo) throws Exception {
 		return getDao().list(fields, qo);
 	}
+	
+	public Object list(String sql) throws Exception{
+		return getDao().list(sql);
+	}
 
 	public Integer getCount(QueryObject qo) throws Exception {
 		return getDao().getCount(qo);

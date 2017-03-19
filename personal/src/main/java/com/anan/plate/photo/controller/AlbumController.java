@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sf.json.JSONObject;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,10 +28,11 @@ import com.anan.plate.photo.service.PhotosService;
 import common.base.BaseController;
 import common.bo.PageBean;
 import common.bo.ResultFlag;
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping(value="/album")
-public class AlbumController extends BaseController {
+public class AlbumController extends BaseController<Album> {
 
 	@Autowired
 	private AlbumService albumService;
@@ -49,7 +48,8 @@ public class AlbumController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/add",method = RequestMethod.POST)
-	public void  add(HttpServletResponse response,HttpSession session,Album album){
+	@ResponseBody
+	public ResultFlag  add(HttpServletResponse response,HttpSession session,Album album){
 		try {
 			if(album==null){
 				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
@@ -61,12 +61,7 @@ public class AlbumController extends BaseController {
 			e.printStackTrace();
 			this.setErrorFlag(e.getMessage());
 		}
-		try {
-			OutputStream out=response.getOutputStream();
-			out.write(JSONObject.fromObject(resultFlag).toString().getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return resultFlag;
 	}
 	/**
 	 * 删除
@@ -80,14 +75,14 @@ public class AlbumController extends BaseController {
 	public void delete(HttpServletResponse response,@RequestParam("id") Long id){
 		try {
 			if(id!=null){
-//				List<Photos> list=this.photoService.list("from Photos where albumId=?",id);
-//				if(list.size()>0){
-//					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
-//				}
-//				else{
-//					this.albumService.delete(id);
-//					 this.setRightFlag(null);
-//				}
+				List<Photos> list=this.photoService.list("from Photos where albumId=?",id);
+				if(list.size()>0){
+					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
+				}
+				else{
+					this.albumService.delete(id);
+					 this.setRightFlag(null);
+				}
 			}
 			else{
 				 this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
