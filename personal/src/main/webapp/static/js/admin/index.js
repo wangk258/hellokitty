@@ -28,7 +28,7 @@ var routes = [
         name:'admin',
         component:Admin
     }
-]
+];
 
 var router = new VueRouter({routes: routes});
 

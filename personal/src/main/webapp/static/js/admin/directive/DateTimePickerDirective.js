@@ -21,7 +21,7 @@ define(["datetimepicker-local"],function(){
                     if(e && e.date && Object.prototype.toString.call(e.date) === "[object Date]"){
                         scope.dateModel = e.date;
                         var day = e.date.getDay();
-                        var arr_week = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+                        var arr_week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
                         //angular.element("#week").val(arr_week[day]);
                         scope.weekModel = arr_week[day];
                         scope.$apply();

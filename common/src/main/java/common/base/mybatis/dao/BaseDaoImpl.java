@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.mapping.ParameterMap;
+import org.apache.ibatis.mapping.SqlCommandType;
 import org.apache.ibatis.session.Configuration;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import common.bo.QueryObject;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
-	@Autowired
 	private SqlSessionTemplate sqlSession;
 
 	private Class<?> entity;
@@ -23,12 +24,20 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public BaseDaoImpl(){
 		ParameterizedType type = (ParameterizedType)this.getClass().getGenericSuperclass();
 		entity = (Class<?>) type.getActualTypeArguments()[0];
+	}
+	
+	@Autowired
+	public void setSqlSession(SqlSessionTemplate sqlSession){
+		this.sqlSession = sqlSession;
 		Configuration configuration = this.sqlSession.getConfiguration();
 		MappedStatement baseMappedStatement = configuration.getMappedStatement(BaseDao.class.getName() + ".paramSql");
 		String paramSql = entity.getName() + ".paramSql";
 		if(!configuration.hasStatement(paramSql)){
-			MappedStatement.Builder builder = new MappedStatement.Builder(configuration, paramSql, baseMappedStatement.getSqlSource(), null);
-			configuration.addMappedStatement(builder.build());
+			MappedStatement.Builder builder = new MappedStatement.Builder(configuration, paramSql, baseMappedStatement.getSqlSource(), SqlCommandType.SELECT);
+			builder.parameterMap(baseMappedStatement.getParameterMap());
+			builder.resultMaps(baseMappedStatement.getResultMaps());
+			MappedStatement ms = builder.build();
+			configuration.addMappedStatement(ms);
 		}
 	}
 	
@@ -81,6 +90,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public Object list(String sql) throws Exception {
-		return this.sqlSession.selectList(entity.getName() + ".paramSql");
+		return this.sqlSession.selectList(entity.getName() + ".paramSql",sql);
 	}
 }

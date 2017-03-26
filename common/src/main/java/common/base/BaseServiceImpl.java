@@ -29,7 +29,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	public T get(Serializable id) throws Exception {
-		return (T) getDao().get(id);
+		return getDao().get(id);
 	}
 
 	public PageBean<T> list(QueryObject qo) throws Exception {

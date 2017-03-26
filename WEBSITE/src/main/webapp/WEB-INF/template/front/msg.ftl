@@ -61,7 +61,7 @@
 		if(msg){
 			$(".alert").remove();
 			$('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert">&times;</a>'+msg+'</div>').insertBefore($("#addForm"));
-			return;
+
 		}else{
 			$.ajax({
 				"url":"/msg/add.php",

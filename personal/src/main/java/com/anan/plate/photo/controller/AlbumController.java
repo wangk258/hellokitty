@@ -75,7 +75,7 @@ public class AlbumController extends BaseController<Album> {
 	public void delete(HttpServletResponse response,@RequestParam("id") Long id){
 		try {
 			if(id!=null){
-				List<Photos> list=this.photoService.list("from Photos where albumId=?",id);
+				List<Photos> list=(List<Photos>) this.photoService.list("from Photos where albumId=" + id);
 				if(list.size()>0){
 					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
 				}

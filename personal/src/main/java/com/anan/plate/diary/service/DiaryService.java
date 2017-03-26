@@ -6,8 +6,8 @@ import common.base.BaseService;
 
 public interface DiaryService extends BaseService<Diary>{
 	
-	public String deleteDiaries(String ids,Class<?> cls) throws Exception;
+	String deleteDiaries(String ids, Class<?> cls) throws Exception;
 	
-	public void insertBatch() throws Exception;
+	void insertBatch() throws Exception;
 	
 }

@@ -1,6 +1,6 @@
 //total总数
 //edit 富文本编辑器
-var total = 0, editor = null,editorImage =null;;
+var total = 0, editor = null, editorImage = null;
 $(function(){
 	
 	loadGrid();
@@ -186,7 +186,7 @@ function saveShowHomePage(input){
 		//选中条数目+1
 		if(total >= max){
 			$(input).attr("checked",null);
-			$.messager.alert('警告',"显示首页的图片已经等于"+max+"张");return;  
+			$.messager.alert('警告',"显示首页的图片已经等于"+max+"张");
 		}else{
 			url = "product/updateProductShowState.ajax?id="+$(input).attr("rowId")+"&state=1";
 			result = AjaxUnAsync(url);
@@ -273,7 +273,7 @@ function createProductType(value){
 		}else{
 			html += "<option value='"+this.id+"' >"+this.name+"</option>"
 		}
-	})
+	});
 	$("#productType").html(html);
 } 
 

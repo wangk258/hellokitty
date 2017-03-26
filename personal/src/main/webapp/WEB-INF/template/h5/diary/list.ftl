@@ -71,7 +71,7 @@ ul li span {
 					<li>${error}</li>
 				<#else>
 					<#list pageBean.recordList as data>
-						<li onclick="javascript:window.open('${path.contextPath}/diary/getone.do?id=${data.id}')">
+						<li onclick="window.open('${path.contextPath}/diary/getone.do?id=${data.id}')">
 							<span>${data.date}</span>
 							<span>${data.week}</span>
 							<span>${data.weather}</span>

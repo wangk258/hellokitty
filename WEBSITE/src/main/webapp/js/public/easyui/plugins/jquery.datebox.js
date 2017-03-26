@@ -60,8 +60,8 @@ e.data.handler.call(this,e.data.target);
 });
 }
 tr.find("td").css("width",(100/_4.buttons.length)+"%");
-};
-function _5(){
+}
+    function _5(){
 var _c=$(_2).combo("panel");
 var cc=_c.children("div.datebox-calendar-inner");
 _c.children()._outerWidth(_c.width());
@@ -75,12 +75,12 @@ _d-=$(this).outerHeight();
 cc._outerHeight(_d);
 }
 _3.calendar.calendar("resize");
-};
-};
-function _e(_f,q){
+}
+}
+    function _e(_f,q){
 _10(_f,q,true);
-};
-function _11(_12){
+}
+    function _11(_12){
 var _13=$.data(_12,"datebox");
 var _14=_13.options;
 var _15=_13.calendar.calendar("options").current;
@@ -88,8 +88,8 @@ if(_15){
 _10(_12,_14.formatter.call(_12,_15));
 $(_12).combo("hidePanel");
 }
-};
-function _10(_16,_17,_18){
+}
+    function _10(_16,_17,_18){
 var _19=$.data(_16,"datebox");
 var _1a=_19.options;
 var _1b=_19.calendar;
@@ -103,8 +103,8 @@ $(_16).combo("setValue",_17).combo("setText",_17);
 $(_16).combo("setText",_17);
 }
 }
-};
-$.fn.datebox=function(_1c,_1d){
+}
+    $.fn.datebox=function(_1c,_1d){
 if(typeof _1c=="string"){
 var _1e=$.fn.datebox.methods[_1c];
 if(_1e){

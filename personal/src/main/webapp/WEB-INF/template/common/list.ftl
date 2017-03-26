@@ -40,7 +40,7 @@
 	</div>
 	<div id="dialog_div" style="display:none;overflow: auto;overflow-x:hidden;">
 		<iframe id="dialog_frame" src="" width="100%" frameborder="0" scrolling="no"
-		onload="javascript:this.height=this.contentWindow.document.documentElement.scrollHeight+10"
+		onload="this.height=this.contentWindow.document.documentElement.scrollHeight+10"
 		 style="left:0px;right: 0px;bottom: 0px;"></iframe>
 	</div>
 	<script type="text/javascript">
@@ -49,7 +49,7 @@
 				total:${pageBean.recordCount},
 				pageSize:10,
 				showPageList:false
-			}
+			};
 			$("#pageBar").pagination(option);
 		});
 	</script>

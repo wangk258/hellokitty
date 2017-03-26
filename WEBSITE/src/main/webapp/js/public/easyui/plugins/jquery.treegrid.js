@@ -71,8 +71,8 @@ _1f(_2);
 }});
 _4.pageSize=_1c.pagination("options").pageSize;
 }
-};
-function _20(_21,_22){
+}
+    function _20(_21,_22){
 var _23=$.data(_21,"datagrid").options;
 var dc=$.data(_21,"datagrid").dc;
 if(!dc.body1.is(":empty")&&(!_23.nowrap||_23.autoRowHeight)){
@@ -92,9 +92,9 @@ tr2.css("height","");
 var _28=Math.max(tr1.height(),tr2.height());
 tr1.css("height",_28);
 tr2.css("height",_28);
-};
-};
-function _29(_2a){
+}
+}
+    function _29(_2a){
 var dc=$.data(_2a,"datagrid").dc;
 var _2b=$.data(_2a,"treegrid").options;
 if(!_2b.rownumbers){
@@ -103,8 +103,8 @@ return;
 dc.body1.find("div.datagrid-cell-rownumber").each(function(i){
 $(this).html(i+1);
 });
-};
-function _2c(_2d){
+}
+    function _2c(_2d){
 var dc=$.data(_2d,"datagrid").dc;
 var _2e=dc.body1.add(dc.body2);
 var _2f=($.data(_2e[0],"events")||$._data(_2e[0],"events")).click[0].handler;
@@ -138,8 +138,8 @@ _30(_2d,tr.attr("node-id"));
 _2f(e);
 }
 });
-};
-function _31(_32,_33){
+}
+    function _31(_32,_33){
 var _34=$.data(_32,"treegrid").options;
 var tr1=_34.finder.getTr(_32,_33,"body",1);
 var tr2=_34.finder.getTr(_32,_33,"body",2);
@@ -149,9 +149,9 @@ _37(tr1,_35);
 _37(tr2,_36);
 function _37(tr,_38){
 $("<tr class=\"treegrid-tr-tree\">"+"<td style=\"border:0px\" colspan=\""+_38+"\">"+"<div></div>"+"</td>"+"</tr>").insertAfter(tr);
-};
-};
-function _39(_3a,_3b,_3c,_3d){
+}
+}
+    function _39(_3a,_3b,_3c,_3d){
 var _3e=$.data(_3a,"treegrid");
 var _3f=_3e.options;
 var dc=_3e.dc;
@@ -201,8 +201,8 @@ $(_3a).treegrid("showLines");
 $(_3a).treegrid("setSelectionState");
 $(_3a).treegrid("autoSizeColumn");
 _3f.onLoadSuccess.call(_3a,_40,_3c);
-};
-function _1f(_46,_47,_48,_49,_4a){
+}
+    function _1f(_46,_47,_48,_49,_4a){
 var _4b=$.data(_46,"treegrid").options;
 var _4c=$(_46).datagrid("getPanel").find("div.datagrid-body");
 if(_48){
@@ -241,27 +241,27 @@ if(_4f==false){
 _4e.removeClass("tree-loading");
 $(_46).treegrid("loaded");
 }
-};
-function _51(_52){
+}
+    function _51(_52){
 var _53=_54(_52);
 if(_53.length){
 return _53[0];
 }else{
 return null;
 }
-};
-function _54(_55){
+}
+    function _54(_55){
 return $.data(_55,"treegrid").data;
-};
-function _56(_57,_58){
+}
+    function _56(_57,_58){
 var row=_41(_57,_58);
 if(row._parentId){
 return _41(_57,row._parentId);
 }else{
 return null;
 }
-};
-function _25(_59,_5a){
+}
+    function _25(_59,_5a){
 var _5b=$.data(_59,"treegrid").options;
 var _5c=$(_59).datagrid("getPanel").find("div.datagrid-view2 div.datagrid-body");
 var _5d=[];
@@ -283,10 +283,10 @@ _5d.push(_62);
 _5e(_62[_5b.idField]);
 }
 }
-};
-return _5d;
-};
-function _63(_64,_65){
+}
+    return _5d;
+}
+    function _63(_64,_65){
 if(!_65){
 return 0;
 }
@@ -294,8 +294,8 @@ var _66=$.data(_64,"treegrid").options;
 var _67=$(_64).datagrid("getPanel").children("div.datagrid-view");
 var _68=_67.find("div.datagrid-body tr[node-id=\""+_65+"\"]").children("td[field=\""+_66.treeField+"\"]");
 return _68.find("span.tree-indent,span.tree-hit").length;
-};
-function _41(_69,_6a){
+}
+    function _41(_69,_6a){
 var _6b=$.data(_69,"treegrid").options;
 var _6c=$.data(_69,"treegrid").data;
 var cc=[_6c];
@@ -313,8 +313,8 @@ cc.push(_6d["children"]);
 }
 }
 return null;
-};
-function _6e(_6f,_70){
+}
+    function _6e(_6f,_70){
 var _71=$.data(_6f,"treegrid").options;
 var row=_41(_6f,_70);
 var tr=_71.finder.getTr(_6f,_70);
@@ -345,8 +345,8 @@ $(_6f).treegrid("autoSizeColumn");
 _20(_6f,_70);
 _71.onCollapse.call(_6f,row);
 }
-};
-function _72(_73,_74){
+}
+    function _72(_73,_74){
 var _75=$.data(_73,"treegrid").options;
 var tr=_75.finder.getTr(_73,_74);
 var hit=tr.find("span.tree-hit");
@@ -395,9 +395,9 @@ $(_73).treegrid("autoSizeColumn");
 _20(_73,_74);
 _75.onExpand.call(_73,row);
 }
-};
-};
-function _30(_79,_7a){
+}
+}
+    function _30(_79,_7a){
 var _7b=$.data(_79,"treegrid").options;
 var tr=_7b.finder.getTr(_79,_7a);
 var hit=tr.find("span.tree-hit");
@@ -406,8 +406,8 @@ _6e(_79,_7a);
 }else{
 _72(_79,_7a);
 }
-};
-function _7c(_7d,_7e){
+}
+    function _7c(_7d,_7e){
 var _7f=$.data(_7d,"treegrid").options;
 var _80=_25(_7d,_7e);
 if(_7e){
@@ -416,8 +416,8 @@ _80.unshift(_41(_7d,_7e));
 for(var i=0;i<_80.length;i++){
 _6e(_7d,_80[i][_7f.idField]);
 }
-};
-function _81(_82,_83){
+}
+    function _81(_82,_83){
 var _84=$.data(_82,"treegrid").options;
 var _85=_25(_82,_83);
 if(_83){
@@ -426,8 +426,8 @@ _85.unshift(_41(_82,_83));
 for(var i=0;i<_85.length;i++){
 _72(_82,_85[i][_84.idField]);
 }
-};
-function _86(_87,_88){
+}
+    function _86(_87,_88){
 var _89=$.data(_87,"treegrid").options;
 var ids=[];
 var p=_56(_87,_88);
@@ -439,8 +439,8 @@ p=_56(_87,id);
 for(var i=0;i<ids.length;i++){
 _72(_87,ids[i]);
 }
-};
-function _8a(_8b,_8c){
+}
+    function _8a(_8b,_8c){
 var _8d=$.data(_8b,"treegrid").options;
 if(_8c.parent){
 var tr=_8d.finder.getTr(_8b,_8c.parent);
@@ -458,8 +458,8 @@ hit.prev().remove();
 }
 }
 _39(_8b,_8c.parent,_8c.data,true);
-};
-function _90(_91,_92){
+}
+    function _90(_91,_92){
 var ref=_92.before||_92.after;
 var _93=$.data(_91,"treegrid").options;
 var _94=_56(_91,ref);
@@ -490,17 +490,17 @@ var sub=_9b.next("tr.treegrid-tr-tree");
 tr.insertAfter(sub.length?sub:_9b);
 }
 _9a.remove();
-};
-};
-function _9c(_9d,_9e){
+}
+}
+    function _9c(_9d,_9e){
 var _9f=$.data(_9d,"treegrid");
 $(_9d).datagrid("deleteRow",_9e);
 _29(_9d);
 _9f.total-=1;
 $(_9d).datagrid("getPager").pagination("refresh",{total:_9f.total});
 $(_9d).treegrid("showLines");
-};
-function _a0(_a1){
+}
+    function _a0(_a1){
 var t=$(_a1);
 var _a2=t.treegrid("options");
 if(_a2.lines){
@@ -533,8 +533,8 @@ _a9.find(".tree-icon").prev().addClass("tree-join");
 var _aa=_a4(_a7[_a7.length-1]);
 _aa.addClass("tree-node-last");
 _aa.find(".tree-join").removeClass("tree-join").addClass("tree-joinbottom");
-};
-function _a6(_ab){
+}
+    function _a6(_ab){
 $.map(_ab,function(_ac){
 if(_ac.children&&_ac.children.length){
 _a6(_ac.children);
@@ -547,14 +547,14 @@ var tr=_a2.finder.getTr(_a1,_ad[_a2.idField]);
 var cc=tr.next().find("tr.datagrid-row td[field=\""+_a2.treeField+"\"] div.datagrid-cell");
 cc.find("span:eq("+(_ae-1)+")").addClass("tree-line");
 }
-};
-function _a4(_af){
+}
+    function _a4(_af){
 var tr=_a2.finder.getTr(_a1,_af[_a2.idField]);
 var _b0=tr.find("td[field=\""+_a2.treeField+"\"] div.datagrid-cell");
 return _b0;
-};
-};
-$.fn.treegrid=function(_b1,_b2){
+}
+}
+    $.fn.treegrid=function(_b1,_b2){
 if(typeof _b1=="string"){
 var _b3=$.fn.treegrid.methods[_b1];
 if(_b3){
@@ -789,7 +789,7 @@ _d4.push("</div></td></tr>");
 }
 _d4.push("</tbody></table>");
 return _d4;
-};
+}
 },renderFooter:function(_d9,_da,_db){
 var _dc=$.data(_d9,"treegrid").options;
 var _dd=$.data(_d9,"treegrid").footer||[];
@@ -913,8 +913,8 @@ if(_f0!=id){
 tr.attr("id",_ef+"-"+(_f2?1:2)+"-"+_f0);
 tr.attr("node-id",_f0);
 }
-};
-_f1.call(this,true);
+}
+    _f1.call(this,true);
 _f1.call(this,false);
 $(_ea).treegrid("fixRowHeight",id);
 },deleteRow:function(_f6,id){
@@ -948,7 +948,7 @@ break;
 }
 }
 return _fa;
-};
+}
 },onBeforeRender:function(_fb,_fc,_fd){
 if($.isArray(_fc)){
 _fd={total:_fc.length,rows:_fc};
@@ -976,8 +976,8 @@ if(row.children&&row.children.length){
 _100(row.children,row[_ff.idField]);
 }
 }
-};
-_100(_fd,_fc);
+}
+    _100(_fd,_fc);
 }
 var node=_41(_fb,_fc);
 if(node){
@@ -1022,7 +1022,7 @@ if(_108&&_108.length){
 _106(_108);
 }
 }
-};
+}
 },transfer:function(_109,_10a,data){
 var opts=$.data(_109,"treegrid").options;
 var rows=[];

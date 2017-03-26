@@ -16,8 +16,8 @@ return i;
 }
 }
 return -1;
-};
-function _4(a,o,id){
+}
+    function _4(a,o,id){
 if(typeof o=="string"){
 for(var i=0,_5=a.length;i<_5;i++){
 if(a[i][o]==id){
@@ -31,16 +31,16 @@ if(_6!=-1){
 a.splice(_6,1);
 }
 }
-};
-function _7(a,o,r){
+}
+    function _7(a,o,r){
 for(var i=0,_8=a.length;i<_8;i++){
 if(a[i][o]==r[o]){
 return;
 }
 }
 a.push(r);
-};
-function _9(_a){
+}
+    function _9(_a){
 var _b=$.data(_a,"datagrid");
 var _c=_b.options;
 var _d=_b.panel;
@@ -106,8 +106,8 @@ this.remove(_e.dirty[i]);
 }
 _e.dirty=[];
 }};
-};
-function _1c(_1d,_1e){
+}
+    function _1c(_1d,_1e){
 var _1f=$.data(_1d,"datagrid");
 var _20=_1f.options;
 var _21=_1f.panel;
@@ -120,8 +120,8 @@ _20.width=p.width();
 _20.height=p.height();
 }
 _21.panel("resize",_20);
-};
-function _22(_23){
+}
+    function _22(_23){
 var _24=$.data(_23,"datagrid");
 var _25=_24.options;
 var dc=_24.dc;
@@ -161,8 +161,8 @@ var _34=_26._size("minHeight")||"";
 var _35=_26._size("maxHeight")||"";
 _2a.add(_2b).children("div.datagrid-body").css({marginTop:_31,height:(isNaN(parseInt(_25.height))?"":(_28-_32)),minHeight:(_34?_34-_33-_32:""),maxHeight:(_35?_35-_33-_32:"")});
 _29.height(_2b.height());
-};
-function _36(_37,_38,_39){
+}
+    function _36(_37,_38,_39){
 var _3a=$.data(_37,"datagrid").data.rows;
 var _3b=$.data(_37,"datagrid").options;
 var dc=$.data(_37,"datagrid").dc;
@@ -207,8 +207,8 @@ var _44=Math.max(tr1.height(),tr2.height());
 tr1.css("height",_44);
 tr2.css("height",_44);
 }
-};
-function _40(cc){
+}
+    function _40(cc){
 var _45=0;
 var _46=0;
 $(cc).children().each(function(){
@@ -221,9 +221,9 @@ _45=c._outerWidth();
 }
 });
 return {width:_45,height:_46};
-};
-};
-function _47(_48,_49){
+}
+}
+    function _47(_48,_49){
 var _4a=$.data(_48,"datagrid");
 var _4b=_4a.options;
 var dc=_4a.dc;
@@ -237,9 +237,9 @@ function _4c(_4d){
 var _4e=_4d?1:2;
 var tr=_4b.finder.getTr(_48,_49,"body",_4e);
 (_4d?dc.body1:dc.body2).children("table.datagrid-btable-frozen").append(tr);
-};
-};
-function _4f(_50,_51){
+}
+}
+    function _4f(_50,_51){
 function _52(){
 var _53=[];
 var _54=[];
@@ -267,8 +267,8 @@ opt.frozen?_53.push(_55):_54.push(_55);
 });
 });
 return [_53,_54];
-};
-var _56=$("<div class=\"datagrid-wrap\">"+"<div class=\"datagrid-view\">"+"<div class=\"datagrid-view1\">"+"<div class=\"datagrid-header\">"+"<div class=\"datagrid-header-inner\"></div>"+"</div>"+"<div class=\"datagrid-body\">"+"<div class=\"datagrid-body-inner\"></div>"+"</div>"+"<div class=\"datagrid-footer\">"+"<div class=\"datagrid-footer-inner\"></div>"+"</div>"+"</div>"+"<div class=\"datagrid-view2\">"+"<div class=\"datagrid-header\">"+"<div class=\"datagrid-header-inner\"></div>"+"</div>"+"<div class=\"datagrid-body\"></div>"+"<div class=\"datagrid-footer\">"+"<div class=\"datagrid-footer-inner\"></div>"+"</div>"+"</div>"+"</div>"+"</div>").insertAfter(_50);
+}
+    var _56=$("<div class=\"datagrid-wrap\">"+"<div class=\"datagrid-view\">"+"<div class=\"datagrid-view1\">"+"<div class=\"datagrid-header\">"+"<div class=\"datagrid-header-inner\"></div>"+"</div>"+"<div class=\"datagrid-body\">"+"<div class=\"datagrid-body-inner\"></div>"+"</div>"+"<div class=\"datagrid-footer\">"+"<div class=\"datagrid-footer-inner\"></div>"+"</div>"+"</div>"+"<div class=\"datagrid-view2\">"+"<div class=\"datagrid-header\">"+"<div class=\"datagrid-header-inner\"></div>"+"</div>"+"<div class=\"datagrid-body\"></div>"+"<div class=\"datagrid-footer\">"+"<div class=\"datagrid-footer-inner\"></div>"+"</div>"+"</div>"+"</div>"+"</div>").insertAfter(_50);
 _56.panel({doSize:false,cls:"datagrid"});
 $(_50).hide().appendTo(_56.children("div.datagrid-view"));
 var cc=_52();
@@ -276,8 +276,8 @@ var _57=_56.children("div.datagrid-view");
 var _58=_57.children("div.datagrid-view1");
 var _59=_57.children("div.datagrid-view2");
 return {panel:_56,frozenColumns:cc[0],columns:cc[1],dc:{view:_57,view1:_58,view2:_59,header1:_58.children("div.datagrid-header").children("div.datagrid-header-inner"),header2:_59.children("div.datagrid-header").children("div.datagrid-header-inner"),body1:_58.children("div.datagrid-body").children("div.datagrid-body-inner"),body2:_59.children("div.datagrid-body"),footer1:_58.children("div.datagrid-footer").children("div.datagrid-footer-inner"),footer2:_59.children("div.datagrid-footer").children("div.datagrid-footer-inner")}};
-};
-function _5a(_5b){
+}
+    function _5a(_5b){
 var _5c=$.data(_5b,"datagrid");
 var _5d=_5c.options;
 var dc=_5c.dc;
@@ -419,8 +419,8 @@ td.wrap("<tr class=\"datagrid-header-row\"></tr>").parent().appendTo($("tbody",t
 td.prependTo($("tr:first",t));
 }
 }
-};
-function _62(){
+}
+    function _62(){
 var _71=[];
 var _72=_73(_5b,true).concat(_73(_5b));
 for(var i=0;i<_72.length;i++){
@@ -432,9 +432,9 @@ _71.push(["."+col.cellClass,col.boxWidth?col.boxWidth+"px":"auto"]);
 _5c.ss.add(_71);
 _5c.ss.dirty(_5c.cellSelectorPrefix);
 _5c.cellSelectorPrefix="."+_5c.cellClassPrefix;
-};
-};
-function _75(_76){
+}
+}
+    function _75(_76){
 var _77=$.data(_76,"datagrid");
 var _78=_77.panel;
 var _79=_77.options;
@@ -634,12 +634,12 @@ return parseInt(tr.attr("datagrid-row-index"));
 }else{
 return tr.attr("node-id");
 }
-};
-function _81(tr){
+}
+    function _81(tr){
 return tr.length&&tr.parent().length;
-};
-};
-function _8c(_8d,_8e){
+}
+}
+    function _8c(_8d,_8e){
 var _8f=$.data(_8d,"datagrid");
 var _90=_8f.options;
 _8e=_8e||{};
@@ -698,8 +698,8 @@ _98(_8d);
 _99(_8d,$(_8d).datagrid("getData"));
 }
 _90.onSortColumn.call(_8d,_90.sortName,_90.sortOrder);
-};
-function _9a(_9b){
+}
+    function _9a(_9b){
 var _9c=$.data(_9b,"datagrid");
 var _9d=_9c.options;
 var dc=_9c.dc;
@@ -753,8 +753,8 @@ c.col.width+=c.addingWidth;
 }
 _9c.leftWidth=_a5;
 _bb(_9b);
-};
-function _9f(){
+}
+    function _9f(){
 var _a8=false;
 var _a9=_73(_9b,true).concat(_73(_9b,false));
 $.map(_a9,function(_aa){
@@ -770,17 +770,17 @@ _a8=true;
 if(_a8){
 _bb(_9b);
 }
-};
-function _a3(col){
+}
+    function _a3(col){
 if(String(col.width||"").indexOf("%")>=0){
 return false;
 }
 if(!col.hidden&&!col.checkbox&&!col.auto&&!col.fixed){
 return true;
 }
-};
-};
-function _ac(_ad,_ae){
+}
+}
+    function _ac(_ad,_ae){
 var _af=$.data(_ad,"datagrid");
 var _b0=_af.options;
 var dc=_af.dc;
@@ -839,11 +839,11 @@ _b8=w;
 return _b8;
 function _b9(_ba){
 return _ba.is(":visible")?_ba._outerWidth():tmp.html(_ba.html())._outerWidth();
-};
-};
-};
-};
-function _bb(_bc,_bd){
+}
+}
+}
+}
+    function _bb(_bc,_bd){
 var _be=$.data(_bc,"datagrid");
 var _bf=_be.options;
 var dc=_be.dc;
@@ -866,9 +866,9 @@ var col=_74(_bc,_c3);
 if(col.cellClass){
 _be.ss.set("."+col.cellClass,col.boxWidth?col.boxWidth+"px":"auto");
 }
-};
-};
-function _c1(_c4){
+}
+}
+    function _c1(_c4){
 var dc=$.data(_c4,"datagrid").dc;
 dc.view.find("td.datagrid-td-merged").each(function(){
 var td=$(this);
@@ -882,8 +882,8 @@ _c6+=col.boxWidth+col.deltaWidth;
 }
 $(this).children("div.datagrid-cell")._outerWidth(_c6);
 });
-};
-function _c2(_c7){
+}
+    function _c2(_c7){
 var dc=$.data(_c7,"datagrid").dc;
 dc.view.find("div.datagrid-editable").each(function(){
 var _c8=$(this);
@@ -895,8 +895,8 @@ if(ed.actions.resize){
 ed.actions.resize(ed.target,_c8.width());
 }
 });
-};
-function _74(_ca,_cb){
+}
+    function _74(_ca,_cb){
 function _cc(_cd){
 if(_cd){
 for(var i=0;i<_cd.length;i++){
@@ -910,15 +910,15 @@ return c;
 }
 }
 return null;
-};
-var _ce=$.data(_ca,"datagrid").options;
+}
+    var _ce=$.data(_ca,"datagrid").options;
 var col=_cc(_ce.columns);
 if(!col){
 col=_cc(_ce.frozenColumns);
 }
 return col;
-};
-function _73(_cf,_d0){
+}
+    function _73(_cf,_d0){
 var _d1=$.data(_cf,"datagrid").options;
 var _d2=(_d0==true)?(_d1.frozenColumns||[[]]):_d1.columns;
 if(_d2.length==0){
@@ -950,17 +950,17 @@ $.map(_d2[0],function(col){
 _d9+=col.colspan||1;
 });
 return _d9;
-};
-function _d7(a){
+}
+    function _d7(a){
 for(var i=0;i<a.length;i++){
 if(a[i]==undefined){
 return i;
 }
 }
 return -1;
-};
-};
-function _99(_da,_db){
+}
+}
+    function _99(_da,_db){
 var _dc=$.data(_da,"datagrid");
 var _dd=_dc.options;
 var dc=_dc.dc;
@@ -1019,8 +1019,8 @@ dc.body2.triggerHandler("scroll");
 $(_da).datagrid("setSelectionState");
 $(_da).datagrid("autoSizeColumn");
 _dd.onLoadSuccess.call(_da,_db);
-};
-function _e3(_e4){
+}
+    function _e3(_e4){
 var _e5=$.data(_e4,"datagrid");
 var _e6=_e5.options;
 var dc=_e5.dc;
@@ -1053,9 +1053,9 @@ return true;
 }
 }
 return false;
-};
-};
-function _ed(_ee,row){
+}
+}
+    function _ed(_ee,row){
 var _ef=$.data(_ee,"datagrid");
 var _f0=_ef.options;
 var _f1=_ef.data.rows;
@@ -1069,8 +1069,8 @@ return i;
 }
 return -1;
 }
-};
-function _f2(_f3){
+}
+    function _f2(_f3){
 var _f4=$.data(_f3,"datagrid");
 var _f5=_f4.options;
 var _f6=_f4.data;
@@ -1083,8 +1083,8 @@ _f7.push(_f5.finder.getRow(_f3,$(this)));
 });
 return _f7;
 }
-};
-function _f8(_f9){
+}
+    function _f8(_f9){
 var _fa=$.data(_f9,"datagrid");
 var _fb=_fa.options;
 if(_fb.idField){
@@ -1096,8 +1096,8 @@ _fc.push(_fb.finder.getRow(_f9,$(this)));
 });
 return _fc;
 }
-};
-function _fd(_fe,_ff){
+}
+    function _fd(_fe,_ff){
 var _100=$.data(_fe,"datagrid");
 var dc=_100.dc;
 var opts=_100.options;
@@ -1118,15 +1118,15 @@ _102.scrollTop(_102.scrollTop()+top+tr._outerHeight()-_102.height()+18);
 }
 }
 }
-};
-function _104(_105,_106){
+}
+    function _104(_105,_106){
 var _107=$.data(_105,"datagrid");
 var opts=_107.options;
 opts.finder.getTr(_105,_107.highlightIndex).removeClass("datagrid-row-over");
 opts.finder.getTr(_105,_106).addClass("datagrid-row-over");
 _107.highlightIndex=_106;
-};
-function _108(_109,_10a,_10b){
+}
+    function _108(_109,_10a,_10b){
 var _10c=$.data(_109,"datagrid");
 var dc=_10c.dc;
 var opts=_10c.options;
@@ -1145,8 +1145,8 @@ _7(_10d,opts.idField,row);
 opts.finder.getTr(_109,_10a).addClass("datagrid-row-selected");
 opts.onSelect.call(_109,_10a,row);
 _fd(_109,_10a);
-};
-function _110(_111,_112,_113){
+}
+    function _110(_111,_112,_113){
 var _114=$.data(_111,"datagrid");
 var dc=_114.dc;
 var opts=_114.options;
@@ -1160,8 +1160,8 @@ if(opts.idField){
 _4(_115,opts.idField,row[opts.idField]);
 }
 opts.onUnselect.call(_111,_112,row);
-};
-function _117(_118,_119){
+}
+    function _117(_118,_119){
 var _11a=$.data(_118,"datagrid");
 var opts=_11a.options;
 var rows=opts.finder.getRows(_118);
@@ -1176,8 +1176,8 @@ _7(_11b,opts.idField,rows[_11d]);
 }
 }
 opts.onSelectAll.call(_118,rows);
-};
-function _10e(_11e,_11f){
+}
+    function _10e(_11e,_11f){
 var _120=$.data(_11e,"datagrid");
 var opts=_120.options;
 var rows=opts.finder.getRows(_11e);
@@ -1192,8 +1192,8 @@ _4(_121,opts.idField,rows[_123][opts.idField]);
 }
 }
 opts.onUnselectAll.call(_11e,rows);
-};
-function _10f(_124,_125,_126){
+}
+    function _10f(_124,_125,_126){
 var _127=$.data(_124,"datagrid");
 var opts=_127.options;
 if(!_126&&opts.selectOnCheck){
@@ -1213,8 +1213,8 @@ if(opts.idField){
 _7(_127.checkedRows,opts.idField,row);
 }
 opts.onCheck.call(_124,_125,row);
-};
-function _116(_129,_12a,_12b){
+}
+    function _116(_129,_12a,_12b){
 var _12c=$.data(_129,"datagrid");
 var opts=_12c.options;
 if(!_12b&&opts.selectOnCheck){
@@ -1231,8 +1231,8 @@ if(opts.idField){
 _4(_12c.checkedRows,opts.idField,row[opts.idField]);
 }
 opts.onUncheck.call(_129,_12a,row);
-};
-function _11c(_12e,_12f){
+}
+    function _11c(_12e,_12f){
 var _130=$.data(_12e,"datagrid");
 var opts=_130.options;
 var rows=opts.finder.getRows(_12e);
@@ -1249,8 +1249,8 @@ _7(_130.checkedRows,opts.idField,rows[i]);
 }
 }
 opts.onCheckAll.call(_12e,rows);
-};
-function _122(_131,_132){
+}
+    function _122(_131,_132){
 var _133=$.data(_131,"datagrid");
 var opts=_133.options;
 var rows=opts.finder.getRows(_131);
@@ -1267,8 +1267,8 @@ _4(_133.checkedRows,opts.idField,rows[i][opts.idField]);
 }
 }
 opts.onUncheckAll.call(_131,rows);
-};
-function _134(_135,_136){
+}
+    function _134(_135,_136){
 var opts=$.data(_135,"datagrid").options;
 var tr=opts.finder.getTr(_135,_136);
 var row=opts.finder.getRow(_135,_136);
@@ -1288,8 +1288,8 @@ ed.actions.setValue(ed.target,row[_138]);
 });
 _139(_135,_136);
 opts.onBeginEdit.call(_135,_136,row);
-};
-function _13a(_13b,_13c,_13d){
+}
+    function _13a(_13b,_13c,_13d){
 var _13e=$.data(_13b,"datagrid");
 var opts=_13e.options;
 var _13f=_13e.updatedRows;
@@ -1332,8 +1332,8 @@ opts.onAfterEdit.call(_13b,_13c,row,_142);
 }else{
 opts.onCancelEdit.call(_13b,_13c,row);
 }
-};
-function _146(_147,_148){
+}
+    function _146(_147,_148){
 var opts=$.data(_147,"datagrid").options;
 var tr=opts.finder.getTr(_147,_148);
 var _149=[];
@@ -1345,8 +1345,8 @@ _149.push(ed);
 }
 });
 return _149;
-};
-function _14a(_14b,_14c){
+}
+    function _14a(_14b,_14c){
 var _14d=_146(_14b,_14c.index!=undefined?_14c.index:_14c.id);
 for(var i=0;i<_14d.length;i++){
 if(_14d[i].field==_14c.field){
@@ -1354,8 +1354,8 @@ return _14d[i];
 }
 }
 return null;
-};
-function _137(_14e,_14f){
+}
+    function _137(_14e,_14f){
 var opts=$.data(_14e,"datagrid").options;
 var tr=opts.finder.getTr(_14e,_14f);
 tr.children("td").each(function(){
@@ -1385,8 +1385,8 @@ $.data(cell[0],"datagrid.editor",{actions:_153,target:_153.init(cell.find("td"),
 }
 });
 _36(_14e,_14f,true);
-};
-function _145(_156,_157){
+}
+    function _145(_156,_157){
 var opts=$.data(_156,"datagrid").options;
 var tr=opts.finder.getTr(_156,_157);
 tr.children("td").each(function(){
@@ -1402,8 +1402,8 @@ cell.removeClass("datagrid-editable");
 cell.css("width","");
 }
 });
-};
-function _139(_158,_159){
+}
+    function _139(_158,_159){
 var tr=$.data(_158,"datagrid").options.finder.getTr(_158,_159);
 if(!tr.hasClass("datagrid-row-editing")){
 return true;
@@ -1413,8 +1413,8 @@ vbox.validatebox("validate");
 vbox.trigger("mouseleave");
 var _15a=tr.find(".validatebox-invalid");
 return _15a.length==0;
-};
-function _15b(_15c,_15d){
+}
+    function _15b(_15c,_15d){
 var _15e=$.data(_15c,"datagrid").insertedRows;
 var _15f=$.data(_15c,"datagrid").deletedRows;
 var _160=$.data(_15c,"datagrid").updatedRows;
@@ -1438,8 +1438,8 @@ return _160;
 }
 }
 return [];
-};
-function _161(_162,_163){
+}
+    function _161(_162,_163){
 var _164=$.data(_162,"datagrid");
 var opts=_164.options;
 var data=_164.data;
@@ -1459,24 +1459,24 @@ if(opts.height=="auto"){
 _36(_162);
 }
 $(_162).datagrid("getPager").pagination("refresh",{total:data.total});
-};
-function _167(_168,_169){
+}
+    function _167(_168,_169){
 var data=$.data(_168,"datagrid").data;
 var view=$.data(_168,"datagrid").options.view;
 var _16a=$.data(_168,"datagrid").insertedRows;
 view.insertRow.call(view,_168,_169.index,_169.row);
 _16a.push(_169.row);
 $(_168).datagrid("getPager").pagination("refresh",{total:data.total});
-};
-function _16b(_16c,row){
+}
+    function _16b(_16c,row){
 var data=$.data(_16c,"datagrid").data;
 var view=$.data(_16c,"datagrid").options.view;
 var _16d=$.data(_16c,"datagrid").insertedRows;
 view.insertRow.call(view,_16c,null,row);
 _16d.push(row);
 $(_16c).datagrid("getPager").pagination("refresh",{total:data.total});
-};
-function _16e(_16f){
+}
+    function _16e(_16f){
 var _170=$.data(_16f,"datagrid");
 var data=_170.data;
 var rows=data.rows;
@@ -1488,8 +1488,8 @@ _170.originalRows=_171;
 _170.updatedRows=[];
 _170.insertedRows=[];
 _170.deletedRows=[];
-};
-function _172(_173){
+}
+    function _172(_173){
 var data=$.data(_173,"datagrid").data;
 var ok=true;
 for(var i=0,len=data.rows.length;i<len;i++){
@@ -1502,8 +1502,8 @@ ok=false;
 if(ok){
 _16e(_173);
 }
-};
-function _174(_175){
+}
+    function _174(_175){
 var _176=$.data(_175,"datagrid");
 var opts=_176.options;
 var _177=_176.originalRows;
@@ -1518,16 +1518,16 @@ for(var i=0;i<a.length;i++){
 ids.push(a[i][opts.idField]);
 }
 return ids;
-};
-function _17d(ids,_17e){
+}
+    function _17d(ids,_17e){
 for(var i=0;i<ids.length;i++){
 var _17f=_ed(_175,ids[i]);
 if(_17f>=0){
 (_17e=="s"?_108:_10f)(_175,_17f,true);
 }
 }
-};
-for(var i=0;i<data.rows.length;i++){
+}
+    for(var i=0;i<data.rows.length;i++){
 $(_175).datagrid("cancelEdit",i);
 }
 var _180=_17c(_17a);
@@ -1540,8 +1540,8 @@ _99(_175,data);
 _17d(_180,"s");
 _17d(_181,"c");
 _16e(_175);
-};
-function _98(_182,_183){
+}
+    function _98(_182,_183){
 var opts=$.data(_182,"datagrid").options;
 if(_183){
 opts.queryParams=_183;
@@ -1578,9 +1578,9 @@ opts.onLoadError.apply(_182,arguments);
 if(_186==false){
 $(_182).datagrid("loaded");
 }
-};
-};
-function _187(_188,_189){
+}
+}
+    function _187(_188,_189){
 var opts=$.data(_188,"datagrid").options;
 _189.type=_189.type||"body";
 _189.rowspan=_189.rowspan||1;
@@ -1610,9 +1610,9 @@ for(var i=0;i<_18b;i++){
 td.hide();
 td=td.next();
 }
-};
-};
-$.fn.datagrid=function(_18c,_18d){
+}
+}
+    $.fn.datagrid=function(_18c,_18d){
 if(typeof _18c=="string"){
 return $.fn.datagrid.methods[_18c](this,_18d);
 }
@@ -1663,8 +1663,8 @@ return _192;
 function _193(name){
 function isA(_194){
 return $.data($(_194)[0],name)!=undefined;
-};
-return {init:function(_195,_196){
+}
+    return {init:function(_195,_196){
 var _197=$("<input type=\"text\" class=\"datagrid-editable-input\">").appendTo(_195);
 if(_197[name]&&name!="text"){
 return _197[name](_196);
@@ -1708,9 +1708,9 @@ $(_19c)[name]("resize",_19d);
 $(_19c)._outerWidth(_19d)._outerHeight(22);
 }
 }};
-};
-};
-var _19e=$.extend({},_190(["text","textbox","numberbox","numberspinner","combobox","combotree","combogrid","datebox","datetimebox","timespinner","datetimespinner"]),{textarea:{init:function(_19f,_1a0){
+}
+}
+    var _19e=$.extend({},_190(["text","textbox","numberbox","numberspinner","combobox","combotree","combogrid","datebox","datetimebox","timespinner","datetimespinner"]),{textarea:{init:function(_19f,_1a0){
 var _1a1=$("<textarea class=\"datagrid-editable-input\"></textarea>").appendTo(_19f);
 return _1a1;
 },getValue:function(_1a2){
@@ -2166,8 +2166,8 @@ tr.attr("style",_207).attr("class",tr.hasClass("datagrid-row-selected")?_206+" d
 if(_20b){
 tr.find("div.datagrid-cell-check input[type=checkbox]")._propAttr("checked",true);
 }
-};
-_208.call(this,true);
+}
+    _208.call(this,true);
 _208.call(this,false);
 $(_204).datagrid("fixRowHeight",_205);
 },insertRow:function(_20c,_20d,row){
@@ -2198,8 +2198,8 @@ if(opts.striped){
 tr.removeClass("datagrid-row-alt").addClass((i+1)%2?"datagrid-row-alt":"");
 }
 }
-};
-function _213(_214){
+}
+    function _213(_214){
 var _215=_214?1:2;
 var _216=$(_20c).datagrid("getColumnFields",_214);
 var _217=_20e.rowIdPrefix+"-"+_215+"-"+_20d;
@@ -2214,8 +2214,8 @@ cc.html("<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody>"+tr+"</
 }else{
 opts.finder.getTr(_20c,_20d+1,"body",_215).before(tr);
 }
-};
-_20f.call(this,true);
+}
+    _20f.call(this,true);
 _20f.call(this,false);
 _213.call(this,true);
 _213.call(this,false);
@@ -2243,8 +2243,8 @@ if(opts.striped){
 tr.removeClass("datagrid-row-alt").addClass((i-1)%2?"datagrid-row-alt":"");
 }
 }
-};
-opts.finder.getTr(_218,_219).remove();
+}
+    opts.finder.getTr(_218,_219).remove();
 _21b.call(this,true);
 _21b.call(this,false);
 data.total-=1;

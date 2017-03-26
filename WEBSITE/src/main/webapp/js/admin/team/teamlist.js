@@ -77,9 +77,9 @@ function addMethod(a){
 				$('#addDiv').dialog('close'); 
 			} 
 		}] 
-	}); 
-};
+	});
 
+}
 function createUE(){
 	//清空文本编辑器
 	editor = new UE.ui.Editor({initialFrameWidth:770,initialFrameHeight:400});
@@ -193,7 +193,7 @@ function saveShowHomePage(input){
 		//选中条数目+1
 		if(total >= max){
 			$(input).attr("checked",null);
-			$.messager.alert('警告',"显示首页的图片已经等于"+max+"张");return;  
+			$.messager.alert('警告',"显示首页的图片已经等于"+max+"张");
 		}else{
 			url = "product/updateProductShowState.ajax?id="+$(input).attr("rowId")+"&state=1";
 			result = AjaxUnAsync(url);

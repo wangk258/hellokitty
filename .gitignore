@@ -10,3 +10,6 @@
 .metadata
 /**/node_modules/
 /**/dest/
+/out/
+*.bak
+*.iml

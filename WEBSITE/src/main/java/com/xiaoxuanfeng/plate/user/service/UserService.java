@@ -8,6 +8,6 @@ import common.base.BaseService;
 
 public interface UserService extends BaseService<User> {
 	
-	public String login(HttpServletRequest request,User user) throws Exception;
+	String login(HttpServletRequest request, User user) throws Exception;
 
 }

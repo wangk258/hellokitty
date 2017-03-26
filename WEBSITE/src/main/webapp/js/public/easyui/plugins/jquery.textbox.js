@@ -23,8 +23,8 @@ _6(_2);
 return false;
 });
 return _3;
-};
-function _7(_8){
+}
+    function _7(_8){
 var _9=$.data(_8,"textbox");
 var _a=_9.options;
 var tb=_9.textbox;
@@ -55,14 +55,14 @@ _a.onClickButton.call(_8);
 }
 _c(_8,_a.disabled);
 _d(_8,_a.readonly);
-};
-function _e(_f){
+}
+    function _e(_f){
 var tb=$.data(_f,"textbox").textbox;
 tb.find(".textbox-text").validatebox("destroy");
 tb.remove();
 $(_f).remove();
-};
-function _6(_10,_11){
+}
+    function _6(_10,_11){
 var _12=$.data(_10,"textbox");
 var _13=_12.options;
 var tb=_12.textbox;
@@ -100,9 +100,9 @@ tb.insertAfter(_10);
 _13.onResize.call(_10,_13.width,_13.height);
 function _18(_1a){
 return (_13.iconAlign==_1a?_16._outerWidth():0)+(_13.buttonAlign==_1a?btn._outerWidth():0);
-};
-};
-function _1b(_1c){
+}
+}
+    function _1b(_1c){
 var _1d=$(_1c).textbox("options");
 var _1e=$(_1c).textbox("textbox");
 _1e.validatebox($.extend({},_1d,{deltaX:$(_1c).textbox("getTipX"),onBeforeValidate:function(){
@@ -124,8 +124,8 @@ tb.removeClass("textbox-invalid");
 tb.addClass("textbox-invalid");
 }
 }}));
-};
-function _20(_21){
+}
+    function _20(_21){
 var _22=$.data(_21,"textbox");
 var _23=_22.options;
 var tb=_22.textbox;
@@ -177,8 +177,8 @@ _2c.removeClass("textbox-icon-disabled");
 }
 });
 tb.find(".textbox-button").linkbutton((_23.disabled||_23.readonly)?"disable":"enable");
-};
-function _c(_2d,_2e){
+}
+    function _c(_2d,_2e){
 var _2f=$.data(_2d,"textbox");
 var _30=_2f.options;
 var tb=_2f.textbox;
@@ -191,8 +191,8 @@ _30.disabled=false;
 $(_2d).removeAttr("disabled");
 tb.find(".textbox-text,.textbox-value").removeAttr("disabled");
 }
-};
-function _d(_31,_32){
+}
+    function _d(_31,_32){
 var _33=$.data(_31,"textbox");
 var _34=_33.options;
 _34.readonly=_32==undefined?true:_32;
@@ -201,8 +201,8 @@ _35.removeAttr("readonly").removeClass("textbox-text-readonly");
 if(_34.readonly||!_34.editable){
 _35.attr("readonly","readonly").addClass("textbox-text-readonly");
 }
-};
-$.fn.textbox=function(_36,_37){
+}
+    $.fn.textbox=function(_36,_37){
 if(typeof _36=="string"){
 var _38=$.fn.textbox.methods[_36];
 if(_38){

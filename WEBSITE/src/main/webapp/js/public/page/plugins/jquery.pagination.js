@@ -95,8 +95,8 @@ _3.onChangePageSize.call(_2,_3.pageSize);
 var _a=Math.ceil(_3.total/_3.pageSize);
 _b(_2,_3.pageNumber);
 });
-};
-function _b(_c,_d){
+}
+    function _b(_c,_d){
 var _e=$.data(_c,"pagination").options;
 var _f=Math.ceil(_e.total/_e.pageSize)||1;
 var _10=_d;
@@ -109,8 +109,8 @@ _10=_f;
 _e.pageNumber=_10;
 _e.onSelectPage.call(_c,_10,_e.pageSize);
 _11(_c);
-};
-function _11(_12){
+}
+    function _11(_12){
 var _13=$.data(_12,"pagination").options;
 var _14=Math.ceil(_13.total/_13.pageSize)||1;
 var num=$(_12).find("input.pagination-num");
@@ -128,8 +128,8 @@ $(_12).find("a[icon=pagination-load]").find(".pagination-load").addClass("pagina
 }else{
 $(_12).find("a[icon=pagination-load]").find(".pagination-load").removeClass("pagination-loading");
 }
-};
-function _16(_17,_18){
+}
+    function _16(_17,_18){
 var _19=$.data(_17,"pagination").options;
 _19.loading=_18;
 if(_19.loading){
@@ -137,8 +137,8 @@ $(_17).find("a[icon=pagination-load]").find(".pagination-load").addClass("pagina
 }else{
 $(_17).find("a[icon=pagination-load]").find(".pagination-load").removeClass("pagination-loading");
 }
-};
-$.fn.pagination=function(_1a,_1b){
+}
+    $.fn.pagination=function(_1a,_1b){
 if(typeof _1a=="string"){
 return $.fn.pagination.methods[_1a](this,_1b);
 }

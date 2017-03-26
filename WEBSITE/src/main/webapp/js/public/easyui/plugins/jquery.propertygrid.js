@@ -45,11 +45,11 @@ return;
 _c(_1);
 _1=undefined;
 });
-};
-function _d(t){
+}
+    function _d(t){
 return $(t).data("textbox")?$(t).textbox("textbox"):$(t);
-};
-function _c(_e){
+}
+    function _c(_e){
 var t=$(_e);
 if(!t.length){
 return;
@@ -71,8 +71,8 @@ t.datagrid("cancelEdit",_10);
 }
 }
 _f.editIndex=undefined;
-};
-$.fn.propertygrid=function(_12,_13){
+}
+    $.fn.propertygrid=function(_12,_13){
 if(typeof _12=="string"){
 var _14=$.fn.propertygrid.methods[_12];
 if(_14){
@@ -210,12 +210,12 @@ return _3d;
 }
 }
 return null;
-};
-function _35(){
+}
+    function _35(){
 if(!$("#datagrid-group-style").length){
 $("head").append("<style id=\"datagrid-group-style\">"+".datagrid-group{height:25px;overflow:hidden;font-weight:bold;border-bottom:1px solid #ccc;}"+"</style>");
 }
-};
+}
 }});
 $.extend($.fn.datagrid.methods,{expandGroup:function(jq,_3e){
 return jq.each(function(){

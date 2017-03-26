@@ -24,8 +24,8 @@ _8.css("margin-top",parseInt((_6.height()-_8.height())/2)+"px");
 _6.insertAfter(_5);
 _5.remove();
 }
-};
-function _9(_a){
+}
+    function _9(_a){
 var _b=$.data(_a,"linkbutton").options;
 var t=$(_a).empty();
 t.addClass("l-btn").removeClass("l-btn-plain l-btn-selected l-btn-plain-selected");
@@ -68,8 +68,8 @@ _b.onClick.call(this);
 });
 _d(_a,_b.selected);
 _e(_a,_b.disabled);
-};
-function _d(_f,_10){
+}
+    function _d(_f,_10){
 var _11=$.data(_f,"linkbutton").options;
 if(_10){
 if(_11.group){
@@ -89,8 +89,8 @@ $(_f).removeClass("l-btn-selected l-btn-plain-selected");
 _11.selected=false;
 }
 }
-};
-function _e(_12,_13){
+}
+    function _e(_12,_13){
 var _14=$.data(_12,"linkbutton");
 var _15=_14.options;
 $(_12).removeClass("l-btn-disabled l-btn-plain-disabled");
@@ -115,8 +115,8 @@ if(_14.onclick){
 _12.onclick=_14.onclick;
 }
 }
-};
-$.fn.linkbutton=function(_17,_18){
+}
+    $.fn.linkbutton=function(_17,_18){
 if(typeof _17=="string"){
 return $.fn.linkbutton.methods[_17](this,_18);
 }

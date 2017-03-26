@@ -23,7 +23,7 @@ $(function() {
 				var sortHtml = "";
 				if(index != 0){
 					sortHtml +="<a href='javascript:void(0)'" ;
-					sortHtml += " onclick=changeSort('"+row.id+"','-1')"
+					sortHtml += " onclick=changeSort('"+row.id+"','-1')";
 					sortHtml+="><em class='icon_up'></em>" ;
 					sortHtml+="<span style='float:left;margin-right:15px;color:gray'>上移<span></a>";
 				}

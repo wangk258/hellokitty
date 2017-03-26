@@ -41,8 +41,8 @@ $(this).find("span.l-btn-text").addClass("l-btn-focus");
 $(this).find("span.l-btn-text").removeClass("l-btn-focus");
 });
 _4(_2,_3.disabled);
-};
-function _4(_5,_6){
+}
+    function _4(_5,_6){
 var _7=$.data(_5,"linkbutton");
 if(_6){
 _7.options.disabled=true;
@@ -66,8 +66,8 @@ _5.onclick=_7.onclick;
 }
 $(_5).removeClass("l-btn-disabled");
 }
-};
-$.fn.linkbutton=function(_9,_a){
+}
+    $.fn.linkbutton=function(_9,_a){
 if(typeof _9=="string"){
 return $.fn.linkbutton.methods[_9](this,_a);
 }

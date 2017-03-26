@@ -67,7 +67,7 @@ function validation(){
 
 		    	login() ;
 		     }
-		}
+		};
 		var username = document.getElementById("username");
 		username.value="${username}";
 		document.getElementById("password").value="";

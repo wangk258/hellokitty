@@ -40,7 +40,7 @@
 		$.each(data.rows,function(){
 			if(this.name !="首页")
 			accordionHtml+="<div title='"+this.name+"' style='height: 100%'><ul id='"+this.id+"' page='"+this.page+"'></ul></div>";
-		})
+		});
 		$("#menuAccordion").append(accordionHtml);
 		accordionHtml+="</div>";
 		
@@ -55,7 +55,7 @@
 			}
 			var editorHtml = "<li><a href='javascript:void(0)' onclick='addTab(this)' url='"+url+"' fun='"+this.id+"' >"+this.ckey+"</a></li>";
 			$("#"+this.pkey).append(editorHtml);
-		})
+		});
 		
 		//除去菜单管理
 		if(!SUPERFLAG){
@@ -89,7 +89,7 @@
 		var allTabtitle = [];
 		$.each(alltabs, function(i, n) {
 			allTabtitle.push($(n).panel('options').title);
-		})
+		});
 
 		switch (action) {
 		case "refresh":

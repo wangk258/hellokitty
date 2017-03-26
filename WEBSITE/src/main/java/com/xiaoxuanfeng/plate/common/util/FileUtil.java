@@ -40,8 +40,7 @@ public class FileUtil {
 		if (applyFile != null) {
 			String applyFileName = applyFile.getOriginalFilename();
 			if (StringUtils.isNotEmpty(applyFileName)) {
-				;
-				// 创建文件
+                // 创建文件
 				File dirPath = new File(Constant.CTXDIR+"/"+saveFilePath);
 				if (!dirPath.exists()) {
 					dirPath.mkdirs();

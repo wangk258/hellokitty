@@ -20,9 +20,9 @@ public class PageBean<T> {
 	private Integer endPageIndex; // 页码列表的结束索引（包含）
 
 	public PageBean() {
-	};
+	}
 
-	/**
+    /**
 	 * 只接受4个必要的属性，会自动的计算出其他3个属性的值
 	 * 
 	 * @param currentPage

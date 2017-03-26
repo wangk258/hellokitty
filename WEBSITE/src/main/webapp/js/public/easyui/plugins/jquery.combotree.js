@@ -56,8 +56,8 @@ _4.onClick.call(this,_e);
 _11(_2);
 _4.onCheck.call(this,_f,_10);
 }}));
-};
-function _11(_12){
+}
+    function _11(_12){
 var _13=$.data(_12,"combotree");
 var _14=_13.options;
 var _15=_13.tree;
@@ -76,8 +76,8 @@ ss.push(_17.text);
 }
 }
 $(_12).combo("setValues",vv).combo("setText",ss.join(_14.separator));
-};
-function _18(_19,_1a){
+}
+    function _18(_19,_1a){
 var _1b=$.data(_19,"combotree").options;
 var _1c=$.data(_19,"combotree").tree;
 _1c.find("span.tree-checkbox").addClass("tree-checkbox0").removeClass("tree-checkbox1 tree-checkbox2");
@@ -95,8 +95,8 @@ vv.push(v);
 ss.push(s);
 }
 $(_19).combo("setValues",vv).combo("setText",ss.join(_1b.separator));
-};
-$.fn.combotree=function(_1e,_1f){
+}
+    $.fn.combotree=function(_1e,_1f){
 if(typeof _1e=="string"){
 var _20=$.fn.combotree.methods[_1e];
 if(_20){

@@ -173,7 +173,7 @@
 							height: cc._outerHeight()
 						});
 					}
-				}
+				};
 				if (opts.closed){
 					var pp = $(this).panel('panel');
 					pp.show();

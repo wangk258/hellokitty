@@ -41,7 +41,7 @@ define(["require","Utils","toolbar", "page","DateTimePickerDirective"], function
                     onPageClick: function (event, page) {
                         window.location.href = "#/diarylist/" + page;
                     }
-                }
+                };
                 angular.element("#pageBar").twbsPagination(option);
             } else {
                 $scope.diarylist = [];
@@ -58,10 +58,10 @@ define(["require","Utils","toolbar", "page","DateTimePickerDirective"], function
             }else{
                 $scope.checkedArr.splice(_.indexOf($scope.checkedArr,id),1);
             }
-        }
+        };
         $scope.selectAll = function(e){
             $scope.checked = e.target.checked;
-        }
+        };
         $scope.delete = function(ids){
             if(ids && ids.length){
                 diaryService.delete(ids).then(function(data){
@@ -76,7 +76,7 @@ define(["require","Utils","toolbar", "page","DateTimePickerDirective"], function
                     }
                 });
             }
-        }
+        };
         initToolBar($scope);
     }]);
 

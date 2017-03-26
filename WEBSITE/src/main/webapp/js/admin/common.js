@@ -29,7 +29,7 @@ window.onload = function() {
 	// _log(Sys.firefox);
 	// }
 	//     
-}
+};
 
 /** ************** js 发布需要注释的js ****************** */
 
@@ -84,7 +84,7 @@ function onDataError() {
 		msg : "操作结果返回格式有误",
 		timeout : 2000,
 		showType : 'slide'
-	}
+	};
 	messagerShow(setting);
 }
 
@@ -119,7 +119,7 @@ function getCheckedIds(dataGrid) {
 	}
 	$.each(arr, function() {
 		ids += "," + this.id
-	})
+	});
 	ids = ids.substr(1);
 	return ids;
 }
@@ -144,7 +144,7 @@ function GetQueryParams(form){
 	return JSON.parse(param);
 }
 function getProName(){
-	var i = 0
+	var i = 0;
 	return "getProName"+i;
 }
 /**
@@ -249,7 +249,7 @@ Array.prototype.indexOf = function(args) {
 		}
 	}
 	return index;
-}
+};
 /**
  * 获取定义枚举常量
  */
@@ -279,7 +279,7 @@ function AjaxUnAsync(url){
 			result = data;
 		},
 		error:function(e){
-			$.messager.alert('警告',"请求出错");return;  
+			$.messager.alert('警告',"请求出错");
 		}
 	});
 	return result;

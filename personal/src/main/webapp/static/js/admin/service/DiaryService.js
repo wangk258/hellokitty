@@ -35,7 +35,7 @@ define(function(){
                 });
             }
             return deferred.promise;
-        }
+        };
         this.delete = function(ids){
             var deferred = $q.defer();
             $http.get("/diary/delete.do?ids="+ids).success(function(data){

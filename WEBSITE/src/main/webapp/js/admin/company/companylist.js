@@ -81,8 +81,9 @@ function addMethod(a){
 				$('#addDiv').dialog('close'); 
 			} 
 		}] 
-	}); 
-};
+	});
+
+}
 //创建UE编辑器
 function createUE(){
 	//清空文本编辑器

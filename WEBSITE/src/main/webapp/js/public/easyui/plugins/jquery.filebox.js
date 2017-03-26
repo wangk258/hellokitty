@@ -25,8 +25,8 @@ $(_2).filebox("setText",this.value);
 _4.onChange.call(_2,this.value,_4.oldValue);
 _4.oldValue=this.value;
 });
-};
-$.fn.filebox=function(_6,_7){
+}
+    $.fn.filebox=function(_6,_7){
 if(typeof _6=="string"){
 var _8=$.fn.filebox.methods[_6];
 if(_8){

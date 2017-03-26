@@ -144,7 +144,7 @@ load = function(url, type, charset, cb) {
         done();
         img.onerror = null;
         img = null;
-      }
+      };
       img.src = config.base+url;
     } else {
       // firefox, safari, chrome, ie9下加载失败触发

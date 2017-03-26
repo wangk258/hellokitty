@@ -145,7 +145,7 @@ function setNavactions(id){
 		}else{
 			html+="<option value='"+this.id+"'>"+this.name+"</option>"
 		}
-	})
+	});
 	$("#pkey").html(html);
 }
 
@@ -156,7 +156,7 @@ function setUrl(select){
 		if($("#ckey").val()){
 			$("#url").val("/admin/pages/editor/editor.jsp?pkey="+$("#pkey").val()+"&ckey="+$("#ckey").val());
 		}else{
-			alert("请先填写菜单名称！"); return;
+			alert("请先填写菜单名称！");
 		}
 	}else{
 		$("#url").val("");
@@ -167,7 +167,7 @@ function setUrlByNavi(select){
 		if($("#ckey").val()){
 			$("#url").val("/admin/pages/editor/editor.jsp?pkey="+$("#pkey").val()+"&ckey="+$("#ckey").val());
 		}else{
-			alert("请先填写菜单名称！"); return;
+			alert("请先填写菜单名称！");
 		}
 	}
 }
