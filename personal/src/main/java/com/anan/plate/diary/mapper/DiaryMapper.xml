@@ -21,24 +21,12 @@
        where id = #{id}  
     </update>
     
-    <delete id="deleteById" parameterType="long">
-    	delete from t_diary where id = #{id}
-    </delete>
-    
     <delete id="delete" parameterType="string">
     	delete from t_diary where id in
     	<foreach item="item" index="index" collection="array" open="(" separator="," close=")">  
 		 #{item}  
 		</foreach> 
     </delete>
-    
-    <select id="getById" parameterType="long" resultType="Diary">
-    	select * from t_diary where id = #{id}
-    </select>
-    
-    <select id="getAll" resultType="Diary">
-    	select * from t_diary
-    </select>
     
     <select id="getSome" parameterType="common.bo.QueryObject" resultType="Diary">
     	select * from t_diary
@@ -48,4 +36,5 @@
     <select id="getCount" parameterType="common.bo.QueryObject" resultType="integer">
     	select count(*) from t_diary;
     </select>
+    
 </mapper>

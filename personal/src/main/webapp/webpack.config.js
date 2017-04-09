@@ -6,10 +6,12 @@ var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var AutoPrefixer = require("autoprefixer");
 module.exports = {
-    entry: path.join(__dirname,"js","admin","index.js"),
+    entry: {
+    	'admin/app':path.join(__dirname,'static',"js","admin","admin.js")
+    },
     output: {
-        path: path.join(__dirname,"dest"),
-        filename: "app.js"
+        path: path.join(__dirname,'static',"dest"),
+        filename: "[name].js",
     },
     devtool:false,
     module: {

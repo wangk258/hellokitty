@@ -33,21 +33,6 @@
 		<url-pattern>*.ajax</url-pattern>
 	</servlet-mapping>
 	
-	<servlet-mapping>
-		<servlet-name>spring-mvc</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>spring-mvc</servlet-name>
-		<url-pattern>*.aspx</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>spring-mvc</servlet-name>
-		<url-pattern>*.ashx</url-pattern>
-	</servlet-mapping>
-	
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
@@ -58,8 +43,6 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-	
-	
 	
 	
 	<!-- session timeout -->

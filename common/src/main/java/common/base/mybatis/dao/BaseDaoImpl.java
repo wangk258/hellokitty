@@ -2,12 +2,14 @@ package common.base.mybatis.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.mapping.ParameterMap;
-import org.apache.ibatis.mapping.SqlCommandType;
 import org.apache.ibatis.session.Configuration;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +32,18 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void setSqlSession(SqlSessionTemplate sqlSession){
 		this.sqlSession = sqlSession;
 		Configuration configuration = this.sqlSession.getConfiguration();
-		MappedStatement baseMappedStatement = configuration.getMappedStatement(BaseDao.class.getName() + ".paramSql");
-		String paramSql = entity.getName() + ".paramSql";
-		if(!configuration.hasStatement(paramSql)){
-			MappedStatement.Builder builder = new MappedStatement.Builder(configuration, paramSql, baseMappedStatement.getSqlSource(), SqlCommandType.SELECT);
-			builder.parameterMap(baseMappedStatement.getParameterMap());
-			builder.resultMaps(baseMappedStatement.getResultMaps());
-			MappedStatement ms = builder.build();
-			configuration.addMappedStatement(ms);
+		String[] baseIds = new String[]{".paramSql",".deleteById",".getById",".getAll"};
+//		String[] baseIds = new String[]{".paramSql",".deleteById",".getAll"};
+		for(String baseId : baseIds){
+			MappedStatement baseMappedStatement = configuration.getMappedStatement(BaseDao.class.getName() + baseId);
+			String id = entity.getName() + baseId;
+			if(!configuration.hasStatement(id)){
+				MappedStatement.Builder builder = new MappedStatement.Builder(configuration, id, baseMappedStatement.getSqlSource(), baseMappedStatement.getSqlCommandType());
+				builder.parameterMap(baseMappedStatement.getParameterMap());
+				builder.resultMaps(baseMappedStatement.getResultMaps());
+				MappedStatement ms = builder.build();
+				configuration.addMappedStatement(ms);
+			}
 		}
 	}
 	
@@ -56,7 +62,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 				String[] ids = id.toString().split(",");
 				if(null != ids && ids.length > 0){
 					if(ids.length == 1){
-						this.sqlSession.delete(entity.getName()+".deleteById",Long.parseLong(ids[0]));
+						Map<String,Object> map = new HashMap<String,Object>();
+						map.put("id", Long.parseLong(ids[0]));
+						map.put("table", "t_"+entity.getSimpleName());
+						this.sqlSession.delete(entity.getName()+".deleteById",map);
 					}else{
 						this.sqlSession.delete(entity.getName()+".delete",ids);
 					}
@@ -65,12 +74,27 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public T get(Serializable id) throws Exception {
-		return this.sqlSession.selectOne(entity.getName()+".getById",id);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("id", id);
+		map.put("table", "t_"+entity.getSimpleName());
+		Map<String,Object> result = this.sqlSession.selectOne(entity.getName()+".getById",map);
+		Object obj = entity.newInstance();
+		BeanUtils.populate(obj, result);
+		return (T) obj;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> list() throws Exception {
-		return this.sqlSession.selectList(entity.getName()+".getAll");
+		List<Map<String,Object>> list = this.sqlSession.selectList(entity.getName()+".getAll","t_"+entity.getSimpleName());
+		List<T>  result = new ArrayList<T>();
+		for(Map<String,Object> map:list){
+			Object obj = entity.newInstance();
+			BeanUtils.populate(obj, map);
+			result.add((T)obj);
+		}
+		return result;
 	}
 
 	@SuppressWarnings("unchecked")

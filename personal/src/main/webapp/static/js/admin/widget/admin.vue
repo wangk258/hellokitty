@@ -1,10 +1,12 @@
 <template>
-    <h1>hello world</h1>
+    <div>hello world</div>
 </template>
 <script>
     module.exports = {
         data:function(){
-            return{}
+            return{
+                moment:window.moment
+            }
         },
         methods:{
         }

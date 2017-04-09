@@ -13,6 +13,6 @@ public class AlbumDaoTest extends TestBase {
 	
 	@Test
 	public void getTest() throws Exception{
-		System.out.println(photosDao.list("select count(id) from t_photos where albumId=5"));
+		System.out.println(photosDao.list());
 	}
 }

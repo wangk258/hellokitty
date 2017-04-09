@@ -119,7 +119,7 @@
 
         currentPath = currentPath[ currentPath.length -1 ].src;
 
-        return new PathStack().push( currentPath ) + "ueditor/";
+        return new PathStack().push( currentPath ) + "/";
 
 
     })();

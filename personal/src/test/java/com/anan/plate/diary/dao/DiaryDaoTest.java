@@ -1,5 +1,7 @@
 package com.anan.plate.diary.dao;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,11 +25,25 @@ public class DiaryDaoTest extends TestBase {
 	
 	@Test
 	public void deleteTest() throws Exception{
-		diaryDao.delete("19,20");
+		diaryDao.delete("100");
 	}
 	
 	@Test
-	public void getTest() throws Exception{
+	public void getOneTest() throws Exception{
+		Diary diary = diaryDao.get(5);
+		System.out.println(diary);
+	}
+	
+	@Test
+	public void getAllTest() throws Exception{
+		List<Diary> list = diaryDao.list();
+		for(Diary diary : list){
+			System.out.println(diary);
+		}
+	}
+	
+	@Test
+	public void getSomeTest() throws Exception{
 		QueryObject qo = new DiaryQueryObject();
 		qo.setCurrentPage(2);
 		qo.setPageSize(3);

@@ -2,20 +2,21 @@
  * Created by Administrator on 1/7/2017.
  */
 var closeFn = function () {
-    Dialog.close();
+    dialog.close();
 };
-var dialog = Vue.extend({
+var Dialog = Vue.extend({
     template: '#dialogTemplate',
     data: function () {
         return {
             showDialog: false,
             isComponent:false,
             title: "",
-            showTitle: false,
+            showTitle: true,
             content: '',
             showConfirmButton: false,
             confirmText: "确定",
             currentView:'',
+            param:{},
             confirmHandler: function () {
             },
             showCancelButton: false,
@@ -25,34 +26,41 @@ var dialog = Vue.extend({
         };
     },
     methods: {
-        alert: function (content, handler) {
+        alert: function (content,title, handler) {
             this.showDialog = true;
             this.isComponent = false;
+            this.showTitle = true;
+            this.title = title || '提示';
             this.content = content;
             this.showConfirmButton = true;
             this.confirmHandler = function(){
                 handler && handler();
-                Dialog.close();
+                closeFn()
             }
         },
         confirm:function(content,confirmHandler,cancelHandler){
             this.showDialog = true;
             this.isComponent = false;
             this.content = content;
+            this.showTitle = true;
+            this.title = '操作确认';
             this.showConfirmButton = true;
             this.confirmHandler = function(){
                 confirmHandler && confirmHandler();
-                Dialog.close();
+                closeFn()
             };
             this.showCancelButton = true;
             this.cancelHandler = function(){
                 cancelHandler && cancelHandler();
-                Dialog.close();
+                closeFn()
             };
         },
-        showComponent:function(name){
+        showComponent:function(name,title,param){
             this.showDialog = true;
             this.isComponent = true;
+            this.showTitle = true;
+            this.title = title;
+            this.param = param;
             this.currentView=name;
         },
         close:function(){
@@ -60,4 +68,4 @@ var dialog = Vue.extend({
         }
     }
 });
-module.exports = dialog;
+module.exports = Dialog;

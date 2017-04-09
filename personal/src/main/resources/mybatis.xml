@@ -59,7 +59,7 @@
 		<property name="typeAliasesPackage" value="com.anan.plate"/>
 		<property name="mapperLocations">
 			<list>
-				<value>common.base.mybatis.dao.BaseMapper.xml</value>
+				<value>classpath*:common/base/mybatis/dao/BaseMapper.xml</value>
 				<value>classpath*:com/anan/plate/**/mapper/*.xml</value>
 			</list>
 		</property>
