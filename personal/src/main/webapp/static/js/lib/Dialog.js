@@ -58,6 +58,8 @@ var Dialog = Vue.extend({
         showComponent:function(name,title,param){
             this.showDialog = true;
             this.isComponent = true;
+            this.showConfirmButton = false;
+            this.showCancelButton = false;
             this.showTitle = true;
             this.title = title;
             this.param = param;

@@ -1,5 +1,7 @@
 package com.anan.plate.upload.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +30,18 @@ public class UploadFileController extends BaseController {
 	 */
 	@RequestMapping("/upload")
 	@ResponseBody
-	public ResultFlag upload(MultipartRequest req,HttpServletResponse response,String type) {
+	public void upload(MultipartRequest req,HttpServletResponse response,String type) {
 		try {
 			MultipartFile file = req.getFile("filedata");
-			return this.fileService.upload(req, file,type);
+			resultFlag =  this.fileService.upload(req, file,type);
 		} catch (Exception e) {
 			e.printStackTrace();
 			resultFlag.setMsg(e.getMessage());
-			return resultFlag;
+		}
+		try {
+			response.getWriter().print(resultFlag.getData());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>安安小屋后台管理系统</title>
+    <link rel="stylesheet" href="dest/styles.css">
+</head>
+<body>
+<div class="personal">
+    <div class="header">
+        <header-widget :title="'欢迎来到安安小屋后台管理系统'"></header-widget>
+    </div>
+    <div class="main">
+        <div class="left">
+            <sidebar-widget></sidebar-widget>
+        </div>
+        <div class="right">
+            <router-view ref="sub"></router-view>
+        </div>
+    </div>
+    <dialog-widget ref="dialog"></dialog-widget>
+</div>
+</body>
+<script type="text/template" id="dialogTemplate">
+    <transition name="custom" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+        <el-dialog :title="title" v-model="showDialog">
+            <span v-if="!isComponent">{{content}}</span>
+            <component v-if="isComponent" :is="currentView" :param="param"></component>
+            <div slot="footer" class="dialog-footer">
+                <el-button v-if="showCancelButton" @click="cancelHandler">取 消</el-button>
+                <el-button type="primary" v-if="showConfirmButton" @click="confirmHandler">确 定</el-button>
+            </div>
+        </el-dialog>
+    </transition>
+</script>
+<script type="text/javascript" src="js/lib/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="js/lib/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="dest/admin/app.js"></script>
+</html>

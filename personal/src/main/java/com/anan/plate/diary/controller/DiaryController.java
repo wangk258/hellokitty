@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +39,7 @@ public class DiaryController extends BaseController<Diary> {
 	 */
 	@RequestMapping(value = "/saveOrUpdate", method = RequestMethod.POST)
 	@ResponseBody
-	public ResultFlag add(HttpServletRequest request, HttpServletResponse response, @RequestBody Diary diary){
+	public ResultFlag add(HttpServletRequest request, HttpServletResponse response, Diary diary){
 
 		try {
 			if (diary == null) {
@@ -56,7 +55,7 @@ public class DiaryController extends BaseController<Diary> {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getCause().getMessage());
 		}
 		return resultFlag;
 	}

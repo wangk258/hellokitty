@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+   
+<mapper namespace="com.anan.plate.photo.domain.Album">
+  
+    <insert id="insert" parameterType="Album">  
+       insert into t_album(imageUrl,name,updateUser,updateTime,createUser,createTime)
+        			values(#{imageUrl},#{name},0,now(),0,now())
+    </insert>
+    
+    <update id="update" parameterType="Album">  
+       update t_album set imageUrl = #{imageUrl},
+       					  name = #{name},
+       					  updateUser = 0,
+       					  updateTime = now()
+       where id = #{id}  
+    </update>
+    
+    <delete id="delete" parameterType="string">
+    	delete from t_album  where id in
+    	<foreach item="item" index="index" collection="array" open="(" separator="," close=")">  
+		 #{item}  
+		</foreach> 
+    </delete>
+    
+    <select id="getSome" parameterType="common.bo.QueryObject" resultType="Album">
+    	select * from t_album
+    	limit #{start},#{end}
+    </select>
+    
+    <select id="getCount" parameterType="common.bo.QueryObject" resultType="integer">
+    	select count(*) from t_album;
+    </select>
+    
+</mapper>

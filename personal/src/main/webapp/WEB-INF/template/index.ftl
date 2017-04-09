@@ -5,5 +5,5 @@
 </@head>
 <@body>
 	<section id="banner"></section>
-    <script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/js/config.js" data-src="${path.contextPath}/js/index.js"></script>
+    <script type="text/javascript" src="${path.contextPath}/js/lib/require.min.js" data-main="${path.contextPath}/js/config.js" data-src="${path.contextPath}/js/admin.js"></script>
 </@body>

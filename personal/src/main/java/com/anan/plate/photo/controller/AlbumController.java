@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.anan.plate.constants.MessageConstants;
 import com.anan.plate.photo.bo.AlbumQueryObject;
@@ -31,7 +30,7 @@ import common.bo.ResultFlag;
 import net.sf.json.JSONObject;
 
 @Controller
-@RequestMapping(value="/album")
+@RequestMapping(value="/photo/album")
 public class AlbumController extends BaseController<Album> {
 
 	@Autowired
@@ -47,19 +46,21 @@ public class AlbumController extends BaseController<Album> {
 	 * @param result
 	 * @return
 	 */
-	@RequestMapping(value = "/add",method = RequestMethod.POST)
+	@RequestMapping(value = "/saveOrUpdate",method = RequestMethod.POST)
 	@ResponseBody
 	public ResultFlag  add(HttpServletResponse response,HttpSession session,Album album){
 		try {
 			if(album==null){
 				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
 			}
-			album.setImageUrl(PhotoConstants.ALBUM_DEFAULT);
+			if(StringUtils.isEmpty(album.getImageUrl())){
+				album.setImageUrl(PhotoConstants.ALBUM_DEFAULT);
+			}
 			albumService.save(album);
 			this.setRightFlag(null);
 		} catch (Exception e) {
 			e.printStackTrace();
-			this.setErrorFlag(e.getMessage());
+			this.setErrorFlag(e.getCause().getMessage());
 		}
 		return resultFlag;
 	}
@@ -99,31 +100,6 @@ public class AlbumController extends BaseController<Album> {
 		}
 		
 	}
-	
-	/**
-	 * 修改
-	 * @param request
-	 * @param session
-	 * @param ptMail
-	 * @param result
-	 * @return
-	 */
-	@RequestMapping(value = "/update",method = RequestMethod.POST)
-	@ResponseBody
-	public ResultFlag update(HttpServletRequest request,HttpSession session,Album album){
-		try {
-			if(album==null||null==album.getId()){
-				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
-			}
-			this.albumService.update(album);
-			this.setRightFlag(null);
-		} catch (Exception e) {
-			e.printStackTrace();
-			this.setErrorFlag(e.getMessage());
-		}
-		return null;
-	}
-	
 	/**
 	 * 分页查询
 	 * @param request
@@ -132,19 +108,16 @@ public class AlbumController extends BaseController<Album> {
 	 * @param result
 	 * @return
 	 */
-	@RequestMapping(value = "/list")
-	public ModelAndView list(HttpServletRequest request,HttpSession session,AlbumQueryObject albumQueryObject){
-		ModelAndView mv=new ModelAndView("bigpage/photo/list");
+	@RequestMapping(value = "/list",method=RequestMethod.POST)
+	@ResponseBody
+	public ResultFlag list(HttpServletRequest request,HttpSession session,AlbumQueryObject albumQueryObject){
 		try {
-			if(StringUtils.isNotBlank(albumQueryObject.getPath())&&"admin".equals(albumQueryObject.getPath())){
-				mv.setViewName("admin/photo/list");
-			}
 			PageBean<Album> pageBean=this.albumService.list(albumQueryObject);
-			mv.addObject("pageBean",pageBean);
+			this.setRightFlag(pageBean);
 		} catch (Exception e) {
 			e.printStackTrace();
-			mv.addObject("error",e.getMessage());
+			this.setErrorFlag(e.getCause().getMessage());
 		}
-		return mv;
+		return resultFlag;
 	}
 }
