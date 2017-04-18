@@ -7,7 +7,7 @@
         </div>
         <ul class="album_list">
             <li class="album_item" v-for="album in albumList">
-                <img src="album.imageUrl" alt="" class="album_pic">
+                <img src="/static/images/admin/photo/default.png" alt="" class="album_pic">
                 <span class="album_text">{{album.name}}</span>
             </li>
         </ul>
@@ -58,9 +58,30 @@
     }
     .album_item{
         display:inline-block;
-        margin:.3%;
-        width:24%;
-        height:200px;
-        border:1px solid gray;
+        margin:1% 0;
+        width:20%;
+        text-align:center;
+        position:relative;
+        cursor:pointer;
+        padding:0;
+    }
+
+    .album_pic{
+        display:inline-block;
+        width:95%;
+    }
+
+    .album_text{
+        position:absolute;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        height:30px;
+        line-height:30px;
+        width:95%;
+        background-color:rgba(0,0,0,.6);
+        color:white;
+        font-size:15px;
     }
 </style>
