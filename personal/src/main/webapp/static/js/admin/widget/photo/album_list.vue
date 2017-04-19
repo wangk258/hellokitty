@@ -7,7 +7,7 @@
         </div>
         <ul class="album_list">
             <li class="album_item" v-for="album in albumList">
-                <img src="/static/images/admin/photo/default.png" alt="" class="album_pic">
+                <img :src="album.imageUrl" alt="" class="album_pic">
                 <div class="album_text">
                     <span>{{album.name}}</span>
                     <i class="el-icon-delete album_opt" @click="del(album.id)"></i>

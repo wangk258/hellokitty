@@ -5,7 +5,7 @@ public class PhotoConstants {
 	/**
 	 * 相册默认封面图片
 	 */
-	public static final String ALBUM_DEFAULT="/images/no_photo.png";
+	public static final String ALBUM_DEFAULT="/static/images/admin/photo/default.png";
 	/**
 	 * 显示在主页
 	 */
