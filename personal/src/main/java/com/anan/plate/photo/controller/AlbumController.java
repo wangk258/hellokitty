@@ -30,94 +30,101 @@ import common.bo.ResultFlag;
 import net.sf.json.JSONObject;
 
 @Controller
-@RequestMapping(value="/photo/album")
+@RequestMapping(value = "/photo/album")
 public class AlbumController extends BaseController<Album> {
 
-	@Autowired
-	private AlbumService albumService;
-	@Autowired
-	private PhotosService photoService;
-	
-	/**
-	 * 添加
-	 * @param request
-	 * @param session
-	 * @param ptMail
-	 * @param result
-	 * @return
-	 */
-	@RequestMapping(value = "/saveOrUpdate",method = RequestMethod.POST)
-	@ResponseBody
-	public ResultFlag  add(HttpServletResponse response,HttpSession session,Album album){
-		try {
-			if(album==null){
-				this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
-			}
-			if(StringUtils.isEmpty(album.getImageUrl())){
-				album.setImageUrl(PhotoConstants.ALBUM_DEFAULT);
-			}
-			albumService.save(album);
-			this.setRightFlag(null);
-		} catch (Exception e) {
-			e.printStackTrace();
-			this.setErrorFlag(e.getCause().getMessage());
-		}
-		return resultFlag;
-	}
-	/**
-	 * 删除
-	 * @param request
-	 * @param session
-	 * @param ptMail
-	 * @param result
-	 * @return
-	 */
-	@RequestMapping(value = "/delete",method = RequestMethod.POST)
-	public void delete(HttpServletResponse response,@RequestParam("id") Long id){
-		try {
-			if(id!=null){
-				List<Photos> list=(List<Photos>) this.photoService.list("from Photos where albumId=" + id);
-				if(list.size()>0){
-					 this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
-				}
-				else{
-					this.albumService.delete(id);
-					 this.setRightFlag(null);
-				}
-			}
-			else{
-				 this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			 this.setErrorFlag(e.getMessage());
-		}
-		try {
-			OutputStream out=response.getOutputStream();
-			out.write(JSONObject.fromObject(resultFlag).toString().getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	/**
-	 * 分页查询
-	 * @param request
-	 * @param session
-	 * @param ptMail
-	 * @param result
-	 * @return
-	 */
-	@RequestMapping(value = "/list",method=RequestMethod.POST)
-	@ResponseBody
-	public ResultFlag list(HttpServletRequest request,HttpSession session,AlbumQueryObject albumQueryObject){
-		try {
-			PageBean<Album> pageBean=this.albumService.list(albumQueryObject);
-			this.setRightFlag(pageBean);
-		} catch (Exception e) {
-			e.printStackTrace();
-			this.setErrorFlag(e.getCause().getMessage());
-		}
-		return resultFlag;
-	}
+    @Autowired
+    private AlbumService albumService;
+    @Autowired
+    private PhotosService photoService;
+
+    /**
+     * 添加
+     *
+     * @param request
+     * @param session
+     * @param ptMail
+     * @param result
+     * @return
+     */
+    @RequestMapping(value = "/saveOrUpdate", method = RequestMethod.POST)
+    @ResponseBody
+    public ResultFlag add(Album album) {
+        try {
+            if (album == null) {
+                this.setErrorFlag(MessageConstants.DATA_TRANSFORM_ERROR);
+            }
+            if (StringUtils.isEmpty(album.getImageUrl())) {
+                album.setImageUrl(PhotoConstants.ALBUM_DEFAULT);
+            }
+            if(null != album.getId()){
+                albumService.update(album);
+            }else{
+                albumService.save(album);
+            }
+            this.setRightFlag(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.setErrorFlag(e.getCause().getMessage());
+        }
+        return resultFlag;
+    }
+
+    /**
+     * 删除
+     *
+     * @param request
+     * @param session
+     * @param ptMail
+     * @param result
+     * @return
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public void delete(HttpServletResponse response, @RequestParam("id") Long id) {
+        try {
+            if (id != null) {
+                List<Photos> list = (List<Photos>) this.photoService.list("select * from t_photos where albumId=" + id);
+                if (list.size() > 0) {
+                    this.setErrorFlag(MessageConstants.SUB_ITEM_EXISTS);
+                } else {
+                    this.albumService.delete(id);
+                    this.setRightFlag(null);
+                }
+            } else {
+                this.setErrorFlag(MessageConstants.SELECT_ITEM_EMPTY);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.setErrorFlag(e.getMessage());
+        }
+        try {
+            OutputStream out = response.getOutputStream();
+            out.write(JSONObject.fromObject(resultFlag).toString().getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 分页查询
+     *
+     * @param request
+     * @param session
+     * @param ptMail
+     * @param result
+     * @return
+     */
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @ResponseBody
+    public ResultFlag list(HttpServletRequest request, HttpSession session, AlbumQueryObject albumQueryObject) {
+        try {
+            PageBean<Album> pageBean = this.albumService.list(albumQueryObject);
+            this.setRightFlag(pageBean);
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.setErrorFlag(e.getCause().getMessage());
+        }
+        return resultFlag;
+    }
 }

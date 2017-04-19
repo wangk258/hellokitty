@@ -8,7 +8,11 @@
         <ul class="album_list">
             <li class="album_item" v-for="album in albumList">
                 <img src="/static/images/admin/photo/default.png" alt="" class="album_pic">
-                <span class="album_text">{{album.name}}</span>
+                <div class="album_text">
+                    <span>{{album.name}}</span>
+                    <i class="el-icon-delete album_opt" @click="del(album.id)"></i>
+                    <i class="el-icon-edit album_opt" @click="edit(album)"></i>
+                </div>
             </li>
         </ul>
     </div>
@@ -46,6 +50,24 @@
             },
             edit(album){
                 dialog.showComponent(AlbumEdit,'修改相册',album);
+            },
+            del(id){
+                dialog.confirm('确实要删除该相册吗？',() =>{
+                   this.$http.post('/photo/album/delete.ajax',{id}).then(resp =>{
+                       if(resp && resp.ok){
+                           let data = resp.body;
+                           if(data && data.error){
+                               utils.showErrorMsg(data.msg);
+                           }else{
+                               this.search();
+                           }
+                       }else{
+                           utils.showErrorMsg(constant.UNKNOWN_ERROR);
+                       }
+                   }).catch(err =>{
+                       utils.showErrorMsg(err.statusText);
+                   });
+                });
             }
         }
     };
@@ -69,11 +91,16 @@
     .album_pic{
         display:inline-block;
         width:95%;
+
+        &:hover{
+            box-shadow: 0 0 10px gray;
+            transition:all .3s;
+         }
     }
 
     .album_text{
         position:absolute;
-        bottom:0;
+        bottom:1px;
         left:0;
         right:0;
         margin:auto;
@@ -83,5 +110,17 @@
         background-color:rgba(0,0,0,.6);
         color:white;
         font-size:15px;
+    }
+
+    .album_opt{
+        color:gray;
+        float:right;
+        margin:0 3%;
+        line-height:30px;
+
+        &:hover{
+             color:white;
+             transition:all .5s linear;
+         }
     }
 </style>
