@@ -45,20 +45,13 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	
 	public void save(T t) throws Exception {
-		Class cls = t.getClass();
-		Object obj = cls.newInstance();
-		Method setUpdateTimeMethod = cls.getMethod("setUpdateTime",Long.class);
-		setUpdateTimeMethod.invoke(obj,new Date().getTime());
-		Method setCreateTimeMethod = cls.getMethod("setCreateTime",Long.class);
-		setCreateTimeMethod.invoke(obj,new Date().getTime());
 		this.sqlSession.insert(entity.getName()+".insert", t);
 	}
 
 	public void update(T t) throws Exception {
 		Class cls = t.getClass();
-		Object obj = cls.newInstance();
 		Method setUpdateTimeMethod = cls.getMethod("setUpdateTime",Long.class);
-		setUpdateTimeMethod.invoke(obj,new Date().getTime());
+		setUpdateTimeMethod.invoke(t,System.currentTimeMillis());
 		this.sqlSession.update(entity.getName()+".update",t);
 		
 	}
