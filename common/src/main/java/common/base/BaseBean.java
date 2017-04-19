@@ -1,13 +1,10 @@
 package common.base;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
+import java.util.Date;
 
 
 @MappedSuperclass
@@ -22,7 +19,7 @@ public abstract class BaseBean implements Serializable {
 	/**
 	 * 创建时间
 	 */
-	private Timestamp createTime = new Timestamp(new Date().getTime());
+	private Long createTime = new Date().getTime();
 	/**
 	 * 最后修改人
 	 */
@@ -30,31 +27,37 @@ public abstract class BaseBean implements Serializable {
 	/**
 	 * 最后修改时间表
 	 */
-	private Timestamp updateTime = new Timestamp(new Date().getTime());
-	@Column(length=20)
+	private Long updateTime = new Date().getTime();
+
 	public String getCreateUser() {
 		return createUser;
 	}
+
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
 	}
-	public Timestamp getCreateTime() {
+
+	public Long getCreateTime() {
 		return createTime;
 	}
-	public void setCreateTime(Timestamp createTime) {
+
+	public void setCreateTime(Long createTime) {
 		this.createTime = createTime;
 	}
-	@Column(length=20)
+
 	public String getUpdateUser() {
 		return updateUser;
 	}
+
 	public void setUpdateUser(String updateUser) {
 		this.updateUser = updateUser;
 	}
-	public Timestamp getUpdateTime() {
+
+	public Long getUpdateTime() {
 		return updateTime;
 	}
-	public void setUpdateTime(Timestamp updateTime) {
+
+	public void setUpdateTime(Long updateTime) {
 		this.updateTime = updateTime;
 	}
 }

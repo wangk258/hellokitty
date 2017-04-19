@@ -1,12 +1,7 @@
 package common.base.mybatis.dao;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import common.bo.PageBean;
+import common.bo.QueryObject;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -14,8 +9,10 @@ import org.apache.ibatis.session.Configuration;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import common.bo.PageBean;
-import common.bo.QueryObject;
+import java.io.Serializable;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.util.*;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -48,10 +45,20 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	
 	public void save(T t) throws Exception {
+		Class cls = t.getClass();
+		Object obj = cls.newInstance();
+		Method setUpdateTimeMethod = cls.getMethod("setUpdateTime",Long.class);
+		setUpdateTimeMethod.invoke(obj,new Date().getTime());
+		Method setCreateTimeMethod = cls.getMethod("setCreateTime",Long.class);
+		setCreateTimeMethod.invoke(obj,new Date().getTime());
 		this.sqlSession.insert(entity.getName()+".insert", t);
 	}
 
 	public void update(T t) throws Exception {
+		Class cls = t.getClass();
+		Object obj = cls.newInstance();
+		Method setUpdateTimeMethod = cls.getMethod("setUpdateTime",Long.class);
+		setUpdateTimeMethod.invoke(obj,new Date().getTime());
 		this.sqlSession.update(entity.getName()+".update",t);
 		
 	}

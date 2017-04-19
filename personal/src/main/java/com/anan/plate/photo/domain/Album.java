@@ -1,12 +1,8 @@
 package com.anan.plate.photo.domain;
 
-import java.util.Date;
+import common.base.BaseBean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 /**
  * 相册实体
  * @author Administrator
@@ -14,7 +10,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_album")
-public class Album implements java.io.Serializable{
+public class Album extends BaseBean implements java.io.Serializable{
 	
 	private static final long serialVersionUID = 764770202044160554L;
 	
@@ -27,10 +23,6 @@ public class Album implements java.io.Serializable{
 	 * 封面图片
 	 */
 	private String imageUrl;
-	/**
-	 * 创建时间
-	 */
-	private Date createTime;
 	
 	public String getImageUrl() {
 		return imageUrl;
@@ -51,12 +43,6 @@ public class Album implements java.io.Serializable{
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
 	}
 	
 }

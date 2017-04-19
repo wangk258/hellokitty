@@ -7,14 +7,14 @@
   
     <insert id="insert" parameterType="Album">  
        insert into t_album(imageUrl,name,updateUser,updateTime,createUser,createTime)
-        			values(#{imageUrl},#{name},0,now(),0,now())
+        			values(#{imageUrl},#{name},0,#{updateTime},0,#{createTime})
     </insert>
     
     <update id="update" parameterType="Album">  
        update t_album set imageUrl = #{imageUrl},
        					  name = #{name},
        					  updateUser = 0,
-       					  updateTime = now()
+       					  updateTime = #{updateTime}
        where id = #{id}  
     </update>
     
