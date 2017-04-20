@@ -4,6 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
    
 <mapper namespace="common.base.mybatis.dao.BaseDao">
+    <insert id="insert" parameterType="hashmap">
+        ${sql}
+    </insert>
+
 	<select id="getAll" parameterType="string" resultType="hashmap">
     	select * from ${_parameter}
     </select>

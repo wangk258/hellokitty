@@ -1,14 +1,12 @@
 package common.util;
 
-import java.util.UUID;
-
+import com.aliyun.oss.OSSClient;
+import common.bo.ResultFlag;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
-import com.aliyun.oss.OSSClient;
-
-import common.bo.ResultFlag;
+import java.util.UUID;
 
 @Service
 public class FileUploadUtil {
@@ -55,8 +53,7 @@ public class FileUploadUtil {
 	public void setAccessKeyId(String accessKeyId) {
 		this.accessKeyId = accessKeyId;
 	}
-	
-	
+
 	public ResultFlag upload(MultipartRequest request, MultipartFile files,String type) throws Exception {
 		ResultFlag flag=new ResultFlag();
 		try{

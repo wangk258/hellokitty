@@ -1,16 +1,9 @@
 package com.anan.plate.diary.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import common.base.BaseBean;
 import org.apache.ibatis.type.Alias;
 
-import common.base.BaseBean;
-
+import javax.persistence.*;
 
 @Entity
 @Table(name = "t_diary")
@@ -21,7 +14,7 @@ public class Diary extends BaseBean implements java.io.Serializable{
 	
 	private Long id;
 	
-	private String date;
+	private Long date;
 	
 	private String week;
 	
@@ -37,10 +30,10 @@ public class Diary extends BaseBean implements java.io.Serializable{
 	public void setPlainText(String plainText) {
 		this.plainText = plainText;
 	}
-	public String getDate() {
+	public Long getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 	public String getWeek() {

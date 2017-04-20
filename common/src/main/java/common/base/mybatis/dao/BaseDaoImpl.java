@@ -2,6 +2,8 @@ package common.base.mybatis.dao;
 
 import common.bo.PageBean;
 import common.bo.QueryObject;
+import common.util.BeanUtil;
+import common.util.MapperUtils;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -12,7 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -29,7 +34,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void setSqlSession(SqlSessionTemplate sqlSession){
 		this.sqlSession = sqlSession;
 		Configuration configuration = this.sqlSession.getConfiguration();
-		String[] baseIds = new String[]{".paramSql",".deleteById",".getById",".getAll"};
+		String[] baseIds = new String[]{".insert",".paramSql",".deleteById",".getById",".getAll"};
 //		String[] baseIds = new String[]{".paramSql",".deleteById",".getAll"};
 		for(String baseId : baseIds){
 			MappedStatement baseMappedStatement = configuration.getMappedStatement(BaseDao.class.getName() + baseId);
@@ -45,7 +50,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	
 	public void save(T t) throws Exception {
-		this.sqlSession.insert(entity.getName()+".insert", t);
+		String sql = MapperUtils.getInsertSql(t);
+		Map<String,Object> map = BeanUtil.beanToMap(t);
+		map.put("sql",sql);
+		this.sqlSession.insert(entity.getName()+".insert", map);
 	}
 
 	public void update(T t) throws Exception {

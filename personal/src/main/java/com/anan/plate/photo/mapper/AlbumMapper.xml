@@ -4,11 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
    
 <mapper namespace="com.anan.plate.photo.domain.Album">
-  
-    <insert id="insert" parameterType="Album">  
-       insert into t_album(imageUrl,name,updateUser,updateTime,createUser,createTime)
-        			values(#{imageUrl},#{name},0,#{updateTime},0,#{createTime})
-    </insert>
     
     <update id="update" parameterType="Album">  
        update t_album set imageUrl = #{imageUrl},

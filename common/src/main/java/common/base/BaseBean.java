@@ -15,7 +15,7 @@ public abstract class BaseBean implements Serializable {
 	/**
 	 * 创建人
 	 */
-	private String createUser ="admin";
+	private Integer createUser = 0;
 	/**
 	 * 创建时间
 	 */
@@ -23,17 +23,17 @@ public abstract class BaseBean implements Serializable {
 	/**
 	 * 最后修改人
 	 */
-	private String updateUser ="admin";
+	private Integer updateUser = 0;
 	/**
 	 * 最后修改时间表
 	 */
 	private Long updateTime = new Date().getTime();
 
-	public String getCreateUser() {
+	public Integer getCreateUser() {
 		return createUser;
 	}
 
-	public void setCreateUser(String createUser) {
+	public void setCreateUser(Integer createUser) {
 		this.createUser = createUser;
 	}
 
@@ -45,11 +45,11 @@ public abstract class BaseBean implements Serializable {
 		this.createTime = createTime;
 	}
 
-	public String getUpdateUser() {
+	public Integer getUpdateUser() {
 		return updateUser;
 	}
 
-	public void setUpdateUser(String updateUser) {
+	public void setUpdateUser(Integer updateUser) {
 		this.updateUser = updateUser;
 	}
 
